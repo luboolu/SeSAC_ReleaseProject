@@ -2,6 +2,6 @@
 
 <h1>출시 프로젝트 21.11.15~</h1>
 
-<h3>21.11.15 일지</h3>
-<a href="https://lumpy-chip-1b8.notion.site/21-11-15-c8ca0ebf1ce7423385855e5178208cf7"><p>11/15 notion</p></a>
+<h3>1주차</h3>
+<a href="https://lumpy-chip-1b8.notion.site/1-11-15-11-21-a2ea6c56927a4d7b9c2c20f4869afee4"><p>출시프로젝트 1주차 노션</p></a>
 
