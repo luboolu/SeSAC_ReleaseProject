@@ -15,7 +15,7 @@ class UserAlbumViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: nil)
         
         
 
@@ -33,17 +33,17 @@ class UserAlbumViewController: UIViewController  {
     
     @IBAction func albumOpenButtonClicked(_ sender: UIButton) {
         print(#function)
-        self.imagePickerController.delegate = self
-        self.imagePickerController.sourceType = .photoLibrary
-
-
-        self.present(self.imagePickerController, animated: true, completion: nil)
-//        var configuration = PHPickerConfiguration()
-//        configuration.selectionLimit = 1
-//        configuration.filter = .any(of: [.images, .videos])
-//        let picker = PHPickerViewController(configuration: configuration)
-//        picker.delegate = self
-//        self.present(picker, animated: true, completion: nil)
+//        self.imagePickerController.delegate = self
+//        self.imagePickerController.sourceType = .photoLibrary
+//
+//
+//        self.present(self.imagePickerController, animated: true, completion: nil)
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .any(of: [.images, .videos])
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
 
 
         
@@ -61,9 +61,7 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
                 let st = UIStoryboard(name: "ImageEdit", bundle: nil)
                 if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifer) as? ImageEditViewController {
                     
-                    
                     vc.selectedImage = image
-                    
                     vc.modalPresentationStyle = .fullScreen
                         
                     self.present(vc, animated: true, completion: nil)
@@ -71,7 +69,6 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
                     
 
                 }
-                
 
             }
             
@@ -83,31 +80,42 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
 extension UserAlbumViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
-        picker.dismiss(animated: true, completion: nil)
-        
-        let itemProvider = results.first?.itemProvider
-        
-        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                
-                DispatchQueue.main.async {
-                    //imagePickerView 닫으면서 imageEditViewController로 화면전환
-                    let st = UIStoryboard(name: "ImageEdit", bundle: nil)
-                    if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifer) as? ImageEditViewController {
-                        
-                        vc.selectedImage = image as! UIImage
-                        vc.modalPresentationStyle = .fullScreen
-                            
-                        self.present(vc, animated: true, completion: nil)
-                        
+        picker.dismiss(animated: true) {
+            let itemProvider = results.first?.itemProvider
+            
+            if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                     
-                    }
-                }
-                
+                    DispatchQueue.main.async {
+                        //imagePickerView 닫으면서 imageEditViewController로 화면전환
+                        let st = UIStoryboard(name: "ImageEdit", bundle: nil)
+                        if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifer) as? ImageEditViewController {
+                            
+                            print(type(of: image))
+                            
+                            vc.selectedImage = image as! UIImage
+                            vc.modalPresentationStyle = .fullScreen
+                                
+                            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환
+                            self.navigationController?.pushViewController(vc, animated: true)
 
+
+                            
+
+
+                            
+                            
+                        
+                        }
+                    }
+                    
+
+                }
+            
             }
-        
         }
+        
+
     }
     
     
