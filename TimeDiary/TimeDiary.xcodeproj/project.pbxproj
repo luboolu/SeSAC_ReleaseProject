@@ -16,6 +16,9 @@
 		DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */; };
 		DCCECFC52746855C002EEABD /* ImageEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFC42746855C002EEABD /* ImageEdit.storyboard */; };
 		DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFC627468568002EEABD /* ImageEditViewController.swift */; };
+		DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFCA27492559002EEABD /* AddDiary.storyboard */; };
+		DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */; };
+		DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlbumViewController.swift; sourceTree = "<group>"; };
 		DCCECFC42746855C002EEABD /* ImageEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageEdit.storyboard; sourceTree = "<group>"; };
 		DCCECFC627468568002EEABD /* ImageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditViewController.swift; sourceTree = "<group>"; };
+		DCCECFCA27492559002EEABD /* AddDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDiary.storyboard; sourceTree = "<group>"; };
+		DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
+		DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampDesignCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +68,10 @@
 		DCCECFA527463FB7002EEABD /* TimeDiary */ = {
 			isa = PBXGroup;
 			children = (
-				DCCECFBF2746400F002EEABD /* TableViewCellController */,
+				DCCECFBF2746400F002EEABD /* TableViewCell */,
 				DCCECFBE27464000002EEABD /* TableViewController */,
-				DCCECFBD27463FF1002EEABD /* CollectionViewCellController */,
-				DCCECFBC27463FE1002EEABD /* CollectionViewController */,
+				DCCECFBD27463FF1002EEABD /* CollectionViewCell */,
+				DCCECFBC27463FE1002EEABD /* CollectionView */,
 				DCCECFBB27463FD8002EEABD /* ViewController */,
 				DCCECFBA27463FD0002EEABD /* StoryBoard */,
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
@@ -82,6 +88,7 @@
 			children = (
 				DCCECFB127463FB9002EEABD /* LaunchScreen.storyboard */,
 				DCCECFC42746855C002EEABD /* ImageEdit.storyboard */,
+				DCCECFCA27492559002EEABD /* AddDiary.storyboard */,
 				DCCECFC027465233002EEABD /* UserAlbumStoryboard.storyboard */,
 			);
 			path = StoryBoard;
@@ -91,23 +98,25 @@
 			isa = PBXGroup;
 			children = (
 				DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */,
+				DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */,
 				DCCECFC627468568002EEABD /* ImageEditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		DCCECFBC27463FE1002EEABD /* CollectionViewController */ = {
+		DCCECFBC27463FE1002EEABD /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = CollectionViewController;
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
-		DCCECFBD27463FF1002EEABD /* CollectionViewCellController */ = {
+		DCCECFBD27463FF1002EEABD /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */,
 			);
-			path = CollectionViewCellController;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		DCCECFBE27464000002EEABD /* TableViewController */ = {
@@ -117,11 +126,11 @@
 			path = TableViewController;
 			sourceTree = "<group>";
 		};
-		DCCECFBF2746400F002EEABD /* TableViewCellController */ = {
+		DCCECFBF2746400F002EEABD /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = TableViewCellController;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +195,7 @@
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbumStoryboard.storyboard in Resources */,
+				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +209,9 @@
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
+				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
+				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
 				DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

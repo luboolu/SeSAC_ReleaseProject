@@ -9,7 +9,7 @@ import UIKit
 
 class ImageEditViewController: UIViewController {
 
-    static let identifer = "ImageEditViewController"
+    static let identifier = "ImageEditViewController"
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -37,6 +37,7 @@ class ImageEditViewController: UIViewController {
         //앨범에서 선택한 이미지 띄우기
         imageView.image = selectedImage
         
+        //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
         setColorButton(button: colorButton2, color: .black)
         setColorButton(button: colorButton3, color: .red)
@@ -47,24 +48,37 @@ class ImageEditViewController: UIViewController {
         setColorButton(button: colorButton8, color: .purple)
         setColorButton(button: colorButton9, color: .lightGray)
         
+        //폰트 선택 버튼 setting
         fontButton.clipsToBounds = true
         fontButton.layer.cornerRadius = 10
         
+        //폰크 크기 조절 버튼 setting
         fontSizeButton.clipsToBounds = true
         fontSizeButton.layer.cornerRadius = 10
         
-        
-        
+        //collection view setting
         designCollectionView.delegate = self
         designCollectionView.dataSource = self
+        
+        //collection view flow layout 설정
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 10
+        let width = UIScreen.main.bounds.width - (spacing * 4) - 40
+        layout.itemSize = CGSize(width: width / 3, height: (width / 3))
+        print(UIScreen.main.bounds.width, width / 3, width / 3)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.scrollDirection = .vertical
+        designCollectionView.collectionViewLayout = layout
 
         
-    
+        //네비게이션 바 아이템 setting
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
         
-        navigationItem.leftBarButtonItem?.tintColor = .orange
+        //navigationItem.leftBarButtonItem?.tintColor = .orange
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "웨않나와", style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonClicked))
 
     }
     
@@ -72,6 +86,22 @@ class ImageEditViewController: UIViewController {
         print(#function)
         self.navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func nextButtonClicked() {
+        print(#function)
+        
+        let st = UIStoryboard(name: "AddDiary", bundle: nil)
+        if let vc = st.instantiateViewController(withIdentifier: AddDiaryViewController.identifier) as? AddDiaryViewController {
+            
+            vc.selectedImage = selectedImage
+            vc.modalPresentationStyle = .fullScreen
+                
+            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }
+        
     }
     
     func setColorButton(button: UIButton, color: UIColor) {
@@ -101,7 +131,7 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeStampDesignCell", for: indexPath) as?
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeStampDesignCell", for: indexPath) as?
                 UICollectionViewCell else {
             return UICollectionViewCell()
         }

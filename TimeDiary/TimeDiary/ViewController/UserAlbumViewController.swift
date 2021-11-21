@@ -14,35 +14,29 @@ class UserAlbumViewController: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: nil)
-        
-        
-
     }
     
-    
+    //카메라로 편집할 사진을 촬영
     @IBAction func cameraOpenButtonClicked(_ sender: UIButton) {
         print(#function)
+        
         self.imagePickerController.delegate = self
         self.imagePickerController.sourceType = .camera
-        
         
         self.present(self.imagePickerController, animated: true, completion: nil)
     }
     
+    //사용자의 앨범에서 편집할 사진을 선택
     @IBAction func albumOpenButtonClicked(_ sender: UIButton) {
         print(#function)
-//        self.imagePickerController.delegate = self
-//        self.imagePickerController.sourceType = .photoLibrary
-//
-//
-//        self.present(self.imagePickerController, animated: true, completion: nil)
+
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 1
-        configuration.filter = .any(of: [.images, .videos])
+        configuration.filter = .images //어떤 종류의 media를 앨범에서 가져올지 설정
+        
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
+        
         self.present(picker, animated: true, completion: nil)
 
 
@@ -59,14 +53,13 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
             self.imagePickerController.dismiss(animated: true) {
                 //imagePickerView 닫으면서 imageEditViewController로 화면전환
                 let st = UIStoryboard(name: "ImageEdit", bundle: nil)
-                if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifer) as? ImageEditViewController {
+                if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifier) as? ImageEditViewController {
                     
                     vc.selectedImage = image
                     vc.modalPresentationStyle = .fullScreen
                         
-                    self.present(vc, animated: true, completion: nil)
-                    
-                    
+                    //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+                    self.navigationController?.pushViewController(vc, animated: true)
 
                 }
 
@@ -84,30 +77,25 @@ extension UserAlbumViewController: PHPickerViewControllerDelegate {
             let itemProvider = results.first?.itemProvider
             
             if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-                itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                itemProvider.loadObject(ofClass: UIImage.self) { (object, error) in
                     
-                    DispatchQueue.main.async {
-                        //imagePickerView 닫으면서 imageEditViewController로 화면전환
-                        let st = UIStoryboard(name: "ImageEdit", bundle: nil)
-                        if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifer) as? ImageEditViewController {
-                            
-                            print(type(of: image))
-                            
-                            vc.selectedImage = image as! UIImage
-                            vc.modalPresentationStyle = .fullScreen
+                    if let image = object as? UIImage {
+                        DispatchQueue.main.async {
+                            //imagePickerView 닫으면서 imageEditViewController로 화면전환
+                            let st = UIStoryboard(name: "ImageEdit", bundle: nil)
+                            if let vc = st.instantiateViewController(withIdentifier: ImageEditViewController.identifier) as? ImageEditViewController {
                                 
-                            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환
-                            self.navigationController?.pushViewController(vc, animated: true)
+                                vc.selectedImage = image
+                                vc.modalPresentationStyle = .fullScreen
+                                    
+                                //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 -  push
+                                self.navigationController?.pushViewController(vc, animated: true)
 
-
-                            
-
-
-                            
-                            
-                        
+                            }
                         }
                     }
+                    
+
                     
 
                 }
