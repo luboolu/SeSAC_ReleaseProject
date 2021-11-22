@@ -60,6 +60,7 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
                         
                     //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
                     self.navigationController?.pushViewController(vc, animated: true)
+                    
 
                 }
 

@@ -135,18 +135,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvG-A0-Bx0">
                                 <rect key="frame" x="20" y="64" width="374" height="374"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-a4-I2l">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="PyD-a4-I2l">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGv-CF-0dT">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGv-CF-0dT">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="374" id="6Jt-8d-uMB"/>
-                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="BGv-CF-0dT" firstAttribute="width" secondItem="PyD-a4-I2l" secondAttribute="width" id="PBu-hh-DCf"/>
+                                            <constraint firstItem="BGv-CF-0dT" firstAttribute="height" secondItem="3Kc-p9-WvL" secondAttribute="height" priority="250" id="dab-WN-MTN"/>
+                                            <constraint firstItem="BGv-CF-0dT" firstAttribute="width" secondItem="3Kc-p9-WvL" secondAttribute="width" priority="250" id="gAW-zv-tNv"/>
+                                            <constraint firstItem="BGv-CF-0dT" firstAttribute="width" secondItem="3Kc-p9-WvL" secondAttribute="height" multiplier="1:1" id="hRz-Bf-jsN"/>
                                         </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="3Kc-p9-WvL"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="F6V-HN-DKC"/>
@@ -154,11 +153,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="PyD-a4-I2l" secondAttribute="trailing" id="2UG-lv-Xfb"/>
+                                    <constraint firstAttribute="bottom" secondItem="PyD-a4-I2l" secondAttribute="bottom" id="CeX-p0-XYZ"/>
+                                    <constraint firstItem="PyD-a4-I2l" firstAttribute="leading" secondItem="vvG-A0-Bx0" secondAttribute="leading" id="Mp2-6c-k8f"/>
                                     <constraint firstAttribute="width" secondItem="vvG-A0-Bx0" secondAttribute="height" id="NXI-US-gUa"/>
-                                    <constraint firstItem="PyD-a4-I2l" firstAttribute="top" secondItem="vvG-A0-Bx0" secondAttribute="top" id="RVr-ZV-iep"/>
-                                    <constraint firstItem="PyD-a4-I2l" firstAttribute="leading" secondItem="vvG-A0-Bx0" secondAttribute="leading" id="U1o-Bj-fun"/>
-                                    <constraint firstAttribute="bottom" secondItem="PyD-a4-I2l" secondAttribute="bottom" id="uCo-9l-E4J"/>
+                                    <constraint firstItem="PyD-a4-I2l" firstAttribute="top" secondItem="vvG-A0-Bx0" secondAttribute="top" id="lWT-Gd-9fD"/>
+                                    <constraint firstAttribute="trailing" secondItem="PyD-a4-I2l" secondAttribute="trailing" id="pY4-MI-TIt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -197,6 +196,7 @@
                         <outlet property="fontButton" destination="RqB-US-ZqB" id="UTI-uX-xIr"/>
                         <outlet property="fontSizeButton" destination="CkO-cz-tDw" id="ajh-ek-pMu"/>
                         <outlet property="imageView" destination="BGv-CF-0dT" id="vQF-BL-2Kz"/>
+                        <outlet property="scrollView" destination="PyD-a4-I2l" id="Qoe-yy-XLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

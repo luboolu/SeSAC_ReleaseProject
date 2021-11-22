@@ -11,6 +11,8 @@ class ImageEditViewController: UIViewController {
 
     static let identifier = "ImageEditViewController"
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     
@@ -33,6 +35,30 @@ class ImageEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        let imageWidth = selectedImage.size.width
+        let imageHeight = selectedImage.size.height
+        
+        let screenWidth = UIScreen.main.bounds.width - 40
+        
+        scrollView.alwaysBounceVertical = false
+        scrollView.alwaysBounceHorizontal = false
+        
+        if imageWidth > imageHeight {
+            
+            //scrollView.
+            scrollView.minimumZoomScale = 0.1
+            scrollView.maximumZoomScale = imageHeight / screenWidth
+            print(imageHeight / screenWidth)
+        } else {
+            //scrollView.
+            scrollView.minimumZoomScale = 0.1
+            scrollView.maximumZoomScale = imageWidth / screenWidth
+            print(imageWidth / screenWidth)
+        }
+        
+        scrollView.delegate = self
         
         //앨범에서 선택한 이미지 띄우기
         imageView.image = selectedImage
@@ -118,6 +144,11 @@ class ImageEditViewController: UIViewController {
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         
         
+    }
+    
+    @available(iOS 2.0, *)
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
     }
     
 
