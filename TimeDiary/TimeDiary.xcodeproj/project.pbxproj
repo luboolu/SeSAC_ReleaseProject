@@ -12,13 +12,22 @@
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
 		DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFAF27463FB9002EEABD /* Assets.xcassets */; };
 		DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFB127463FB9002EEABD /* LaunchScreen.storyboard */; };
-		DCCECFC127465234002EEABD /* UserAlbumStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFC027465233002EEABD /* UserAlbumStoryboard.storyboard */; };
+		DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFC027465233002EEABD /* UserAlbum.storyboard */; };
 		DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */; };
 		DCCECFC52746855C002EEABD /* ImageEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFC42746855C002EEABD /* ImageEdit.storyboard */; };
 		DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFC627468568002EEABD /* ImageEditViewController.swift */; };
 		DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFCA27492559002EEABD /* AddDiary.storyboard */; };
 		DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */; };
 		DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */; };
+		DCCECFD1274B4765002EEABD /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFD0274B4764002EEABD /* identifier.swift */; };
+		DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFD2274B48B8002EEABD /* UserDiary.storyboard */; };
+		DCCECFD5274B48C5002EEABD /* UserSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */; };
+		DCCECFD7274B48E9002EEABD /* UserDiaryUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFD6274B48E9002EEABD /* UserDiaryUViewController.swift */; };
+		DCCECFD9274B4B60002EEABD /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFD8274B4B60002EEABD /* UserSettingViewController.swift */; };
+		DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFDB274B8AF1002EEABD /* RealmModel.swift */; };
+		DCCECFDF274B8B35002EEABD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DCCECFDE274B8B35002EEABD /* Realm */; };
+		DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCCECFE0274B8B35002EEABD /* RealmSwift */; };
+		DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +38,20 @@
 		DCCECFAF27463FB9002EEABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCCECFB227463FB9002EEABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCCECFB427463FB9002EEABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCCECFC027465233002EEABD /* UserAlbumStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAlbumStoryboard.storyboard; sourceTree = "<group>"; };
+		DCCECFC027465233002EEABD /* UserAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAlbum.storyboard; sourceTree = "<group>"; };
 		DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlbumViewController.swift; sourceTree = "<group>"; };
 		DCCECFC42746855C002EEABD /* ImageEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageEdit.storyboard; sourceTree = "<group>"; };
 		DCCECFC627468568002EEABD /* ImageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditViewController.swift; sourceTree = "<group>"; };
 		DCCECFCA27492559002EEABD /* AddDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddDiary.storyboard; sourceTree = "<group>"; };
 		DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampDesignCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCCECFD0274B4764002EEABD /* identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifier.swift; sourceTree = "<group>"; };
+		DCCECFD2274B48B8002EEABD /* UserDiary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDiary.storyboard; sourceTree = "<group>"; };
+		DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserSetting.storyboard; sourceTree = "<group>"; };
+		DCCECFD6274B48E9002EEABD /* UserDiaryUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryUViewController.swift; sourceTree = "<group>"; };
+		DCCECFD8274B4B60002EEABD /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
+		DCCECFDB274B8AF1002EEABD /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */,
+				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +86,8 @@
 		DCCECFA527463FB7002EEABD /* TimeDiary */ = {
 			isa = PBXGroup;
 			children = (
+				DCCECFE2274B9CEE002EEABD /* Extension */,
+				DCCECFDA274B8AD1002EEABD /* Realm */,
 				DCCECFBF2746400F002EEABD /* TableViewCell */,
 				DCCECFBE27464000002EEABD /* TableViewController */,
 				DCCECFBD27463FF1002EEABD /* CollectionViewCell */,
@@ -75,6 +95,7 @@
 				DCCECFBB27463FD8002EEABD /* ViewController */,
 				DCCECFBA27463FD0002EEABD /* StoryBoard */,
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
+				DCCECFD0274B4764002EEABD /* identifier.swift */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
 				DCCECFAA27463FB7002EEABD /* ViewController.swift */,
 				DCCECFAF27463FB9002EEABD /* Assets.xcassets */,
@@ -89,7 +110,9 @@
 				DCCECFB127463FB9002EEABD /* LaunchScreen.storyboard */,
 				DCCECFC42746855C002EEABD /* ImageEdit.storyboard */,
 				DCCECFCA27492559002EEABD /* AddDiary.storyboard */,
-				DCCECFC027465233002EEABD /* UserAlbumStoryboard.storyboard */,
+				DCCECFC027465233002EEABD /* UserAlbum.storyboard */,
+				DCCECFD2274B48B8002EEABD /* UserDiary.storyboard */,
+				DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -100,6 +123,8 @@
 				DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */,
 				DCCECFCC27492574002EEABD /* AddDiaryViewController.swift */,
 				DCCECFC627468568002EEABD /* ImageEditViewController.swift */,
+				DCCECFD8274B4B60002EEABD /* UserSettingViewController.swift */,
+				DCCECFD6274B48E9002EEABD /* UserDiaryUViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -133,6 +158,22 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		DCCECFDA274B8AD1002EEABD /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				DCCECFDB274B8AF1002EEABD /* RealmModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		DCCECFE2274B9CEE002EEABD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +190,10 @@
 			dependencies = (
 			);
 			name = TimeDiary;
+			packageProductDependencies = (
+				DCCECFDE274B8B35002EEABD /* Realm */,
+				DCCECFE0274B8B35002EEABD /* RealmSwift */,
+			);
 			productName = TimeDiary;
 			productReference = DCCECFA327463FB7002EEABD /* TimeDiary.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +222,9 @@
 				Base,
 			);
 			mainGroup = DCCECF9A27463FB7002EEABD;
+			packageReferences = (
+				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,9 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCECFC52746855C002EEABD /* ImageEdit.storyboard in Resources */,
+				DCCECFD5274B48C5002EEABD /* UserSetting.storyboard in Resources */,
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
-				DCCECFC127465234002EEABD /* UserAlbumStoryboard.storyboard in Resources */,
+				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
+				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,12 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCECFD9274B4B60002EEABD /* UserSettingViewController.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
+				DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
+				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
+				DCCECFD7274B48E9002EEABD /* UserDiaryUViewController.swift in Sources */,
 				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
+				DCCECFD1274B4765002EEABD /* identifier.swift in Sources */,
 				DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,9 +411,10 @@
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbumStoryboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -384,9 +440,10 @@
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbumStoryboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -424,6 +481,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DCCECFDE274B8B35002EEABD /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		DCCECFE0274B8B35002EEABD /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCCECF9B27463FB7002EEABD /* Project object */;
 }
