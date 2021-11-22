@@ -37,13 +37,15 @@ class UserDiary: Object {
 class UserTag: Object {
     
     @Persisted var tag: String
+    @Persisted var contentNum: Int
     
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    convenience init(tag: String) {
+    convenience init(tag: String, contentNum: Int) {
         self.init()
         
         self.tag = tag
+        self.contentNum = contentNum
     }
     
 }

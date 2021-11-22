@@ -7,13 +7,18 @@
 
 import UIKit
 import PhotosUI
+import RealmSwift
 
 class UserAlbumViewController: UIViewController  {
     
     let imagePickerController = UIImagePickerController()
+    let localRealm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Realm 파일 위치
+        print("Realm is loacaed at: ", localRealm.configuration.fileURL!)
     }
     
     //카메라로 편집할 사진을 촬영
