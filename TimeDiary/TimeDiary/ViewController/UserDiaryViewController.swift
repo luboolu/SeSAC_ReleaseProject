@@ -37,7 +37,7 @@ class UserDiaryViewController: UIViewController {
         
         //1. UIAlertController 생성: 밑바탕 + 타이틀 + 본문
         //let alert = UIAlertController(title: "타이틀 테스트", message: "메시지가 입력되었습니다.", preferredStyle: .alert)
-        let alert = UIAlertController(title: "타이틀 테스트", message: "메시지가 입력되었습니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "폴더 추가", message: "추가할 폴더 이름을 입력해주세요", preferredStyle: .alert)
         
         //2. UIAlertAction 생성: 버튼들을...
         let ok = UIAlertAction(title: "추가", style: .default)
