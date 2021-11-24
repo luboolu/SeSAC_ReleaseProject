@@ -23,10 +23,9 @@ class UserSettingViewController: UIViewController {
         settingTableView.delegate = self
         settingTableView.dataSource = self
         
-        settingLabel.text = "Setting"
+        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("setting", comment: "설정")
         
-
-        print(settingList.count)
+        
     }
 
 }
@@ -42,6 +41,10 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         return settingList[section].count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 66
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell else {
@@ -49,6 +52,7 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         cell.settingLabel.text = settingList[indexPath.section][indexPath.row]
+        cell.settingLabel.font = UIFont().kotra_songeulssi_13
         
         return cell
         

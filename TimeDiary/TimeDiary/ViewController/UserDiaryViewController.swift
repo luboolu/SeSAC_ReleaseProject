@@ -16,7 +16,6 @@ class UserDiaryViewController: UIViewController {
     
     var tasks: Results<UserTag>!
     
-    @IBOutlet weak var diaryLabel: UILabel!
     @IBOutlet weak var diaryTagTableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,11 +26,16 @@ class UserDiaryViewController: UIViewController {
 
         tasks = localRealm.objects(UserTag.self).sorted(byKeyPath: "tag", ascending: false)
         
-        diaryLabel.text = "My Diary"
+        
+        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTagButtonClicked))
+        
+
         
     }
 
-    @IBAction func addTagButtonClicked(_ sender: UIButton) {
+    @objc func addTagButtonClicked(_ sender: UIButton) {
         print(#function)
         //alert에 view(text field)를 추가하는 방식으로 tag 추가
         
@@ -80,7 +84,10 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let row = tasks[indexPath.row]
         
         cell.tagLabel.text = row.tag
+        cell.tagLabel.font = UIFont().kotra_songeulssi_13
+        
         cell.contentNumLabel.text = "\(row.contentNum)"
+        cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
         
         return cell
         

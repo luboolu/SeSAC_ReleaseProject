@@ -14,6 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .highlighted)
+        UINavigationBar.appearance().titleTextAttributes = [ NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        //custom font 있는지 없는지 if로 확인해서 실행함
+        
         return true
     }
 

@@ -10,7 +10,6 @@ import UIKit
 class AddDiaryViewController: UIViewController {
     
     static let identifier = "AddDiaryViewController"
-
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextView: UITextView!
@@ -23,7 +22,14 @@ class AddDiaryViewController: UIViewController {
 
         imageView.image = selectedImage
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
+        
+        titleTextView.text = "Title"
+        titleTextView.font = UIFont().kotra_songeulssi_13
+        
+        contentTextView.text = "content"
+        contentTextView.font = UIFont().kotra_songeulssi_13
+        
     }
     
     @objc func saveButtonClicked() {

@@ -30,6 +30,11 @@
 		DCCECFE6274B9DBF002EEABD /* UserDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFE5274B9DBF002EEABD /* UserDiaryViewController.swift */; };
 		DCCECFE8274BA3B5002EEABD /* DiaryTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFE7274BA3B5002EEABD /* DiaryTagTableViewCell.swift */; };
 		DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFE9274BD061002EEABD /* SettingTableViewCell.swift */; };
+		DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF0274CEAC0002EEABD /* Localizable.strings */; };
+		DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */; };
+		DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */; };
+		DCCECFFB274E135D002EEABD /* TimeStampDesign_1.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */; };
+		DCCECFFE274E147A002EEABD /* Desgin_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFFD274E147A002EEABD /* Desgin_1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,13 @@
 		DCCECFE5274B9DBF002EEABD /* UserDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryViewController.swift; sourceTree = "<group>"; };
 		DCCECFE7274BA3B5002EEABD /* DiaryTagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTagTableViewCell.swift; sourceTree = "<group>"; };
 		DCCECFE9274BD061002EEABD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DCCECFEF274CEAC0002EEABD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DCCECFF3274D11F8002EEABD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DCCECFF4274D1204002EEABD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOTRA_SONGEULSSI.otf; sourceTree = "<group>"; };
+		DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA LEAP_OTF.otf"; sourceTree = "<group>"; };
+		DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStampDesign_1.xib; sourceTree = "<group>"; };
+		DCCECFFD274E147A002EEABD /* Desgin_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +102,13 @@
 		DCCECFA527463FB7002EEABD /* TimeDiary */ = {
 			isa = PBXGroup;
 			children = (
+				DCCECFFC274E1449002EEABD /* TimeStampDesignView */,
+				DCCECFF5274D2CD8002EEABD /* Font */,
+				DCCECFEB274CEA84002EEABD /* Localization */,
 				DCCECFE2274B9CEE002EEABD /* Extension */,
 				DCCECFDA274B8AD1002EEABD /* Realm */,
 				DCCECFBF2746400F002EEABD /* TableViewCell */,
-				DCCECFBE27464000002EEABD /* TableViewController */,
 				DCCECFBD27463FF1002EEABD /* CollectionViewCell */,
-				DCCECFBC27463FE1002EEABD /* CollectionView */,
 				DCCECFBB27463FD8002EEABD /* ViewController */,
 				DCCECFBA27463FD0002EEABD /* StoryBoard */,
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
@@ -133,26 +146,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		DCCECFBC27463FE1002EEABD /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CollectionView;
-			sourceTree = "<group>";
-		};
 		DCCECFBD27463FF1002EEABD /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
-			sourceTree = "<group>";
-		};
-		DCCECFBE27464000002EEABD /* TableViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewController;
 			sourceTree = "<group>";
 		};
 		DCCECFBF2746400F002EEABD /* TableViewCell */ = {
@@ -178,6 +177,32 @@
 				DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		DCCECFEB274CEA84002EEABD /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DCCECFF0274CEAC0002EEABD /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		DCCECFF5274D2CD8002EEABD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */,
+				DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DCCECFFC274E1449002EEABD /* TimeStampDesignView */ = {
+			isa = PBXGroup;
+			children = (
+				DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */,
+				DCCECFFD274E147A002EEABD /* Desgin_1.swift */,
+			);
+			path = TimeStampDesignView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +251,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = DCCECF9A27463FB7002EEABD;
 			packageReferences = (
@@ -245,11 +271,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCECFFB274E135D002EEABD /* TimeStampDesign_1.xib in Resources */,
 				DCCECFC52746855C002EEABD /* ImageEdit.storyboard in Resources */,
 				DCCECFD5274B48C5002EEABD /* UserSetting.storyboard in Resources */,
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
+				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
 				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
+				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
+				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
@@ -267,6 +297,7 @@
 				DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
 				DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */,
+				DCCECFFE274E147A002EEABD /* Desgin_1.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
@@ -286,8 +317,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				DCCECFB227463FB9002EEABD /* Base */,
+				DCCECFF3274D11F8002EEABD /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DCCECFF0274CEAC0002EEABD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCCECFEF274CEAC0002EEABD /* en */,
+				DCCECFF4274D1204002EEABD /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -297,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -358,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -15,6 +15,7 @@ class ImageEditViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var timeStampView: UIView!
     
     @IBOutlet weak var colorButton1: UIButton!
     @IBOutlet weak var colorButton2: UIButton!
@@ -26,15 +27,45 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var colorButton8: UIButton!
     @IBOutlet weak var colorButton9: UIButton!
     
-    @IBOutlet weak var fontButton: UIButton!
-    @IBOutlet weak var fontSizeButton: UIButton!
+    //@IBOutlet weak var fontButton: UIButton!
+    //@IBOutlet weak var fontSizeButton: UIButton!
     
     @IBOutlet weak var designCollectionView: UICollectionView!
     
     var selectedImage = UIImage()
     
+//    lazy var scrollView: UIScrollView = {
+//        let scrollView: UIScrollView = UIScrollView()
+//        // Generate ScrollView.
+//        scrollView.frame = self.timeStampView.frame
+//        // Disable ScrollView bounces
+//        scrollView.bounces = false
+//        // Set the image in UIImage.
+//        let image = selectedImage
+//        // Create a UIImageView.
+//        let imageView = UIImageView()
+//        // Set myImage to the image of imageView.
+//        imageView.image = image
+//        // Set the value of frame size
+//        imageView.frame.size = image.size
+//        // Set the aspect ratio of the image.
+//        imageView.contentMode = UIView.ContentMode.scaleAspectFill
+//        // Add imageView to ScrollView.
+//        scrollView.addSubview(imageView)
+//        // Set contentSize to ScrollView.
+//        scrollView.contentSize = imageView.frame.size
+//
+//        return scrollView
+//
+//    }()
+
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         // Do any additional setup after loading the view, typically from a nib.
         let imageWidth = selectedImage.size.width
@@ -42,26 +73,39 @@ class ImageEditViewController: UIViewController {
         
         let screenWidth = UIScreen.main.bounds.width - 40
         
-        scrollView.alwaysBounceVertical = false
-        scrollView.alwaysBounceHorizontal = false
+        print(imageWidth, imageHeight, screenWidth)
+       
+        self.scrollView.alwaysBounceVertical = false
+        self.scrollView.alwaysBounceHorizontal = false
+
+//        self.scrollView.minimumZoomScale = 0.1
+//        self.scrollView.maximumZoomScale = 2
+        
+        self.scrollView.center = self.timeStampView.center
         
         if imageWidth > imageHeight {
-            
+
             //scrollView.
-            scrollView.minimumZoomScale = 0.1
-            scrollView.maximumZoomScale = imageHeight / screenWidth
-            print(imageHeight / screenWidth)
+            scrollView.minimumZoomScale = 1
+            scrollView.maximumZoomScale = 2
+            //print(imageHeight / screenWidth)
         } else {
             //scrollView.
-            scrollView.minimumZoomScale = 0.1
-            scrollView.maximumZoomScale = imageWidth / screenWidth
-            print(imageWidth / screenWidth)
+            scrollView.minimumZoomScale = 1
+            scrollView.maximumZoomScale = 2
+            //print(imageWidth / screenWidth)
         }
         
-        scrollView.delegate = self
+//        self.timeStampView.addSubview(scrollView)
+
+
+        
+        self.scrollView.delegate = self
         
         //앨범에서 선택한 이미지 띄우기
-        imageView.image = selectedImage
+        self.imageView.image = selectedImage
+        
+        //let customView: Desgin_1? = UIView.loadFromNib()
         
         //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
@@ -75,12 +119,12 @@ class ImageEditViewController: UIViewController {
         setColorButton(button: colorButton9, color: .lightGray)
         
         //폰트 선택 버튼 setting
-        fontButton.clipsToBounds = true
-        fontButton.layer.cornerRadius = 10
+        //fontButton.clipsToBounds = true
+        //fontButton.layer.cornerRadius = 10
         
         //폰크 크기 조절 버튼 setting
-        fontSizeButton.clipsToBounds = true
-        fontSizeButton.layer.cornerRadius = 10
+        //fontSizeButton.clipsToBounds = true
+        //fontSizeButton.layer.cornerRadius = 10
         
         //collection view setting
         designCollectionView.delegate = self
@@ -91,7 +135,7 @@ class ImageEditViewController: UIViewController {
         let spacing: CGFloat = 10
         let width = UIScreen.main.bounds.width - (spacing * 4) - 40
         layout.itemSize = CGSize(width: width / 3, height: (width / 3))
-        print(UIScreen.main.bounds.width, width / 3, width / 3)
+        //print(UIScreen.main.bounds.width, width / 3, width / 3)
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
@@ -99,12 +143,17 @@ class ImageEditViewController: UIViewController {
         designCollectionView.collectionViewLayout = layout
 
         
+        self.navigationController?.hidesBarsOnSwipe = false
+        self.navigationController?.hidesBarsOnTap = false
+        
         //네비게이션 바 아이템 setting
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
         
         //navigationItem.leftBarButtonItem?.tintColor = .orange
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
+        
+        
 
     }
     
@@ -136,7 +185,7 @@ class ImageEditViewController: UIViewController {
         button.setTitle("", for: .normal)
         //button.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
         //button.layer.borderWidth = 5
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.lightGray.cgColor
 
         button.layer.borderWidth = 2
         //button.backgroundColor = color
@@ -146,10 +195,6 @@ class ImageEditViewController: UIViewController {
         
     }
     
-    @available(iOS 2.0, *)
-    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return self.imageView
-    }
     
 
 
@@ -163,7 +208,7 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeStampDesignCell", for: indexPath) as?
-                UICollectionViewCell else {
+                TimeStampDesignCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -174,3 +219,47 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     
     
 }
+
+extension UIView {
+    static func loadFromNib<T>() -> T? {
+        let identifier = String(describing: T.self)
+        let view = Bundle.main.loadNibNamed(identifier, owner: self, options: nil)?.first
+        return view as? T
+    }
+}
+
+extension ImageEditViewController: UIScrollViewDelegate {
+    
+
+   @available(iOS 2.0, *)
+   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+       return self.imageView
+   }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        print(scrollView.zoomScale)
+//        if scrollView.zoomScale > 1 {
+//            if let image = self.imageView.image {
+//                let ratioW = self.imageView.frame.width / image.size.width
+//                let ratioH = self.imageView.frame.height / image.size.height
+//
+//                let ratio = ratioW < ratioH ? ratioW : ratioH
+//                let newWidth = image.size.width * ratio
+//                let newHeight = image.size.height * ratio
+//                let conditionLeft = newWidth*scrollView.zoomScale > self.imageView.frame.width
+//                let left = 0.5 * (conditionLeft ? newWidth - self.imageView.frame.width : (scrollView.frame.width - scrollView.contentSize.width))
+//                let conditioTop = newHeight*scrollView.zoomScale > self.imageView.frame.height
+//
+//                let top = 0.5 * (conditioTop ? newHeight - self.imageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
+//
+//                scrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: top, right: left)
+//
+//            }
+//        } else {
+//         scrollView.contentInset = .zero
+//        }
+     }
+}
+
+    
+

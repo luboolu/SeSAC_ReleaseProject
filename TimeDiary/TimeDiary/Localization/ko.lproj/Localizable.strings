@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  TimeDiary
+
+  Created by 김진영 on 2021/11/23.
+  
+*/
+
+//UserAlbum.storyboard
+"camera" = "카메라";
+"album" = "앨범";
+
+//ImageEdit.storyboard
+"next" = "다음";
+
+//AddDiary.storyboard
+"save" = "저장";
+
+//UserDiary.storyboard
+"my diary" = "일기장";
+
+//UserSetting.storyboard
+"setting" = "설정";

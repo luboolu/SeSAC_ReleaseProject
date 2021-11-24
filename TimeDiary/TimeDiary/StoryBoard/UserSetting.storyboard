@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nKB-kt-Kke">
-                                <rect key="frame" x="0.0" y="120" width="414" height="742"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingTableViewCell" rowHeight="77" id="USA-Qa-nOj" customClass="SettingTableViewCell" customModule="TimeDiary" customModuleProvider="target">
@@ -47,26 +47,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzj-8b-xaM">
-                                <rect key="frame" x="20" y="64" width="71" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nKB-kt-Kke" firstAttribute="top" secondItem="Uzj-8b-xaM" secondAttribute="bottom" constant="20" id="6FE-7H-wnf"/>
-                            <constraint firstItem="Uzj-8b-xaM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="BwP-SD-oNt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nKB-kt-Kke" secondAttribute="trailing" id="M0G-Ff-3Zf"/>
+                            <constraint firstItem="nKB-kt-Kke" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dMc-Q5-adp"/>
                             <constraint firstItem="nKB-kt-Kke" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eP1-D5-ZkO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nKB-kt-Kke" secondAttribute="bottom" id="er0-zO-FSy"/>
-                            <constraint firstItem="Uzj-8b-xaM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="hDM-Uh-P17"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="settingLabel" destination="Uzj-8b-xaM" id="ft7-0F-aB7"/>
                         <outlet property="settingTableView" destination="nKB-kt-Kke" id="r5C-ad-DGz"/>
                     </connections>
                 </viewController>
