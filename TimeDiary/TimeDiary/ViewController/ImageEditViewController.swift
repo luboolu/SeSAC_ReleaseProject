@@ -12,10 +12,9 @@ class ImageEditViewController: UIViewController {
     static let identifier = "ImageEditViewController"
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var timeStampView: UIView!
+    @IBOutlet weak var designView: UIView!
     
     @IBOutlet weak var colorButton1: UIButton!
     @IBOutlet weak var colorButton2: UIButton!
@@ -33,6 +32,8 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var designCollectionView: UICollectionView!
     
     var selectedImage = UIImage()
+    
+ 
     
 //    lazy var scrollView: UIScrollView = {
 //        let scrollView: UIScrollView = UIScrollView()
@@ -65,9 +66,6 @@ class ImageEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
-        // Do any additional setup after loading the view, typically from a nib.
         let imageWidth = selectedImage.size.width
         let imageHeight = selectedImage.size.height
         
@@ -86,27 +84,30 @@ class ImageEditViewController: UIViewController {
         if imageWidth > imageHeight {
 
             //scrollView.
-            scrollView.minimumZoomScale = 1
-            scrollView.maximumZoomScale = 2
+            self.scrollView.minimumZoomScale = screenWidth / imageHeight
+            self.scrollView.maximumZoomScale = 4
             //print(imageHeight / screenWidth)
         } else {
             //scrollView.
-            scrollView.minimumZoomScale = 1
-            scrollView.maximumZoomScale = 2
+            self.scrollView.minimumZoomScale = screenWidth / imageWidth
+            self.scrollView.maximumZoomScale = 4
             //print(imageWidth / screenWidth)
         }
-        
-//        self.timeStampView.addSubview(scrollView)
-
-
         
         self.scrollView.delegate = self
         
         //앨범에서 선택한 이미지 띄우기
         self.imageView.image = selectedImage
+        self.scrollView.zoomScale = scrollView.minimumZoomScale
         
         //let customView: Desgin_1? = UIView.loadFromNib()
+        let custom = Bundle.main.loadNibNamed("TimeStampDesign_1", owner: self, options: nil)?[0] as! TimeStampDesign_1
         
+        self.designView.addSubview(custom)
+
+
+
+
         //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
         setColorButton(button: colorButton2, color: .black)
@@ -220,13 +221,7 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     
 }
 
-extension UIView {
-    static func loadFromNib<T>() -> T? {
-        let identifier = String(describing: T.self)
-        let view = Bundle.main.loadNibNamed(identifier, owner: self, options: nil)?.first
-        return view as? T
-    }
-}
+
 
 extension ImageEditViewController: UIScrollViewDelegate {
     
@@ -236,29 +231,10 @@ extension ImageEditViewController: UIScrollViewDelegate {
        return self.imageView
    }
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        print(scrollView.zoomScale)
-//        if scrollView.zoomScale > 1 {
-//            if let image = self.imageView.image {
-//                let ratioW = self.imageView.frame.width / image.size.width
-//                let ratioH = self.imageView.frame.height / image.size.height
-//
-//                let ratio = ratioW < ratioH ? ratioW : ratioH
-//                let newWidth = image.size.width * ratio
-//                let newHeight = image.size.height * ratio
-//                let conditionLeft = newWidth*scrollView.zoomScale > self.imageView.frame.width
-//                let left = 0.5 * (conditionLeft ? newWidth - self.imageView.frame.width : (scrollView.frame.width - scrollView.contentSize.width))
-//                let conditioTop = newHeight*scrollView.zoomScale > self.imageView.frame.height
-//
-//                let top = 0.5 * (conditioTop ? newHeight - self.imageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
-//
-//                scrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: top, right: left)
-//
-//            }
-//        } else {
-//         scrollView.contentInset = .zero
-//        }
-     }
+   func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        //print(scrollView.zoomScale)
+       scrollView.contentInset = .zero
+   }
 }
 
     

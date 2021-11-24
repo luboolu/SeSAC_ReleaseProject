@@ -34,7 +34,7 @@
 		DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */; };
 		DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */; };
 		DCCECFFB274E135D002EEABD /* TimeStampDesign_1.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */; };
-		DCCECFFE274E147A002EEABD /* Desgin_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFFD274E147A002EEABD /* Desgin_1.swift */; };
+		DCCED000274E974B002EEABD /* TimeStampDesign_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +67,7 @@
 		DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOTRA_SONGEULSSI.otf; sourceTree = "<group>"; };
 		DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA LEAP_OTF.otf"; sourceTree = "<group>"; };
 		DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStampDesign_1.xib; sourceTree = "<group>"; };
-		DCCECFFD274E147A002EEABD /* Desgin_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desgin_1.swift; sourceTree = "<group>"; };
+		DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampDesign_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */,
-				DCCECFFD274E147A002EEABD /* Desgin_1.swift */,
+				DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */,
 			);
 			path = TimeStampDesignView;
 			sourceTree = "<group>";
@@ -297,7 +297,6 @@
 				DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
 				DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */,
-				DCCECFFE274E147A002EEABD /* Desgin_1.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
@@ -307,6 +306,7 @@
 				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
 				DCCECFD1274B4765002EEABD /* identifier.swift in Sources */,
 				DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */,
+				DCCED000274E974B002EEABD /* TimeStampDesign_1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
