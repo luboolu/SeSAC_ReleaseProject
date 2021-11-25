@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3B4438274F86AC009C07D3 /* Stamp_2.xib */; };
+		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
+		DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443C274FCD74009C07D3 /* StampDesign.swift */; };
+		DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -33,11 +37,15 @@
 		DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF0274CEAC0002EEABD /* Localizable.strings */; };
 		DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */; };
 		DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */; };
-		DCCECFFB274E135D002EEABD /* TimeStampDesign_1.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */; };
-		DCCED000274E974B002EEABD /* TimeStampDesign_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */; };
+		DCCECFFB274E135D002EEABD /* Stamp_1.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCECFFA274E135D002EEABD /* Stamp_1.xib */; };
+		DCCED000274E974B002EEABD /* Stamp_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFFF274E974B002EEABD /* Stamp_1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
+		DC3B443A274F888E009C07D3 /* Stamp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_2.swift; sourceTree = "<group>"; };
+		DC3B443C274FCD74009C07D3 /* StampDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDesign.swift; sourceTree = "<group>"; };
+		DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +74,8 @@
 		DCCECFF4274D1204002EEABD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOTRA_SONGEULSSI.otf; sourceTree = "<group>"; };
 		DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA LEAP_OTF.otf"; sourceTree = "<group>"; };
-		DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeStampDesign_1.xib; sourceTree = "<group>"; };
-		DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampDesign_1.swift; sourceTree = "<group>"; };
+		DCCECFFA274E135D002EEABD /* Stamp_1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_1.xib; sourceTree = "<group>"; };
+		DCCECFFF274E974B002EEABD /* Stamp_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */,
+				DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -199,8 +208,11 @@
 		DCCECFFC274E1449002EEABD /* TimeStampDesignView */ = {
 			isa = PBXGroup;
 			children = (
-				DCCECFFA274E135D002EEABD /* TimeStampDesign_1.xib */,
-				DCCECFFF274E974B002EEABD /* TimeStampDesign_1.swift */,
+				DC3B443C274FCD74009C07D3 /* StampDesign.swift */,
+				DCCECFFF274E974B002EEABD /* Stamp_1.swift */,
+				DCCECFFA274E135D002EEABD /* Stamp_1.xib */,
+				DC3B443A274F888E009C07D3 /* Stamp_2.swift */,
+				DC3B4438274F86AC009C07D3 /* Stamp_2.xib */,
 			);
 			path = TimeStampDesignView;
 			sourceTree = "<group>";
@@ -271,7 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCCECFFB274E135D002EEABD /* TimeStampDesign_1.xib in Resources */,
+				DCCECFFB274E135D002EEABD /* Stamp_1.xib in Resources */,
 				DCCECFC52746855C002EEABD /* ImageEdit.storyboard in Resources */,
 				DCCECFD5274B48C5002EEABD /* UserSetting.storyboard in Resources */,
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
@@ -280,6 +292,7 @@
 				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
+				DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
@@ -293,6 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCECFD9274B4B60002EEABD /* UserSettingViewController.swift in Sources */,
+				DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */,
+				DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */,
+				DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
 				DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
@@ -306,7 +322,7 @@
 				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
 				DCCECFD1274B4765002EEABD /* identifier.swift in Sources */,
 				DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */,
-				DCCED000274E974B002EEABD /* TimeStampDesign_1.swift in Sources */,
+				DCCED000274E974B002EEABD /* Stamp_1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

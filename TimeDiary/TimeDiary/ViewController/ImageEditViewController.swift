@@ -26,59 +26,26 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var colorButton8: UIButton!
     @IBOutlet weak var colorButton9: UIButton!
     
-    //@IBOutlet weak var fontButton: UIButton!
-    //@IBOutlet weak var fontSizeButton: UIButton!
-    
     @IBOutlet weak var designCollectionView: UICollectionView!
     
-    var selectedImage = UIImage()
+    var selectedImage = UIImage() //앨범, 카메라에서 선택한 사진 전달받을 변수
+    var customView: UIView! //타임스탬프 디자인을 담을 view
+    var stampDesignName = StampDesign.Stamp_1 //디자인 초기값
+    var stampDesignColor = UIColor.white //디자인 색상 초기값
     
- 
-    
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView: UIScrollView = UIScrollView()
-//        // Generate ScrollView.
-//        scrollView.frame = self.timeStampView.frame
-//        // Disable ScrollView bounces
-//        scrollView.bounces = false
-//        // Set the image in UIImage.
-//        let image = selectedImage
-//        // Create a UIImageView.
-//        let imageView = UIImageView()
-//        // Set myImage to the image of imageView.
-//        imageView.image = image
-//        // Set the value of frame size
-//        imageView.frame.size = image.size
-//        // Set the aspect ratio of the image.
-//        imageView.contentMode = UIView.ContentMode.scaleAspectFill
-//        // Add imageView to ScrollView.
-//        scrollView.addSubview(imageView)
-//        // Set contentSize to ScrollView.
-//        scrollView.contentSize = imageView.frame.size
-//
-//        return scrollView
-//
-//    }()
 
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //ScrollView zoom 관련 설정
         let imageWidth = selectedImage.size.width
         let imageHeight = selectedImage.size.height
-        
         let screenWidth = UIScreen.main.bounds.width - 40
         
-        print(imageWidth, imageHeight, screenWidth)
-       
+
         self.scrollView.alwaysBounceVertical = false
         self.scrollView.alwaysBounceHorizontal = false
 
-//        self.scrollView.minimumZoomScale = 0.1
-//        self.scrollView.maximumZoomScale = 2
-        
         self.scrollView.center = self.timeStampView.center
         
         if imageWidth > imageHeight {
@@ -100,37 +67,20 @@ class ImageEditViewController: UIViewController {
         self.imageView.image = selectedImage
         self.scrollView.zoomScale = scrollView.minimumZoomScale
         
-        //let customView: Desgin_1? = UIView.loadFromNib()
-//        let custom = Bundle.main.loadNibNamed("TimeStampDesign_1", owner: self, options: nil)?[0] as! TimeStampDesign_1
-//
-//        custom.backgroundColor = .systemPink
-//        custom.accessibilityLabel = "라벨?"
-        
-        
-//        self.designView.addSubview(custom)
-        self.designView.layer.zPosition = 999
-        //self.designView.
-
-
+        //기본 타임 스탬프 디자인 보여주기
+        self.designUpdate()
 
         //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
         setColorButton(button: colorButton2, color: .black)
-        setColorButton(button: colorButton3, color: .red)
-        setColorButton(button: colorButton4, color: .orange)
-        setColorButton(button: colorButton5, color: .yellow)
-        setColorButton(button: colorButton6, color: .green)
-        setColorButton(button: colorButton7, color: .blue)
-        setColorButton(button: colorButton8, color: .purple)
-        setColorButton(button: colorButton9, color: .lightGray)
+        setColorButton(button: colorButton3, color: UIColor().blue)
+        setColorButton(button: colorButton4, color: UIColor().green)
+        setColorButton(button: colorButton5, color: UIColor().yellow)
+        setColorButton(button: colorButton6, color: UIColor().orange)
+        setColorButton(button: colorButton7, color: UIColor().red)
+        setColorButton(button: colorButton8, color: UIColor().pink)
+        setColorButton(button: colorButton9, color: UIColor().purple)
         
-        //폰트 선택 버튼 setting
-        //fontButton.clipsToBounds = true
-        //fontButton.layer.cornerRadius = 10
-        
-        //폰크 크기 조절 버튼 setting
-        //fontSizeButton.clipsToBounds = true
-        //fontSizeButton.layer.cornerRadius = 10
         
         //collection view setting
         designCollectionView.delegate = self
@@ -182,8 +132,61 @@ class ImageEditViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
 
         }
-        
     }
+    
+    
+    @IBAction func whiteColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = .white
+        self.designUpdate()
+    }
+    
+    @IBAction func blackColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = .black
+        self.designUpdate()
+    }
+    
+    
+    @IBAction func blueColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().blue
+        self.designUpdate()
+    }
+    
+    @IBAction func greenColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().green
+        self.designUpdate()
+    }
+    
+    @IBAction func yellowColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().yellow
+        self.designUpdate()
+    }
+    
+    @IBAction func orangeColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().orange
+        self.designUpdate()
+    }
+    
+    @IBAction func redColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().red
+        self.designUpdate()
+    }
+    
+    
+    @IBAction func pinkColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().pink
+        self.designUpdate()
+    }
+    
+    @IBAction func purpleColorButtonClicked(_ sender: UIButton) {
+        self.stampDesignColor = UIColor().purple
+        self.designUpdate()
+    }
+    
+    
+    
+    
+    
+    
     
     func setColorButton(button: UIButton, color: UIColor) {
         
@@ -194,10 +197,37 @@ class ImageEditViewController: UIViewController {
         button.layer.borderColor = UIColor.lightGray.cgColor
 
         button.layer.borderWidth = 2
-        //button.backgroundColor = color
+        button.backgroundColor = color
         button.clipsToBounds = true
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
         
+        
+    }
+    
+    func designUpdate() {
+        print(#function)
+        
+        //subView가 쌓이지 않게 새로 추가하기 전에 삭제
+        if self.designView.subviews.count > 0 {
+            self.customView.removeFromSuperview()
+        }
+        
+
+        if self.stampDesignName == .Stamp_1 {
+            self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor)
+
+        } else if self.stampDesignName == .Stamp_2 {
+            self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor)
+            self.designView.addSubview(self.customView)
+
+        } else {
+            
+        }
+        
+        
+        self.designView.addSubview(self.customView)
+        self.designView.layer.zPosition = 999
+        self.designView.reloadInputViews()
         
     }
     
@@ -223,6 +253,19 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == 0 {
+            self.stampDesignName = .Stamp_1
+        } else if indexPath.row == 1 {
+            self.stampDesignName = .Stamp_2
+        } else {
+            
+        }
+        
+        self.designUpdate()
+        
+    }
     
 }
 
