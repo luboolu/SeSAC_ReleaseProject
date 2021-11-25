@@ -101,10 +101,15 @@ class ImageEditViewController: UIViewController {
         self.scrollView.zoomScale = scrollView.minimumZoomScale
         
         //let customView: Desgin_1? = UIView.loadFromNib()
-        let custom = Bundle.main.loadNibNamed("TimeStampDesign_1", owner: self, options: nil)?[0] as! TimeStampDesign_1
+//        let custom = Bundle.main.loadNibNamed("TimeStampDesign_1", owner: self, options: nil)?[0] as! TimeStampDesign_1
+//
+//        custom.backgroundColor = .systemPink
+//        custom.accessibilityLabel = "라벨?"
         
-        self.designView.addSubview(custom)
-
+        
+//        self.designView.addSubview(custom)
+        self.designView.layer.zPosition = 999
+        //self.designView.
 
 
 
