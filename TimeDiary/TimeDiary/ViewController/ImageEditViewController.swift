@@ -37,6 +37,20 @@ class ImageEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.hidesBarsOnSwipe = false
+        self.navigationController?.hidesBarsOnTap = false
+        
+        //네비게이션 바 아이템 setting
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        
+        //navigationItem.leftBarButtonItem?.tintColor = .orange
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
+        
+        print(navigationController?.navigationBar.frame)
+        print(tabBarController?.tabBar.frame)
+        self.view.reloadInputViews()
+        
         //ScrollView zoom 관련 설정
         let imageWidth = selectedImage.size.width
         let imageHeight = selectedImage.size.height
@@ -61,9 +75,8 @@ class ImageEditViewController: UIViewController {
             //print(imageWidth / screenWidth)
         }
         
-        //기본 타임 스탬프 디자인 보여주기
-        self.stampDesignColor = .white
-        self.designUpdate()
+
+
         
         self.scrollView.delegate = self
         
@@ -73,7 +86,9 @@ class ImageEditViewController: UIViewController {
         //scrollView 초기 zoom scale 설정
         self.scrollView.zoomScale = scrollView.minimumZoomScale
 
-
+        //기본 타임 스탬프 디자인 보여주기
+        self.stampDesignColor = .white
+        self.designUpdate()
         
 
         //컬러 버튼 setting
@@ -105,17 +120,7 @@ class ImageEditViewController: UIViewController {
         designCollectionView.collectionViewLayout = layout
 
         
-        self.navigationController?.hidesBarsOnSwipe = false
-        self.navigationController?.hidesBarsOnTap = false
-        
-        //네비게이션 바 아이템 setting
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
-        
-        //navigationItem.leftBarButtonItem?.tintColor = .orange
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
-        
-        
+
 
     }
     
@@ -203,10 +208,7 @@ class ImageEditViewController: UIViewController {
         
         //컬러버튼 설정
         button.setTitle("", for: .normal)
-        //button.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
-        //button.layer.borderWidth = 5
         button.layer.borderColor = UIColor.lightGray.cgColor
-
         button.layer.borderWidth = 2
         button.backgroundColor = color
         button.clipsToBounds = true
@@ -222,7 +224,11 @@ class ImageEditViewController: UIViewController {
         if self.designView.subviews.count > 0 {
             self.customView.removeFromSuperview()
         }
+        print(navigationController?.navigationBar.frame)
+        print(self.timeStampView.frame)
+        print(self.designView.frame)
         
+        //self.designView.frame = self.timeStampView.frame
 
         if self.stampDesignName == .Stamp_1 {
             self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor)
@@ -237,6 +243,8 @@ class ImageEditViewController: UIViewController {
         
 
         self.designView.addSubview(self.customView)
+//        self.timeStampView.reloadInputViews()
+//        self.designView.layoutIfNeeded()
         self.designView.layer.zPosition = 999
         self.designView.reloadInputViews()
         
@@ -290,9 +298,9 @@ extension ImageEditViewController: UIScrollViewDelegate {
    }
     
    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        //print(scrollView.zoomScale)
+        print(scrollView.zoomScale)
        scrollView.contentInset = .zero
-       self.designUpdate()
+       //self.designUpdate()
    }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {

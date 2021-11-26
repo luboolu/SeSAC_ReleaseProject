@@ -13,7 +13,8 @@ class Stamp_1 : UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var contentLabel1: UILabel!
     
-    //using customeView in code
+    @IBOutlet weak var contentLabel2: UILabel!
+    //using customeView in code -> 사용중
     init(frame: CGRect, color: UIColor) {
         super.init(frame: frame)
         commonInit(color: color)
@@ -27,7 +28,7 @@ class Stamp_1 : UIView {
     
     private func commonInit(color: UIColor) {
         Bundle.main.loadNibNamed("Stamp_1", owner: self, options: nil)
-        
+        contentLabel2.text = "TimeStamp"
         contentLabel1.text = "21.11.25"
         contentLabel1.textColor = color
         contentLabel1.font = UIFont().kotra_leap_30
@@ -38,6 +39,7 @@ class Stamp_1 : UIView {
         
         addSubview(contentView)
         contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
     }
 }

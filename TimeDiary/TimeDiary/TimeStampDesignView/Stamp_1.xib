@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Stamp_1" customModule="TimeDiary" customModuleProvider="target">
             <connections>
                 <outlet property="contentLabel1" destination="l6D-FV-OIv" id="JSh-Ba-abJ"/>
+                <outlet property="contentLabel2" destination="cV5-vH-liE" id="3aa-r8-fSu"/>
                 <outlet property="contentView" destination="L10-8b-Jq0" id="DMX-Go-fcK"/>
             </connections>
         </placeholder>
@@ -18,9 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="1080" height="1080"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeStamp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6D-FV-OIv">
-                    <rect key="frame" x="20" y="1024" width="1040" height="36"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeStamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6D-FV-OIv">
+                    <rect key="frame" x="20" y="960" width="1040" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="FIM-gp-R1D"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV5-vH-liE">
+                    <rect key="frame" x="20" y="20" width="1040" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="42"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -28,6 +38,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="l6D-FV-OIv" secondAttribute="trailing" constant="20" id="9WA-eU-Ffm"/>
+                <constraint firstItem="cV5-vH-liE" firstAttribute="top" secondItem="L10-8b-Jq0" secondAttribute="top" constant="20" id="JGC-9t-5FX"/>
+                <constraint firstAttribute="trailing" secondItem="cV5-vH-liE" secondAttribute="trailing" constant="20" id="Mrj-8C-dce"/>
+                <constraint firstItem="cV5-vH-liE" firstAttribute="leading" secondItem="L10-8b-Jq0" secondAttribute="leading" constant="20" id="cbJ-zt-ZPO"/>
                 <constraint firstAttribute="bottom" secondItem="l6D-FV-OIv" secondAttribute="bottom" constant="20" id="ccc-kK-aLe"/>
                 <constraint firstItem="l6D-FV-OIv" firstAttribute="leading" secondItem="L10-8b-Jq0" secondAttribute="leading" constant="20" id="oOJ-k1-RHT"/>
             </constraints>
