@@ -36,6 +36,7 @@ class ImageEditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.viewDidLoad()
         
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.hidesBarsOnTap = false
