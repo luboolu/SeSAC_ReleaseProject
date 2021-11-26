@@ -61,14 +61,20 @@ class ImageEditViewController: UIViewController {
             //print(imageWidth / screenWidth)
         }
         
+        //기본 타임 스탬프 디자인 보여주기
+        self.stampDesignColor = .white
+        self.designUpdate()
+        
         self.scrollView.delegate = self
         
         //앨범에서 선택한 이미지 띄우기
         self.imageView.image = selectedImage
-        self.scrollView.zoomScale = scrollView.minimumZoomScale
         
-        //기본 타임 스탬프 디자인 보여주기
-        self.designUpdate()
+        //scrollView 초기 zoom scale 설정
+        self.scrollView.zoomScale = scrollView.minimumZoomScale
+
+
+        
 
         //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
@@ -125,7 +131,12 @@ class ImageEditViewController: UIViewController {
         let st = UIStoryboard(name: "AddDiary", bundle: nil)
         if let vc = st.instantiateViewController(withIdentifier: AddDiaryViewController.identifier) as? AddDiaryViewController {
             
-            vc.selectedImage = selectedImage
+            
+            let render = UIGraphicsImageRenderer(size: self.timeStampView.bounds.size)
+            let image = render.image { (context) in
+                self.timeStampView.drawHierarchy(in: self.timeStampView.bounds, afterScreenUpdates: true)
+            }
+            vc.selectedImage = image
             vc.modalPresentationStyle = .fullScreen
                 
             //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
@@ -206,7 +217,7 @@ class ImageEditViewController: UIViewController {
     
     func designUpdate() {
         print(#function)
-        
+        print(self.designView.subviews.count)
         //subView가 쌓이지 않게 새로 추가하기 전에 삭제
         if self.designView.subviews.count > 0 {
             self.customView.removeFromSuperview()
@@ -224,7 +235,7 @@ class ImageEditViewController: UIViewController {
             
         }
         
-        
+
         self.designView.addSubview(self.customView)
         self.designView.layer.zPosition = 999
         self.designView.reloadInputViews()
@@ -270,7 +281,6 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
 }
 
 
-
 extension ImageEditViewController: UIScrollViewDelegate {
     
 
@@ -282,8 +292,56 @@ extension ImageEditViewController: UIScrollViewDelegate {
    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         //print(scrollView.zoomScale)
        scrollView.contentInset = .zero
+       self.designUpdate()
    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        print(#function)
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        print(#function)
+    }
 }
 
+extension UIView {
     
+    func asImage() -> UIImage {
+          let renderer = UIGraphicsImageRenderer(bounds: bounds)
+          return renderer.image { rendererContext in
+              layer.render(in: rendererContext.cgContext)
+          }
+      }
+    
+    class func image(view: UIView, subview: UIView? = nil) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
+    
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+        
+        if(subview != nil){
+            var rect = (subview?.frame)!
+            rect.size.height *= image.scale  //MOST IMPORTANT
+            rect.size.width *= image.scale    //TOOK ME DAYS TO FIGURE THIS OUT
+            let imageRef = image.cgImage!.cropping(to: rect)
+            image = UIImage(cgImage: imageRef!, scale: image.scale, orientation: image.imageOrientation)
+        }
+        
+        print(image.size.width, image.size.height)
+        
+        return image
+    }
+    
+    func image() -> UIImage? {
+        return UIView.image(view: self)
+    }
+    
+    func image(withSubview: UIView) -> UIImage? {
+        return UIView.image(view: self, subview: withSubview)
+    }
+}
 

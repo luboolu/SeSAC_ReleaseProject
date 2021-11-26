@@ -20,7 +20,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZ3-mb-tn0">
                                 <rect key="frame" x="80" y="64" width="254" height="254"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="bZ3-mb-tn0" secondAttribute="height" multiplier="1:1" id="oTb-Fi-Hdd"/>
+                                    <constraint firstAttribute="height" constant="254" id="jQM-NC-5iz"/>
+                                    <constraint firstAttribute="width" constant="254" id="mWy-2i-fhm"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-sF-kzg">
@@ -46,14 +47,13 @@
                         <constraints>
                             <constraint firstItem="PPi-WR-aVg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="8ql-xb-8vS"/>
                             <constraint firstItem="BOp-sF-kzg" firstAttribute="top" secondItem="bZ3-mb-tn0" secondAttribute="bottom" constant="20" id="ASP-l0-FwN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bZ3-mb-tn0" secondAttribute="trailing" constant="80" id="EJv-F5-I1q"/>
                             <constraint firstItem="BOp-sF-kzg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LD0-Kc-z6W"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Nyu-X9-wX2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" constant="20" id="lQT-Mu-WH8"/>
                             <constraint firstItem="PPi-WR-aVg" firstAttribute="top" secondItem="BOp-sF-kzg" secondAttribute="bottom" constant="20" id="lWh-Qp-2Fc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BOp-sF-kzg" secondAttribute="trailing" constant="20" id="nH5-Be-vlm"/>
+                            <constraint firstItem="bZ3-mb-tn0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vKI-Pf-MXp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PPi-WR-aVg" secondAttribute="bottom" constant="20" id="wx0-oL-Xne"/>
-                            <constraint firstItem="bZ3-mb-tn0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="ydc-7f-zvR"/>
                         </constraints>
                     </view>
                     <connections>

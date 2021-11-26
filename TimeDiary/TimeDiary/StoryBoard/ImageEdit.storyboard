@@ -21,13 +21,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-pl-YDk">
                                 <rect key="frame" x="20" y="64" width="374" height="374"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q00-Ar-yTE">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwg-mQ-wnC">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q00-Ar-yTE">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixF-KT-ooM">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="374"/>
                                                 <constraints>
@@ -38,13 +38,9 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ixF-KT-ooM" firstAttribute="trailing" secondItem="g62-1v-eEY" secondAttribute="trailing" constant="374" id="UhI-6Y-aQY"/>
-                                            <constraint firstItem="Q00-Ar-yTE" firstAttribute="top" secondItem="a8K-mT-R0h" secondAttribute="top" id="aBt-Ur-cYZ"/>
                                             <constraint firstItem="ixF-KT-ooM" firstAttribute="leading" secondItem="g62-1v-eEY" secondAttribute="leading" id="cbY-w1-hkG"/>
                                             <constraint firstItem="ixF-KT-ooM" firstAttribute="top" secondItem="g62-1v-eEY" secondAttribute="top" id="hK5-ot-x6H"/>
                                             <constraint firstItem="ixF-KT-ooM" firstAttribute="bottom" secondItem="g62-1v-eEY" secondAttribute="bottom" constant="374" id="hdk-RK-vf2"/>
-                                            <constraint firstItem="Q00-Ar-yTE" firstAttribute="leading" secondItem="a8K-mT-R0h" secondAttribute="leading" id="iQq-If-b1Y"/>
-                                            <constraint firstItem="a8K-mT-R0h" firstAttribute="trailing" secondItem="Q00-Ar-yTE" secondAttribute="trailing" id="jqc-77-58G"/>
-                                            <constraint firstItem="a8K-mT-R0h" firstAttribute="bottom" secondItem="Q00-Ar-yTE" secondAttribute="bottom" id="oNb-cx-2BI"/>
                                         </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="g62-1v-eEY"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="a8K-mT-R0h"/>
@@ -53,10 +49,14 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SSb-pl-YDk" secondAttribute="height" multiplier="1:1" id="5KE-v7-WTn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q00-Ar-yTE" secondAttribute="trailing" id="AQg-dK-Q4e"/>
                                     <constraint firstAttribute="trailing" secondItem="Lwg-mQ-wnC" secondAttribute="trailing" id="E94-23-mUH"/>
                                     <constraint firstItem="Lwg-mQ-wnC" firstAttribute="leading" secondItem="SSb-pl-YDk" secondAttribute="leading" id="NL3-q8-nlx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q00-Ar-yTE" secondAttribute="bottom" id="WXM-uv-Xwa"/>
+                                    <constraint firstItem="Q00-Ar-yTE" firstAttribute="leading" secondItem="SSb-pl-YDk" secondAttribute="leading" id="bqx-0L-7SY"/>
                                     <constraint firstItem="Lwg-mQ-wnC" firstAttribute="top" secondItem="SSb-pl-YDk" secondAttribute="top" id="kyl-ct-nt5"/>
                                     <constraint firstAttribute="bottom" secondItem="Lwg-mQ-wnC" secondAttribute="bottom" id="n7j-Gy-g3j"/>
+                                    <constraint firstItem="Q00-Ar-yTE" firstAttribute="top" secondItem="SSb-pl-YDk" secondAttribute="top" id="uVA-hb-hGk"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-us-6gb">
@@ -212,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXQ-1O-zhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="99"/>
+            <point key="canvasLocation" x="2680" y="97"/>
         </scene>
     </scenes>
     <resources>

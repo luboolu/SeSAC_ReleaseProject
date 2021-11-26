@@ -20,6 +20,8 @@ class AddDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(selectedImage.size.width, selectedImage.size.height)
+        imageView.backgroundColor = .systemPink
         imageView.image = selectedImage
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
@@ -35,10 +37,10 @@ class AddDiaryViewController: UIViewController {
     @objc func saveButtonClicked() {
         print(#function)
         
-        if let img = imageView.image {
-            let vc = UIActivityViewController(activityItems: [img ], applicationActivities: [])
-            self.present(vc, animated: true, completion: nil)
-        }
+
+        let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
+        self.present(vc, animated: true, completion: nil)
+        
         
 
     }
