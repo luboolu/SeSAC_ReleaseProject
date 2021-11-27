@@ -48,9 +48,8 @@ class ImageEditViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
         
-        print(navigationController?.navigationBar.frame)
-        print(tabBarController?.tabBar.frame)
-        self.view.reloadInputViews()
+
+        //self.view.reloadInputViews()
         
         //ScrollView zoom 관련 설정
         let imageWidth = selectedImage.size.width
@@ -89,7 +88,16 @@ class ImageEditViewController: UIViewController {
 
         //기본 타임 스탬프 디자인 보여주기
         self.stampDesignColor = .white
-        self.designUpdate()
+        
+        
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                // UI 업데이트
+                self.designUpdate()
+            }
+            // UI 업데이트 후 실행되는 코드
+        }
         
 
         //컬러 버튼 setting
@@ -206,14 +214,20 @@ class ImageEditViewController: UIViewController {
     
     
     func setColorButton(button: UIButton, color: UIColor) {
-        
-        //컬러버튼 설정
-        button.setTitle("", for: .normal)
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.layer.borderWidth = 2
-        button.backgroundColor = color
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                //컬러버튼 설정
+                button.setTitle("", for: .normal)
+                button.layer.borderColor = UIColor.lightGray.cgColor
+                button.layer.borderWidth = 2
+                button.backgroundColor = color
+                button.clipsToBounds = true
+                button.layer.cornerRadius = 0.5 * button.bounds.size.width
+            }
+            // UI 업데이트 후 실행되는 코드
+        }
+
         
         
     }
@@ -225,9 +239,12 @@ class ImageEditViewController: UIViewController {
         if self.designView.subviews.count > 0 {
             self.customView.removeFromSuperview()
         }
-        print(navigationController?.navigationBar.frame)
-        print(self.timeStampView.frame)
-        print(self.designView.frame)
+        
+        print(UIScreen.main)
+        print("timestampview:\(self.timeStampView.frame)")
+        print("designview   :\(self.designView.frame)")
+        print("scrollview   :\(self.scrollView.frame)")
+        print("imageview    :\(self.imageView.frame)")
         
         //self.designView.frame = self.timeStampView.frame
 
