@@ -116,6 +116,10 @@ class ImageEditViewController: UIViewController {
         designCollectionView.delegate = self
         designCollectionView.dataSource = self
         
+        //collection view xib setting
+        let nibName = UINib(nibName: DesignCollectionViewCell.identifier, bundle: nil)
+        designCollectionView.register(nibName, forCellWithReuseIdentifier: DesignCollectionViewCell.identifier)
+        
         //collection view flow layout 설정
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 10
@@ -258,11 +262,8 @@ class ImageEditViewController: UIViewController {
         } else {
             
         }
-        
 
         self.designView.addSubview(self.customView)
-//        self.timeStampView.reloadInputViews()
-//        self.designView.layoutIfNeeded()
         self.designView.layer.zPosition = 999
         self.designView.reloadInputViews()
         
@@ -275,17 +276,56 @@ class ImageEditViewController: UIViewController {
 
 extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeStampDesignCell", for: indexPath) as?
-                TimeStampDesignCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeStampDesignCell", for: indexPath) as?
+//                TimeStampDesignCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
         
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DesignCollectionViewCell.identifier, for: indexPath) as? DesignCollectionViewCell else {
+            return UICollectionViewCell()
+            
+        }
         cell.backgroundColor = .lightGray
+        cell.imageView.image = self.imageView.image
+        cell.numLabel.text = "\(indexPath.row + 1)"
+        cell.numLabel.font = UIFont().kotra_songeulssi_30
+        
+//        if indexPath.row == 0 {
+//            let tmpDesignView = Stamp_1(frame: cell.frame, color: .white)
+//            cell.designView.addSubview(tmpDesignView)
+//        } else if indexPath.row == 1 {
+//            let tmpDesignView = Stamp_2(frame: cell.frame, color: .white)
+//            cell.designView.addSubview(tmpDesignView)
+//        } else if indexPath.row == 2 {
+//
+//        } else if indexPath.row == 3 {
+//
+//        } else if indexPath.row == 4 {
+//
+//        } else if indexPath.row == 5 {
+//
+//        } else if indexPath.row == 6 {
+//
+//        } else if indexPath.row == 7 {
+//
+//        } else if indexPath.row == 8 {
+//
+//        } else if indexPath.row == 9 {
+//
+//        } else {
+//
+//        }
+//
+        cell.designView.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: 0, blue: 0, alpha: 0.65))
+
+        cell.numLabel.layer.zPosition = 999
+        cell.designView.layer.zPosition = 250
+        
         
         return cell
     }

@@ -11,6 +11,8 @@
 		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
 		DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443C274FCD74009C07D3 /* StampDesign.swift */; };
 		DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */; };
+		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
+		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		DC3B443A274F888E009C07D3 /* Stamp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_2.swift; sourceTree = "<group>"; };
 		DC3B443C274FCD74009C07D3 /* StampDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDesign.swift; sourceTree = "<group>"; };
 		DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */,
+				DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */,
+				DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
 				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
+				DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */,
 				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
@@ -317,6 +324,7 @@
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
+				DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */,
 				DCCECFE6274B9DBF002EEABD /* UserDiaryViewController.swift in Sources */,
 				DCCECFE8274BA3B5002EEABD /* DiaryTagTableViewCell.swift in Sources */,
 				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
