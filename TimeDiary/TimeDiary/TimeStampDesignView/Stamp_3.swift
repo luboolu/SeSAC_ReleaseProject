@@ -1,16 +1,15 @@
 //
-//  TimeStampDesign_2.swift
+//  Stamp_3.swift
 //  TimeDiary
 //
-//  Created by 김진영 on 2021/11/25.
+//  Created by 김진영 on 2021/11/28.
 //
+
 import UIKit
 
+class Stamp_3: UIView {
 
-class Stamp_2 : UIView {
-    
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var contentBorderView: UIView!
     @IBOutlet weak var contentLabel1: UILabel!
     
     //using customeView in code
@@ -26,14 +25,12 @@ class Stamp_2 : UIView {
     }
     
     private func commonInit(color: UIColor) {
-        Bundle.main.loadNibNamed("Stamp_2", owner: self, options: nil)
+        Bundle.main.loadNibNamed("Stamp_3", owner: self, options: nil)
         
         let date = Date()
         let timestamp1 = DateFormatter.timeFormat2_2.string(from: date)
         
-        contentBorderView.layer.borderColor = color.cgColor
-        contentBorderView.layer.borderWidth = 8
-        
+
         contentLabel1.text = "\(timestamp1)"
         contentLabel1.textColor = color
         contentLabel1.font = UIFont().kotra_leap_30
@@ -46,4 +43,5 @@ class Stamp_2 : UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
+
 }

@@ -13,6 +13,9 @@
 		DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */; };
 		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
 		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
+		DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46027522CD6002038C0 /* Date+Extension.swift */; };
+		DCCDA46327528ABC002038C0 /* Stamp_3.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA46227528ABC002038C0 /* Stamp_3.xib */; };
+		DCCDA46527528ACE002038C0 /* Stamp_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46427528ACE002038C0 /* Stamp_3.swift */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -50,6 +53,9 @@
 		DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
+		DCCDA46027522CD6002038C0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		DCCDA46227528ABC002038C0 /* Stamp_3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_3.xib; sourceTree = "<group>"; };
+		DCCDA46427528ACE002038C0 /* Stamp_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_3.swift; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 			children = (
 				DCCECFE3274B9D02002EEABD /* UIFont+Extension.swift */,
 				DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */,
+				DCCDA46027522CD6002038C0 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,6 +226,8 @@
 				DCCECFFA274E135D002EEABD /* Stamp_1.xib */,
 				DC3B443A274F888E009C07D3 /* Stamp_2.swift */,
 				DC3B4438274F86AC009C07D3 /* Stamp_2.xib */,
+				DCCDA46227528ABC002038C0 /* Stamp_3.xib */,
+				DCCDA46427528ACE002038C0 /* Stamp_3.swift */,
 			);
 			path = TimeStampDesignView;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
 				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
 				DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */,
+				DCCDA46327528ABC002038C0 /* Stamp_3.xib in Resources */,
 				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
@@ -317,11 +327,13 @@
 				DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */,
 				DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
+				DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */,
 				DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
 				DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
+				DCCDA46527528ACE002038C0 /* Stamp_3.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
 				DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */,

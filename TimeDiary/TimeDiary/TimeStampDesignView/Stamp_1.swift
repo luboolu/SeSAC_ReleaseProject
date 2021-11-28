@@ -27,8 +27,12 @@ class Stamp_1 : UIView {
     
     private func commonInit(color: UIColor) {
         Bundle.main.loadNibNamed("Stamp_1", owner: self, options: nil)
+        
+        let date = Date()
+        let timestamp1 = DateFormatter.yearDayFormat1_2.string(from: date)
+        let timestamp2 = DateFormatter.timeFormat2_2.string(from: date)
 
-        contentLabel1.text = "21.11.25"
+        contentLabel1.text = "\(timestamp1) \(timestamp2)"
         contentLabel1.textColor = color
         contentLabel1.font = UIFont().kotra_leap_30
         //text field의 글자가 모두 보이는지 확인하고, 보이지 않는다면 글자의 크기를 조정하여 모두 보이게 함

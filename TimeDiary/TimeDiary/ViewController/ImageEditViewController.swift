@@ -257,8 +257,10 @@ class ImageEditViewController: UIViewController {
 
         } else if self.stampDesignName == .Stamp_2 {
             self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor)
-            self.designView.addSubview(self.customView)
-
+            
+        } else if self.stampDesignName == .Stamp_3 {
+            self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor)
+            
         } else {
             
         }
@@ -336,6 +338,8 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
             self.stampDesignName = .Stamp_1
         } else if indexPath.row == 1 {
             self.stampDesignName = .Stamp_2
+        } else if indexPath.row == 2 {
+            self.stampDesignName = .Stamp_3
         } else {
             
         }
