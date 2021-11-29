@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import CloudKit
 
 class UserDiaryViewController: UIViewController {
     
@@ -47,11 +48,21 @@ class UserDiaryViewController: UIViewController {
         
         //1. UIAlertController 생성: 밑바탕 + 타이틀 + 본문
         //let alert = UIAlertController(title: "타이틀 테스트", message: "메시지가 입력되었습니다.", preferredStyle: .alert)
-        let alert = UIAlertController(title: "폴더 추가", message: "추가할 폴더 이름을 입력해주세요", preferredStyle: .alert)
-        
+        let alert = UIAlertController(title: NSLocalizedString("addFolderTitle", comment: "폴더 추가"), message: NSLocalizedString("addFolderMessage", comment: "폴더 추가"), preferredStyle: .alert)
+        alert.addTextField { tagTextField in
+            
+            tagTextField.placeholder = NSLocalizedString("folderName", comment: "폴더 이름")
+
+        }
         //2. UIAlertAction 생성: 버튼들을...
-        let ok = UIAlertAction(title: "추가", style: .default)
-        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        let ok = UIAlertAction(title: NSLocalizedString("add", comment: "추가"), style: .default) { ok in
+            //ok 버튼이 눌리면 textField에 입력된 값을 UserTag에 추가
+            //1.UserTag에 존재하지 않는 값이 입력된 경우 - 성공
+            print(alert.textFields?[0].text)
+            //2.UserTag에 존재하는 값이 입력된 경우 - 실패
+        }
+        
+        let cancle = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .cancel)
         //3. 1 + 2
         alert.addAction(ok)
         alert.addAction(cancle)

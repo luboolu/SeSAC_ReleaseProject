@@ -17,6 +17,11 @@
 "save" = "저장";
 "selectTag" = "분류값을 선택해주세요";
 "select" = "선택";
+"addFolderTitle" = "폴더 추가";
+"addFolderMessage" = "추가할 폴더 이름을 입력해주세요";
+"folderName" = "폴더 이름";
+"add" = "추가";
+"cancle" = "취소";
 
 
 //UserDiary.storyboard

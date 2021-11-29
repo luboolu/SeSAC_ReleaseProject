@@ -14,8 +14,7 @@ class UserAlbumViewController: UIViewController  {
     let imagePickerController = UIImagePickerController()
     let localRealm = try! Realm()
     
-    
-    @IBOutlet weak var timeDiaryTitleLabel: UILabel!
+  
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var albumButton: UIButton!
@@ -37,26 +36,33 @@ class UserAlbumViewController: UIViewController  {
 
         }
         
-        timeDiaryTitleLabel.text = "Time Diary"
-        timeDiaryTitleLabel.font = UIFont().kotra_songeulssi_30
-        timeDiaryTitleLabel.textColor = .black
+//        timeDiaryTitleLabel.text = "Time Diary"
+//        timeDiaryTitleLabel.font = UIFont().kotra_songeulssi_30
+//        timeDiaryTitleLabel.textColor = .black
         
         cameraButton.setTitle(String(format: NSLocalizedString("camera", comment: "카메라로 타임스탬프 이미지 생성")), for: .normal)
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
-        cameraButton.backgroundColor = .white
-        cameraButton.clipsToBounds = true
-        cameraButton.layer.cornerRadius = 10
-        cameraButton.layer.borderWidth = 1
-        cameraButton.layer.borderColor = UIColor.lightGray.cgColor
+        cameraButton.titleLabel?.textColor = .black
+        cameraButton.tintColor = .black
+        cameraButton.backgroundColor = .clear
+        
+
+        //cameraButton.clipsToBounds = true
+        //cameraButton.layer.cornerRadius = 10
+        //cameraButton.layer.borderWidth = 1
+        //cameraButton.layer.borderColor = UIColor.lightGray.cgColor
         
         albumButton.setTitle(String(format: NSLocalizedString("album", comment: "앨범으로 타임스탬프 이미지 생성")), for: .normal)
         albumButton.titleLabel?.font = UIFont().kotra_songeulssi_13
-        albumButton.backgroundColor = .white
-        albumButton.clipsToBounds = true
-        albumButton.layer.cornerRadius = 10
-        albumButton.layer.borderWidth = 1
-        albumButton.layer.borderColor = UIColor.lightGray.cgColor
-        
+        albumButton.titleLabel?.textColor = .black
+        albumButton.tintColor = .black
+        albumButton.backgroundColor = .clear
+
+//        albumButton.clipsToBounds = true
+//        albumButton.layer.cornerRadius = 10
+//        albumButton.layer.borderWidth = 1
+//        albumButton.layer.borderColor = UIColor.lightGray.cgColor
+//
         
         
         

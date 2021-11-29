@@ -17,6 +17,12 @@
 "save" = "save";
 "selectTag" = "select tag";
 "select" = "select";
+"addFolderTitle" = "Add Folder";
+"addFolderMessage" = "Please enter the folder name you want to add";
+"folderName" = "folder name";
+"add" = "add";
+"cancle" = "cancle";
+
 
 //UserDiary.storyboard
 "my diary" = "My Diary";

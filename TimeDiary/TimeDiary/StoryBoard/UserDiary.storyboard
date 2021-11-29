@@ -27,17 +27,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-Jm-yII">
-                                                    <rect key="frame" x="20" y="25.5" width="344.5" height="20.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-Jm-yII">
+                                                    <rect key="frame" x="20" y="8" width="344.5" height="55"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBear_Clear_100" translatesAutoresizingMaskIntoConstraints="NO" id="oP5-bv-mdZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="33" height="55"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="33" id="bfF-pz-4c8"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1L-jf-zNx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="290.5" height="20.5"/>
+                                                            <rect key="frame" x="43" y="0.0" width="247.5" height="55"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrh-x8-qWL">
-                                                            <rect key="frame" x="300.5" y="0.0" width="44" height="20.5"/>
+                                                            <rect key="frame" x="300.5" y="0.0" width="44" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="xmG-a7-LVI"/>
                                                             </constraints>
@@ -51,6 +57,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Qcg-Jm-yII" secondAttribute="trailing" constant="20" id="19a-ZB-MjC"/>
                                                 <constraint firstItem="Qcg-Jm-yII" firstAttribute="centerY" secondItem="HCr-zw-nfa" secondAttribute="centerY" id="5Ea-bu-Hlq"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qcg-Jm-yII" secondAttribute="bottom" constant="8" id="Az3-uO-J1r"/>
+                                                <constraint firstItem="Qcg-Jm-yII" firstAttribute="top" secondItem="HCr-zw-nfa" secondAttribute="top" constant="8" id="GIR-zs-Thg"/>
                                                 <constraint firstItem="Qcg-Jm-yII" firstAttribute="leading" secondItem="HCr-zw-nfa" secondAttribute="leading" constant="20" id="fN0-sj-Po8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -81,6 +89,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TimeBear_Clear_100" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
