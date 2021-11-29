@@ -42,8 +42,8 @@ class UserAlbumViewController: UIViewController  {
         
         cameraButton.setTitle(String(format: NSLocalizedString("camera", comment: "카메라로 타임스탬프 이미지 생성")), for: .normal)
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
-        cameraButton.titleLabel?.textColor = .black
-        cameraButton.tintColor = .black
+        //cameraButton.titleLabel?.textColor = .black
+        //cameraButton.tintColor = .black
         cameraButton.backgroundColor = .clear
         
 
@@ -54,8 +54,8 @@ class UserAlbumViewController: UIViewController  {
         
         albumButton.setTitle(String(format: NSLocalizedString("album", comment: "앨범으로 타임스탬프 이미지 생성")), for: .normal)
         albumButton.titleLabel?.font = UIFont().kotra_songeulssi_13
-        albumButton.titleLabel?.textColor = .black
-        albumButton.tintColor = .black
+        //albumButton.titleLabel?.textColor = .black
+        //albumButton.tintColor = .black
         albumButton.backgroundColor = .clear
 
 //        albumButton.clipsToBounds = true
@@ -64,7 +64,10 @@ class UserAlbumViewController: UIViewController  {
 //        albumButton.layer.borderColor = UIColor.lightGray.cgColor
 //
         
-        
+        //tabbar setting
+        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("image", comment: "이미지")
+
+        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
         
 
 

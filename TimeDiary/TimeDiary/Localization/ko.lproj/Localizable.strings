@@ -9,6 +9,7 @@
 //UserAlbum.storyboard
 "camera" = "카메라";
 "album" = "앨범";
+"image" = "이미지";
 
 //ImageEdit.storyboard
 "next" = "다음";
@@ -22,10 +23,21 @@
 "folderName" = "폴더 이름";
 "add" = "추가";
 "cancle" = "취소";
+"addFolderCancleToast" = "폴더 생성이 취소되었습니다";
+"addFolderFailToast" = "폴더 생성에 실패했습니다";
+"ok" = "네";
+"alert" = "확인";
+"deleteFolderMessage" = "정말 폴더를 삭제하시겠습니까? 폴더의 이미지도 모두 삭제됩니다.";
+
 
 
 //UserDiary.storyboard
+"diary" = "일기장";
 "my diary" = "일기장";
+
+//UserTagAlbumDetail.storyboard
+"deleteDiaryMessage" = "정말 일기를 삭제하시겠습니까?";
+"noDiary" = "작성된 일기가 없습니다!";
 
 //UserSetting.storyboard
 "setting" = "설정";

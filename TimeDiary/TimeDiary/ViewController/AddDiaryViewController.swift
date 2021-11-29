@@ -71,7 +71,6 @@ class AddDiaryViewController: UIViewController {
         //UserTag 데이터 갱신
         try! localRealm.write {
             self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum + 1], update: .modified)
-            
         }
 
         saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
@@ -91,7 +90,7 @@ class AddDiaryViewController: UIViewController {
     }
     
     func createPickerView() {
-        let pickerView = UIPickerView()
+        let pickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: UIScreen.main.bounds.width, height: 200))
         pickerView.delegate = self
         showTagPicker.inputView = pickerView
     }

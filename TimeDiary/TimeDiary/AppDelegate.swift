@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .normal)
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .highlighted)
         UINavigationBar.appearance().titleTextAttributes = [ NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .highlighted)
+        
         //custom font 있는지 없는지 if로 확인해서 실행함
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
         
         return true
     }

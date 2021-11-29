@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-WR-aVg">
-                                <rect key="frame" x="20" y="392" width="374" height="450"/>
+                                <rect key="frame" x="20" y="392" width="374" height="270"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,7 +49,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" constant="20" id="lQT-Mu-WH8"/>
                             <constraint firstItem="PPi-WR-aVg" firstAttribute="top" secondItem="XmX-mg-uos" secondAttribute="bottom" constant="20" id="mW6-F3-tLz"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vKI-Pf-MXp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PPi-WR-aVg" secondAttribute="bottom" constant="20" id="wx0-oL-Xne"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PPi-WR-aVg" secondAttribute="bottom" constant="200" id="wx0-oL-Xne"/>
                         </constraints>
                     </view>
                     <connections>

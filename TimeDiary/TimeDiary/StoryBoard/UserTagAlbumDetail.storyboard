@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-xu-Utc">
-                                <rect key="frame" x="20" y="502" width="374" height="340"/>
+                                <rect key="frame" x="20" y="502" width="374" height="160"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -38,7 +38,7 @@
                             <constraint firstItem="2Fw-xu-Utc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LvV-ZS-AH2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Fw-xu-Utc" secondAttribute="trailing" constant="20" id="SwE-ZD-byY"/>
                             <constraint firstItem="2Fw-xu-Utc" firstAttribute="top" secondItem="9Wv-Lf-WUQ" secondAttribute="bottom" constant="20" id="Xtg-zT-dL8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Fw-xu-Utc" secondAttribute="bottom" constant="20" id="hL8-qE-fdW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Fw-xu-Utc" secondAttribute="bottom" constant="200" id="hL8-qE-fdW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Wv-Lf-WUQ" secondAttribute="trailing" constant="20" id="tRe-E3-NPm"/>
                             <constraint firstItem="9Wv-Lf-WUQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="trz-vu-3HF"/>
                         </constraints>

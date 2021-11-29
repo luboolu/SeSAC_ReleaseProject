@@ -46,20 +46,32 @@ class UserTagAlbumDetailViewController: UIViewController {
     @objc func removeButtonClicked() {
         print(#function)
         
-        let alert = UIAlertController(title: "확인", message: "정말 메모를 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "네", style: .default) {
+        let alert = UIAlertController(title: NSLocalizedString("alert", comment: "확인"), message: NSLocalizedString("deleteDiaryMessage", comment: "일기 삭제"), preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: "네"), style: .default) {
             (action) in
             
-            try! self.localRealm.write {
-
-                self.localRealm.delete(self.tasksDiary)
+            //document에 저장된 이미지 삭제
+            self.deleteImageFromDocumentDirectory(imageName: "\(self.tasksDiary._id).png")
             
+            //UserTag contentNum 업데이트
+            let tagData = self.localRealm.objects(UserTag.self).filter("tag == '\(self.tasksDiary.tag)'").first!
+            
+            //UserTag 데이터 갱신
+            try! self.localRealm.write {
+                self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum - 1], update: .modified)
+            }
+            
+            try! self.localRealm.write {
+                
+                //UserDiary 데이터 삭제
+                self.localRealm.delete(self.tasksDiary)
+  
             }
             
             self.navigationController?.popViewController(animated: true)
             
         }
-        let cancelAction = UIAlertAction(title: "아니요", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default, handler: nil)
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         
@@ -83,6 +95,37 @@ class UserTagAlbumDetailViewController: UIViewController {
         }
         
         return nil
+    }
+    
+    func deleteImageFromDocumentDirectory(imageName: String) {
+        //AddViewController의 saveButtonClicked와 같은 구조
+        
+        //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
+        // Desktop/jack/ios/folder 도큐먼트 폴더의 경로는 계속 변하기 때문에 앙래와 같은 형태로 접근해야 한다.
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        //document에 image 폴더
+        let folderPath =  documentDirectory.appendingPathComponent("timediray_image")
+        
+        //2. 이미지 파일 이름
+        //Desktop/jack/ios/folder/222.png
+        let imageURL = folderPath.appendingPathComponent(imageName)
+        
+        
+        //4. 이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        //4-1. 이미지 경로 여부 확인 (이미 존재한다면 어떻게 할지)
+        
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            
+            //4-2. 기존 경로에 있는 이미지 삭제
+            do {
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제 완료")
+            } catch {
+                print("이미지 삭제 실패")
+            }
+        }
+        
     }
     
 

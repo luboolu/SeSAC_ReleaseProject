@@ -27,6 +27,8 @@
 		DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */; };
 		DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */; };
 		DCCDA48E2754E086002038C0 /* UserTagAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */; };
+		DCCDA49127552F1D002038C0 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA49027552F1D002038C0 /* Toast */; };
+		DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -115,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCDA49127552F1D002038C0 /* Toast in Frameworks */,
+				DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */,
 				DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */,
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
 			);
@@ -284,6 +288,8 @@
 			packageProductDependencies = (
 				DCCECFDE274B8B35002EEABD /* Realm */,
 				DCCECFE0274B8B35002EEABD /* RealmSwift */,
+				DCCDA49027552F1D002038C0 /* Toast */,
+				DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */,
 			);
 			productName = TimeDiary;
 			productReference = DCCECFA327463FB7002EEABD /* TimeDiary.app */;
@@ -316,6 +322,8 @@
 			mainGroup = DCCECF9A27463FB7002EEABD;
 			packageReferences = (
 				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
@@ -618,6 +626,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -629,6 +653,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DCCDA49027552F1D002038C0 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		DCCECFDE274B8B35002EEABD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */;

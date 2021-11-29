@@ -25,7 +25,10 @@ class UserSettingViewController: UIViewController {
         
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("setting", comment: "설정")
         
-        
+        //tabbar setting
+        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("setting", comment: "설정")
+
+        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
     }
 
 }

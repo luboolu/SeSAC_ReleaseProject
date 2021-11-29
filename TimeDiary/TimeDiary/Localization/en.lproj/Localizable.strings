@@ -9,6 +9,7 @@
 //UserAlbum.storyboard
 "camera" = "camera";
 "album" = "album";
+"image" = "image";
 
 //ImageEdit.storyboard
 "next" = "next";
@@ -22,10 +23,21 @@
 "folderName" = "folder name";
 "add" = "add";
 "cancle" = "cancle";
+"addFolderCancleToast" = "Folder creation has been canceled";
+"addFolderFailToast" = "Folder creation has been failed";
+"ok" = "ok";
+"alert" = "alert";
+"deleteFolderMessage" = "Do you really want to delete the folder? All images in the folder will be deleted.";
+
 
 
 //UserDiary.storyboard
+"diary" = "diary";
 "my diary" = "My Diary";
+
+//UserTagAlbumDetail.storyboard
+"deleteDiaryMessage" = "Do you really want to delete the diary?";
+"noDiary" = "There's no diary yet!";
 
 //UserSetting.storyboard
 "setting" = "Setting";
