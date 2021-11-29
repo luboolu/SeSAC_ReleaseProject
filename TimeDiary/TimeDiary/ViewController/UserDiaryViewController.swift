@@ -95,6 +95,8 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row != 0 {
             cell.contentNumLabel.text = "\(row.contentNum)"
             cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
+        } else {
+            cell.contentNumLabel.text = ""
         }
 
         

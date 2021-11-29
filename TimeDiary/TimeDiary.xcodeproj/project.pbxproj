@@ -543,9 +543,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "User's access to the album is required to store the timestamp image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,9 +574,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "User's access to the album is required to store the timestamp image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

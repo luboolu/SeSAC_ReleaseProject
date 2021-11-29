@@ -44,8 +44,8 @@ class UserTagAlbumViewController: UIViewController {
         //collection view flow layout 설정
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 0
-        let width = UIScreen.main.bounds.width - (spacing * 6)
-        layout.itemSize = CGSize(width: width / 5, height: (width / 5))
+        let width = UIScreen.main.bounds.width - (spacing * 4)
+        layout.itemSize = CGSize(width: width / 3, height: (width / 3))
         //print(UIScreen.main.bounds.width, width / 3, width / 3)
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
@@ -53,6 +53,10 @@ class UserTagAlbumViewController: UIViewController {
         layout.scrollDirection = .vertical
         albumCollectionView.collectionViewLayout = layout
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        albumCollectionView.reloadData()
     }
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기

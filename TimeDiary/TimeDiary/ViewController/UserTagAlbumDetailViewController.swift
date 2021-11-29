@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UserTagAlbumDetailViewController: UIViewController {
     
     static let identifier = "UserTagAlbumDetailViewController"
     
+    let localRealm = try! Realm()
+    
     var tasksDiary: UserDiary!
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +30,9 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         self.navigationItem.title = "\(timestamp1) \(timestamp2)"
         // Do any additional setup after loading the view.
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "ellipsis.circle"), style: .plain, target: self, action: #selector(editButtonClicked))
-
+       
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
         
         
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
@@ -37,8 +43,28 @@ class UserTagAlbumDetailViewController: UIViewController {
         
     }
     
-    @objc func editButtonClicked() {
+    @objc func removeButtonClicked() {
         print(#function)
+        
+        let alert = UIAlertController(title: "확인", message: "정말 메모를 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "네", style: .default) {
+            (action) in
+            
+            try! self.localRealm.write {
+
+                self.localRealm.delete(self.tasksDiary)
+            
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+            
+        }
+        let cancelAction = UIAlertAction(title: "아니요", style: .default, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        
+        self.present(alert, animated: false, completion: nil)
     }
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기

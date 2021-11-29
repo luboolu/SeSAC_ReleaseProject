@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>User&apos;s access to the album is required to store the timestamp image</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>KOTRA LEAP_OTF.otf</string>
@@ -15,19 +13,6 @@
 		<false/>
 		<key>UISceneConfigurations</key>
 		<dict>
-			<key>UIWindowSceneSessionRoleExternalDisplay</key>
-			<array>
-				<dict>
-					<key>UISceneClassName</key>
-					<string></string>
-					<key>UISceneDelegateClassName</key>
-					<string></string>
-					<key>UISceneConfigurationName</key>
-					<string></string>
-					<key>UISceneStoryboardFile</key>
-					<string></string>
-				</dict>
-			</array>
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
@@ -37,6 +22,19 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>UserAlbum</string>
+				</dict>
+			</array>
+			<key>UIWindowSceneSessionRoleExternalDisplay</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string></string>
+					<key>UISceneConfigurationName</key>
+					<string></string>
+					<key>UISceneDelegateClassName</key>
+					<string></string>
+					<key>UISceneStoryboardFile</key>
+					<string></string>
 				</dict>
 			</array>
 		</dict>
