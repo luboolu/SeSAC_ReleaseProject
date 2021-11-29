@@ -24,34 +24,30 @@
                                     <constraint firstAttribute="width" constant="254" id="mWy-2i-fhm"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BOp-sF-kzg">
-                                <rect key="frame" x="20" y="338" width="374" height="44"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="GcG-qh-yFi"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-WR-aVg">
-                                <rect key="frame" x="20" y="402" width="374" height="440"/>
+                                <rect key="frame" x="20" y="392" width="374" height="450"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분류를 선택해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XmX-mg-uos">
+                                <rect key="frame" x="20" y="338" width="374" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PPi-WR-aVg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="8ql-xb-8vS"/>
-                            <constraint firstItem="BOp-sF-kzg" firstAttribute="top" secondItem="bZ3-mb-tn0" secondAttribute="bottom" constant="20" id="ASP-l0-FwN"/>
-                            <constraint firstItem="BOp-sF-kzg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LD0-Kc-z6W"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Nyu-X9-wX2"/>
+                            <constraint firstItem="XmX-mg-uos" firstAttribute="top" secondItem="bZ3-mb-tn0" secondAttribute="bottom" constant="20" id="V30-4W-bUb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XmX-mg-uos" secondAttribute="trailing" constant="20" id="f5i-WB-T5Y"/>
+                            <constraint firstItem="XmX-mg-uos" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="isV-cp-tI3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" constant="20" id="lQT-Mu-WH8"/>
-                            <constraint firstItem="PPi-WR-aVg" firstAttribute="top" secondItem="BOp-sF-kzg" secondAttribute="bottom" constant="20" id="lWh-Qp-2Fc"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BOp-sF-kzg" secondAttribute="trailing" constant="20" id="nH5-Be-vlm"/>
+                            <constraint firstItem="PPi-WR-aVg" firstAttribute="top" secondItem="XmX-mg-uos" secondAttribute="bottom" constant="20" id="mW6-F3-tLz"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vKI-Pf-MXp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PPi-WR-aVg" secondAttribute="bottom" constant="20" id="wx0-oL-Xne"/>
                         </constraints>
@@ -59,7 +55,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="PPi-WR-aVg" id="abA-K1-BEK"/>
                         <outlet property="imageView" destination="bZ3-mb-tn0" id="g4y-RA-UZz"/>
-                        <outlet property="titleTextView" destination="BOp-sF-kzg" id="dXE-Rd-INm"/>
+                        <outlet property="showTagPicker" destination="XmX-mg-uos" id="hn7-Xu-QZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

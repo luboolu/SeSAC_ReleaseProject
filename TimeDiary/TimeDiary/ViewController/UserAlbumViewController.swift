@@ -25,6 +25,17 @@ class UserAlbumViewController: UIViewController  {
         //Realm 파일 위치
         print("Realm is loacaed at: ", localRealm.configuration.fileURL!)
         
+        //UserTag 테이블에 데이터가 없으면 기본 데이터인 All을 추가
+        let task = localRealm.objects(UserTag.self)
+        
+        if task.count == 0 {
+            let data = UserTag(tag: "All", contentNum: 0)
+            
+            try! localRealm.write {
+                localRealm.add(data)
+            }
+
+        }
         
         timeDiaryTitleLabel.text = "Time Diary"
         timeDiaryTitleLabel.font = UIFont().kotra_songeulssi_30

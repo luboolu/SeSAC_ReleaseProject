@@ -232,8 +232,6 @@ class ImageEditViewController: UIViewController {
             // UI 업데이트 후 실행되는 코드
         }
 
-        
-        
     }
     
     func designUpdate() {
@@ -260,6 +258,12 @@ class ImageEditViewController: UIViewController {
             
         } else if self.stampDesignName == .Stamp_3 {
             self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_4 {
+            self.customView = Stamp_4(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_5 {
+            self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor)
             
         } else {
             
@@ -340,6 +344,10 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
             self.stampDesignName = .Stamp_2
         } else if indexPath.row == 2 {
             self.stampDesignName = .Stamp_3
+        } else if indexPath.row == 3 {
+            self.stampDesignName = .Stamp_4
+        } else if indexPath.row == 4 {
+            self.stampDesignName = .Stamp_5
         } else {
             
         }

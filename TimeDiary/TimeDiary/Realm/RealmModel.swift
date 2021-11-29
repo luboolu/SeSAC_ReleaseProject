@@ -12,7 +12,6 @@ import RealmSwift
 //@persisted: 컬럼 이름
 class UserDiary: Object {
 
-    @Persisted var title: String?   //다이어리 제목
     @Persisted var content: String? //다이어리 내용
     @Persisted var date = Date()    //날짜
     @Persisted var tag: String      //타임스탬프 분류
@@ -21,13 +20,13 @@ class UserDiary: Object {
     //PK(필수) : Int, String, UUID, ObjectID ->
     @Persisted(primaryKey: true) var _id: ObjectId
     
-    convenience init(title: String?, content: String?, date: Date) {
+    convenience init(content: String?, date: Date, tag: String) {
         
         self.init()
         
-        self.title = title
         self.content = content
         self.date = date
+        self.tag = tag
         
 
     }
