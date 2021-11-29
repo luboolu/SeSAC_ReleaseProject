@@ -55,7 +55,23 @@ class UserTagAlbumViewController: UIViewController {
         
     }
     
+    //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기
+    func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
+        
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        //document에 image 폴더 만들기
+        let folderPath =  documentDirectory.appendingPathComponent("timediray_image")
+        
 
+        let imageURL = URL(fileURLWithPath: folderPath.absoluteString).appendingPathComponent(imageName)
+        
+        if let image = UIImage(contentsOfFile: imageURL.path) {
+            return image
+        }
+        
+        return nil
+    }
 
 }
 
@@ -71,10 +87,31 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
         }
         
         let row = tasksDiary[indexPath.row]
+
         
-        cell.albumImageView.image = row.
+        if let image = loadImageFromDocumentDirectory(imageName: "\(row._id).png") {
+            cell.albumImageView.image = image
+        }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        //컬렉션뷰 선택되면 화면전환
+        let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
+        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumDetailViewController.identifier) as? UserTagAlbumDetailViewController {
+            
+            
+            vc.tasksDiary = self.tasksDiary[indexPath.row]
+            vc.modalPresentationStyle = .fullScreen
+                
+            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     

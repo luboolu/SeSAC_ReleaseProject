@@ -25,6 +25,8 @@
 		DCCDA4842754D05C002038C0 /* TagAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA4832754D05C002038C0 /* TagAlbumTableViewCell.swift */; };
 		DCCDA4892754D20C002038C0 /* TagAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA4872754D20C002038C0 /* TagAlbumCollectionViewCell.swift */; };
 		DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */; };
+		DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */; };
+		DCCDA48E2754E086002038C0 /* UserTagAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -75,6 +77,8 @@
 		DCCDA4832754D05C002038C0 /* TagAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagAlbumTableViewCell.swift; path = TimeDiary/TableViewCell/TagAlbumTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DCCDA4872754D20C002038C0 /* TagAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserTagAlbumDetail.storyboard; sourceTree = "<group>"; };
+		DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTagAlbumDetailViewController.swift; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				DCCECFD2274B48B8002EEABD /* UserDiary.storyboard */,
 				DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */,
 				DCCDA46E27546CA7002038C0 /* UserTagAlbum.storyboard */,
+				DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				DCCECFD8274B4B60002EEABD /* UserSettingViewController.swift */,
 				DCCECFE5274B9DBF002EEABD /* UserDiaryViewController.swift */,
 				DCCDA47027546CCA002038C0 /* UserTagAlbumViewController.swift */,
+				DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
 				DCCDA46F27546CA7002038C0 /* UserTagAlbum.storyboard in Resources */,
 				DCCDA46D27533A1B002038C0 /* Stamp_5.xib in Resources */,
+				DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */,
 				DCCDA46727533815002038C0 /* Stamp_4.xib in Resources */,
 				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
 				DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */,
@@ -358,6 +365,7 @@
 				DCCDA4892754D20C002038C0 /* TagAlbumCollectionViewCell.swift in Sources */,
 				DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */,
 				DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */,
+				DCCDA48E2754E086002038C0 /* UserTagAlbumDetailViewController.swift in Sources */,
 				DCCDA4842754D05C002038C0 /* TagAlbumTableViewCell.swift in Sources */,
 				DCCDA47127546CCA002038C0 /* UserTagAlbumViewController.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
