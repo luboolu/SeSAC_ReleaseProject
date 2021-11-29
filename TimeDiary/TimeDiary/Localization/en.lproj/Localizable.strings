@@ -16,6 +16,7 @@
 //AddDiary.storyboard
 "save" = "save";
 "selectTag" = "select tag";
+"select" = "select";
 
 //UserDiary.storyboard
 "my diary" = "My Diary";

@@ -58,19 +58,27 @@ class AddDiaryViewController: UIViewController {
             tag = showTagPicker.text!
         }
         
-
+        //UserDiary에 데이터 추가
         let content = contentTextView.text
-        
         let data = UserDiary(content: content, date: Date(), tag: tag)
         
         try! localRealm.write {
             localRealm.add(data)
+        }
+        print(tag)
+        let tagData = localRealm.objects(UserTag.self).filter("tag == '\(tag)'").first!
+        print(tagData)
+        //UserTag 데이터 갱신
+        try! localRealm.write {
+            self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum + 1], update: .modified)
+            
         }
 
         saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
         
         //Activity View Controller present
         let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
+        vc.popoverPresentationController?.sourceView = self.view
         self.present(vc, animated: true, completion: nil)
 
 
@@ -78,7 +86,8 @@ class AddDiaryViewController: UIViewController {
     
     @objc func dismissPicker() {
         print(#function)
-        self.view.endEditing(true)
+        //self.view.endEditing(true)
+        showTagPicker.resignFirstResponder()
     }
     
     func createPickerView() {
@@ -88,24 +97,25 @@ class AddDiaryViewController: UIViewController {
     }
     
     func dismissPickerView() {
-        let toolBar = UIToolbar()
+        let toolBar = UIToolbar(frame: showTagPicker.frame)
+        toolBar.barStyle = .default
         toolBar.sizeToFit()
-
-        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.dismissPicker))
+        
+        let button = UIBarButtonItem(title: String(NSLocalizedString("select", comment: "pickerview select")), style: .plain, target: self, action: #selector(self.dismissPicker))
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBar.setItems([flexSpace, button], animated: true)
         toolBar.isUserInteractionEnabled = true
+        
         showTagPicker.inputAccessoryView = toolBar
 
     }
     
+
+
+
+    
     func saveImageToDocumentDirectory(imageName: String, image: UIImage) {
-        
-
-
-
-
         //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
         // Desktop/jack/ios/folder 도큐먼트 폴더의 경로는 계속 변하기 때문에 앙래와 같은 형태로 접근해야 한다.
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }

@@ -16,6 +16,7 @@
 //AddDiary.storyboard
 "save" = "저장";
 "selectTag" = "분류값을 선택해주세요";
+"select" = "선택";
 
 
 //UserDiary.storyboard

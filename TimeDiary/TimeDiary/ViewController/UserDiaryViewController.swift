@@ -14,7 +14,8 @@ class UserDiaryViewController: UIViewController {
     
     let localRealm = try! Realm()
     
-    var tasks: Results<UserTag>!
+    var tasksTag: Results<UserTag>!
+    var tasksDiary: Results<UserDiary>!
     
     @IBOutlet weak var diaryTagTableView: UITableView!
     
@@ -24,7 +25,8 @@ class UserDiaryViewController: UIViewController {
         diaryTagTableView.delegate = self
         diaryTagTableView.dataSource = self
 
-        tasks = localRealm.objects(UserTag.self).sorted(byKeyPath: "tag", ascending: false)
+        tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
+        tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
         
         
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
@@ -33,6 +35,10 @@ class UserDiaryViewController: UIViewController {
         
 
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        diaryTagTableView.reloadData()
     }
 
     @objc func addTagButtonClicked(_ sender: UIButton) {
@@ -68,7 +74,7 @@ class UserDiaryViewController: UIViewController {
 extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return tasksTag.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,15 +87,35 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let row = tasks[indexPath.row]
+        let row = tasksTag[indexPath.row]
         
         cell.tagLabel.text = row.tag
         cell.tagLabel.font = UIFont().kotra_songeulssi_13
         
-        cell.contentNumLabel.text = "\(row.contentNum)"
-        cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
+        if indexPath.row != 0 {
+            cell.contentNumLabel.text = "\(row.contentNum)"
+            cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
+        }
+
         
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        //테이블뷰 선택되면 화면전환
+        let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
+        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
+            
+            
+            vc.tagData = self.tasksTag[indexPath.row]
+            vc.modalPresentationStyle = .fullScreen
+                
+            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     

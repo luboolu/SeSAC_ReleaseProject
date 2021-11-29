@@ -22,6 +22,9 @@
 		DCCDA46D27533A1B002038C0 /* Stamp_5.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA46C27533A1B002038C0 /* Stamp_5.xib */; };
 		DCCDA46F27546CA7002038C0 /* UserTagAlbum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA46E27546CA7002038C0 /* UserTagAlbum.storyboard */; };
 		DCCDA47127546CCA002038C0 /* UserTagAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA47027546CCA002038C0 /* UserTagAlbumViewController.swift */; };
+		DCCDA4842754D05C002038C0 /* TagAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA4832754D05C002038C0 /* TagAlbumTableViewCell.swift */; };
+		DCCDA4892754D20C002038C0 /* TagAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA4872754D20C002038C0 /* TagAlbumCollectionViewCell.swift */; };
+		DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -68,13 +71,16 @@
 		DCCDA46C27533A1B002038C0 /* Stamp_5.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_5.xib; sourceTree = "<group>"; };
 		DCCDA46E27546CA7002038C0 /* UserTagAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserTagAlbum.storyboard; sourceTree = "<group>"; };
 		DCCDA47027546CCA002038C0 /* UserTagAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTagAlbumViewController.swift; sourceTree = "<group>"; };
+		DCCDA4812754C036002038C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCCDA4832754D05C002038C0 /* TagAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagAlbumTableViewCell.swift; path = TimeDiary/TableViewCell/TagAlbumTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		DCCDA4872754D20C002038C0 /* TagAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DCCECFAA27463FB7002EEABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCCECFAF27463FB9002EEABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCCECFB227463FB9002EEABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DCCECFB427463FB9002EEABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCCECFC027465233002EEABD /* UserAlbum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAlbum.storyboard; sourceTree = "<group>"; };
 		DCCECFC2274652DD002EEABD /* UserAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlbumViewController.swift; sourceTree = "<group>"; };
 		DCCECFC42746855C002EEABD /* ImageEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageEdit.storyboard; sourceTree = "<group>"; };
@@ -144,9 +150,9 @@
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
 				DCCECFD0274B4764002EEABD /* identifier.swift */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
+				DCCDA4812754C036002038C0 /* Info.plist */,
 				DCCECFAA27463FB7002EEABD /* ViewController.swift */,
 				DCCECFAF27463FB9002EEABD /* Assets.xcassets */,
-				DCCECFB427463FB9002EEABD /* Info.plist */,
 			);
 			path = TimeDiary;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 				DCCECFCE274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift */,
 				DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */,
 				DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */,
+				DCCDA4872754D20C002038C0 /* TagAlbumCollectionViewCell.swift */,
+				DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			children = (
 				DCCECFE7274BA3B5002EEABD /* DiaryTagTableViewCell.swift */,
 				DCCECFE9274BD061002EEABD /* SettingTableViewCell.swift */,
+				DCCDA4832754D05C002038C0 /* TagAlbumTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
 				DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */,
+				DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
@@ -345,8 +355,10 @@
 			files = (
 				DCCECFD9274B4B60002EEABD /* UserSettingViewController.swift in Sources */,
 				DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */,
+				DCCDA4892754D20C002038C0 /* TagAlbumCollectionViewCell.swift in Sources */,
 				DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */,
 				DC3B443F274FD1BC009C07D3 /* UIColor+Extension.swift in Sources */,
+				DCCDA4842754D05C002038C0 /* TagAlbumTableViewCell.swift in Sources */,
 				DCCDA47127546CCA002038C0 /* UserTagAlbumViewController.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
 				DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */,
