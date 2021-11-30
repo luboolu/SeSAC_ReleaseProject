@@ -7,20 +7,26 @@
 
 import UIKit
 import RealmSwift
+import Toast
 
 class AddDiaryViewController: UIViewController {
     
     static let identifier = "AddDiaryViewController"
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var showTagTitle: UILabel!
+    @IBOutlet weak var contentTitle: UILabel!
+    
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var showTagPicker: UITextField!
     
+    var tasks: Results<UserTag>!
     var selectedImage = UIImage()
+    var selectedDate = Date()
+    var style = ToastStyle()
     
     let localRealm = try! Realm()
-    
-    var tasks: Results<UserTag>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +42,28 @@ class AddDiaryViewController: UIViewController {
         createPickerView()
         dismissPickerView()
 
-        print(selectedImage.size.width, selectedImage.size.height)
+        //print(selectedImage.size.width, selectedImage.size.height)
         imageView.backgroundColor = .systemPink
         imageView.image = selectedImage
+        
+        showTagTitle.text = NSLocalizedString("folder", comment: "폴더")
+        showTagTitle.font = UIFont().kotra_songeulssi_13
+        
+        contentTitle.text = NSLocalizedString("content", comment: "내용")
+        contentTitle.font = UIFont().kotra_songeulssi_13
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
         
         
-        contentTextView.text = "content"
+        contentTextView.text = ""
         contentTextView.font = UIFont().kotra_songeulssi_13
+        contentTextView.clipsToBounds = true
+        contentTextView.layer.cornerRadius = 10
+        
+        // this is just one of many style options
+        self.style.messageColor = .white
+        self.style.backgroundColor = .lightGray
+        self.style.messageFont = UIFont().kotra_songeulssi_13
         
     }
     
@@ -52,7 +71,7 @@ class AddDiaryViewController: UIViewController {
         print(#function)
         print(showTagPicker.text)
         //image, diary 저장
-        var tag = "All"
+        var tag = NSLocalizedString("notClassified", comment: "미분류")
         
         if showTagPicker.text! != "" {
             tag = showTagPicker.text!
@@ -60,7 +79,7 @@ class AddDiaryViewController: UIViewController {
         
         //UserDiary에 데이터 추가
         let content = contentTextView.text
-        let data = UserDiary(content: content, date: Date(), tag: tag)
+        let data = UserDiary(content: content, date: self.selectedDate, tag: tag)
         
         try! localRealm.write {
             localRealm.add(data)
@@ -79,6 +98,24 @@ class AddDiaryViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
         vc.popoverPresentationController?.sourceView = self.view
         self.present(vc, animated: true, completion: nil)
+
+
+        
+        vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
+                
+            } else {
+                print("취소")
+                
+            }
+            if let shareError = error {
+                print(shareError)
+                self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+                
+            }
+            
+        }
 
 
     }

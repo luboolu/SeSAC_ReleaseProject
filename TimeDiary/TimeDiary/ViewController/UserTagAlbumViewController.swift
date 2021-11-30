@@ -15,24 +15,48 @@ class UserTagAlbumViewController: UIViewController {
     let localRealm = try! Realm()
     
     var tagData: UserTag!
+    var selectedTag: String!
     var tasksDiary: Results<UserDiary>!
-    
     
     @IBOutlet weak var albumCollectionView: UICollectionView!
     
+    @IBOutlet weak var guideLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tagData.tag)
+        
+        
+        
         // Do any additional setup after loading the view.
+        if tagData != nil {
+            self.navigationItem.title = "\(tagData.tag)"
+        } else {
+            self.navigationItem.title = NSLocalizedString("all", comment: "전체")
+        }
         
-        self.navigationItem.title = "\(tagData.tag)"
         
         
-        if tagData.tag == "All" {
+        if selectedTag == "All" {
             tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
         } else {
             tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'")
         }
+        
+        //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
+        if tasksDiary.count == 0 {
+            albumCollectionView.isHidden = true
+            guideLabel.isHidden = false
+            
+            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
+            guideLabel.font = UIFont().kotra_songeulssi_13
+            
+            
+        } else {
+            albumCollectionView.isHidden = false
+            guideLabel.isHidden = true
+        }
+        
+        
         
         albumCollectionView.delegate = self
         albumCollectionView.dataSource = self
@@ -57,6 +81,20 @@ class UserTagAlbumViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         albumCollectionView.reloadData()
+        
+        //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
+        if tasksDiary.count == 0 {
+            albumCollectionView.isHidden = true
+            guideLabel.isHidden = false
+            
+            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
+            guideLabel.font = UIFont().kotra_songeulssi_13
+            
+            
+        } else {
+            albumCollectionView.isHidden = false
+            guideLabel.isHidden = true
+        }
     }
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기

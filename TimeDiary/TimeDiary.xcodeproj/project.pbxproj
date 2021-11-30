@@ -29,6 +29,7 @@
 		DCCDA48E2754E086002038C0 /* UserTagAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */; };
 		DCCDA49127552F1D002038C0 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA49027552F1D002038C0 /* Toast */; };
 		DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */; };
+		DCCDA49727567715002038C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA49927567715002038C0 /* InfoPlist.strings */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
 		DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFAA27463FB7002EEABD /* ViewController.swift */; };
@@ -81,6 +82,8 @@
 		DCCDA4882754D20C002038C0 /* TagAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserTagAlbumDetail.storyboard; sourceTree = "<group>"; };
 		DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTagAlbumDetailViewController.swift; sourceTree = "<group>"; };
+		DCCDA49827567715002038C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCCDA49A27567718002038C0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DCCECFA327463FB7002EEABD /* TimeDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCECFA627463FB7002EEABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCECFA827463FB7002EEABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
 				DCCECFD0274B4764002EEABD /* identifier.swift */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
+				DCCDA49927567715002038C0 /* InfoPlist.strings */,
 				DCCDA4812754C036002038C0 /* Info.plist */,
 				DCCECFAA27463FB7002EEABD /* ViewController.swift */,
 				DCCECFAF27463FB9002EEABD /* Assets.xcassets */,
@@ -348,6 +352,7 @@
 				DCCDA46D27533A1B002038C0 /* Stamp_5.xib in Resources */,
 				DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */,
 				DCCDA46727533815002038C0 /* Stamp_4.xib in Resources */,
+				DCCDA49727567715002038C0 /* InfoPlist.strings in Resources */,
 				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
 				DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */,
 				DCCDA46327528ABC002038C0 /* Stamp_3.xib in Resources */,
@@ -401,6 +406,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DCCDA49927567715002038C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCCDA49827567715002038C0 /* en */,
+				DCCDA49A27567718002038C0 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DCCECFB127463FB9002EEABD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -546,24 +560,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "User's access to the album is required to store the timestamp image";
+				INFOPLIST_KEY_CFBundleDisplayName = "타임베어";
+				INFOPLIST_KEY_NSCameraUsageDescription = "생성한 타임스탬프 이미지를 앨범에 저장하기 위해 사용자의 앨범 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "타임스탬프 이미지를 만들기 위해 사용자의 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -577,24 +593,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "편집할 이미지 촬영하기 위해 필요한 권한";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "User's access to the album is required to store the timestamp image";
+				INFOPLIST_KEY_CFBundleDisplayName = "타임베어";
+				INFOPLIST_KEY_NSCameraUsageDescription = "생성한 타임스탬프 이미지를 앨범에 저장하기 위해 사용자의 앨범 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "타임스탬프 이미지를 만들기 위해 사용자의 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = UserAlbum;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

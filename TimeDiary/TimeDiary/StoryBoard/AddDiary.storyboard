@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,46 +25,93 @@
                                     <constraint firstAttribute="width" constant="254" id="mWy-2i-fhm"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="content" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-WR-aVg">
-                                <rect key="frame" x="20" y="392" width="374" height="270"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="분류를 선택해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XmX-mg-uos">
-                                <rect key="frame" x="20" y="338" width="374" height="34"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tG8-Yz-g2u">
+                                <rect key="frame" x="20" y="338" width="374" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폴더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbZ-71-Ixa">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                        <color key="tintColor" name="bear"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="3mz-sv-8hR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="bear"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="폴더를 선택해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XmX-mg-uos">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="33"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="XmX-mg-uos" firstAttribute="leading" secondItem="tG8-Yz-g2u" secondAttribute="leading" id="8QS-vd-2Ve"/>
+                                    <constraint firstAttribute="trailing" secondItem="XmX-mg-uos" secondAttribute="trailing" id="9Cg-Wm-baW"/>
+                                    <constraint firstAttribute="trailing" secondItem="TbZ-71-Ixa" secondAttribute="trailing" id="FLn-nL-bPb"/>
+                                    <constraint firstItem="TbZ-71-Ixa" firstAttribute="leading" secondItem="tG8-Yz-g2u" secondAttribute="leading" id="gsn-Sf-ou5"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hl8-pl-a7i">
+                                <rect key="frame" x="20" y="419" width="374" height="423"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6q-b9-EOc">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                        <color key="tintColor" name="bear"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="3vd-WT-4Qq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="bear"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-WR-aVg">
+                                        <rect key="frame" x="0.0" y="30" width="374" height="393"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="X6q-b9-EOc" secondAttribute="trailing" id="KMA-bu-lLw"/>
+                                    <constraint firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" id="LbE-Vx-yXl"/>
+                                    <constraint firstItem="X6q-b9-EOc" firstAttribute="leading" secondItem="Hl8-pl-a7i" secondAttribute="leading" id="QCE-6g-o1d"/>
+                                    <constraint firstItem="PPi-WR-aVg" firstAttribute="leading" secondItem="Hl8-pl-a7i" secondAttribute="leading" id="io0-TM-P6g"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PPi-WR-aVg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="8ql-xb-8vS"/>
+                            <constraint firstItem="Hl8-pl-a7i" firstAttribute="top" secondItem="tG8-Yz-g2u" secondAttribute="bottom" constant="20" id="GVa-qK-AVG"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Nyu-X9-wX2"/>
-                            <constraint firstItem="XmX-mg-uos" firstAttribute="top" secondItem="bZ3-mb-tn0" secondAttribute="bottom" constant="20" id="V30-4W-bUb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XmX-mg-uos" secondAttribute="trailing" constant="20" id="f5i-WB-T5Y"/>
-                            <constraint firstItem="XmX-mg-uos" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="isV-cp-tI3"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" constant="20" id="lQT-Mu-WH8"/>
-                            <constraint firstItem="PPi-WR-aVg" firstAttribute="top" secondItem="XmX-mg-uos" secondAttribute="bottom" constant="20" id="mW6-F3-tLz"/>
+                            <constraint firstItem="tG8-Yz-g2u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="QfY-FA-cc9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Hl8-pl-a7i" secondAttribute="bottom" constant="20" id="RBc-7Y-Wlb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Hl8-pl-a7i" secondAttribute="trailing" constant="20" id="c33-9l-mod"/>
                             <constraint firstItem="bZ3-mb-tn0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vKI-Pf-MXp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PPi-WR-aVg" secondAttribute="bottom" constant="200" id="wx0-oL-Xne"/>
+                            <constraint firstItem="Hl8-pl-a7i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="yPF-v7-5vd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tG8-Yz-g2u" secondAttribute="trailing" constant="20" id="yct-Dy-Hav"/>
+                            <constraint firstItem="tG8-Yz-g2u" firstAttribute="top" secondItem="bZ3-mb-tn0" secondAttribute="bottom" constant="20" id="zNg-TX-0le"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="contentTextView" destination="PPi-WR-aVg" id="abA-K1-BEK"/>
+                        <outlet property="contentTitle" destination="X6q-b9-EOc" id="VDV-MB-lUp"/>
                         <outlet property="imageView" destination="bZ3-mb-tn0" id="g4y-RA-UZz"/>
                         <outlet property="showTagPicker" destination="XmX-mg-uos" id="hn7-Xu-QZI"/>
+                        <outlet property="showTagTitle" destination="TbZ-71-Ixa" id="JIU-Og-q3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="96"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="bear">
+            <color red="0.36816237761340209" green="0.18432279486880374" blue="0.034639532891628196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

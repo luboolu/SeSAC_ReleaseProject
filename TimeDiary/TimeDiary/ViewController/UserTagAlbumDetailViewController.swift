@@ -32,7 +32,10 @@ class UserTagAlbumDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
        
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
+        
+        self.navigationItem.rightBarButtonItems = [trashButton, editButton]
         
         
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
@@ -40,6 +43,8 @@ class UserTagAlbumDetailViewController: UIViewController {
         contentView.isEditable = false
         contentView.text = tasksDiary.content
         contentView.font = UIFont().kotra_songeulssi_13
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 10
         
     }
     
@@ -77,6 +82,42 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         
         self.present(alert, animated: false, completion: nil)
+    }
+    
+    @objc func editButtonClicked() {
+        print(#function)
+        
+        contentView.isEditable = true
+        
+        let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "저장"), style: .plain, target: self, action: #selector(saveButtonClicked))
+
+        
+        self.navigationItem.rightBarButtonItems = [saveButton]
+        self.navigationController?.navigationBar.tintColor = UIColor().red
+        
+    
+        
+        
+    }
+    
+    @objc func saveButtonClicked() {
+        print(#function)
+        
+        contentView.isEditable = false
+        
+        try! localRealm.write {
+            self.localRealm.create(UserDiary.self, value: ["_id": self.tasksDiary._id, "content": contentView.text], update: .modified)
+        }
+        
+        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
+        
+        self.navigationItem.rightBarButtonItems = [trashButton, editButton]
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+        
+        
+
+        
     }
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기

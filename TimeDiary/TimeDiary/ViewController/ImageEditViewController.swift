@@ -32,6 +32,7 @@ class ImageEditViewController: UIViewController {
     var customView: UIView! //타임스탬프 디자인을 담을 view
     var stampDesignName = StampDesign.Stamp_1 //디자인 초기값
     var stampDesignColor = UIColor.white //디자인 색상 초기값
+    var stampDate = Date()
     
 
     override func viewDidLoad() {
@@ -155,6 +156,7 @@ class ImageEditViewController: UIViewController {
                 self.timeStampView.drawHierarchy(in: self.timeStampView.bounds, afterScreenUpdates: true)
             }
             vc.selectedImage = image
+            vc.selectedDate = self.stampDate
             vc.modalPresentationStyle = .fullScreen
                 
             //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
@@ -242,14 +244,16 @@ class ImageEditViewController: UIViewController {
             self.customView.removeFromSuperview()
         }
         
-        print(UIScreen.main)
-        print("timestampview:\(self.timeStampView.frame)")
-        print("designview   :\(self.designView.frame)")
-        print("scrollview   :\(self.scrollView.frame)")
-        print("imageview    :\(self.imageView.frame)")
+//        print(UIScreen.main)
+//        print("timestampview:\(self.timeStampView.frame)")
+//        print("designview   :\(self.designView.frame)")
+//        print("scrollview   :\(self.scrollView.frame)")
+//        print("imageview    :\(self.imageView.frame)")
         
         //self.designView.frame = self.timeStampView.frame
 
+        self.stampDate = Date()
+        
         if self.stampDesignName == .Stamp_1 {
             self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor)
 

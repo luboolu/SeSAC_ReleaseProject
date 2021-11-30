@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  TimeDiary
+
+  Created by 김진영 on 2021/12/01.
+  
+*/
+
+"CFBundleDisplayName" = "TimeBear";
+
+"NSCameraUsageDescription" = "To create a timestamp image we need user's camera access permission";
+"NSPhotoLibraryAddUsageDescription" = "To save the generated timestamp image in the album we need user's access permission";
+

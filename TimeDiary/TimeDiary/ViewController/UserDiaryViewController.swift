@@ -32,6 +32,8 @@ class UserDiaryViewController: UIViewController {
         tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
         
         
+        
+        
         //navigationbar setting
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
         
@@ -46,9 +48,7 @@ class UserDiaryViewController: UIViewController {
         self.style.messageColor = .white
         self.style.backgroundColor = .lightGray
         self.style.messageFont = UIFont().kotra_songeulssi_13
-        
 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,12 +114,43 @@ class UserDiaryViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    func deleteImageFromDocumentDirectory(imageName: String) {
+        //AddViewController의 saveButtonClicked와 같은 구조
+        
+        //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
+        // Desktop/jack/ios/folder 도큐먼트 폴더의 경로는 계속 변하기 때문에 앙래와 같은 형태로 접근해야 한다.
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        //document에 image 폴더
+        let folderPath =  documentDirectory.appendingPathComponent("timediray_image")
+        
+        //2. 이미지 파일 이름
+        //Desktop/jack/ios/folder/222.png
+        let imageURL = folderPath.appendingPathComponent(imageName)
+        
+        
+        //4. 이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        //4-1. 이미지 경로 여부 확인 (이미 존재한다면 어떻게 할지)
+        
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            
+            //4-2. 기존 경로에 있는 이미지 삭제
+            do {
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제 완료")
+            } catch {
+                print("이미지 삭제 실패")
+            }
+        }
+        
+    }
 }
 
 extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasksTag.count
+        return tasksTag.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,17 +163,21 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let row = tasksTag[indexPath.row]
-        
-        cell.tagLabel.text = row.tag
-        cell.tagLabel.font = UIFont().kotra_songeulssi_13
-        
-        if indexPath.row != 0 {
+        if indexPath.row == 0 {
+            //전체 cell
+            cell.tagLabel.text = NSLocalizedString("all", comment: "전체")
+            cell.tagLabel.font = UIFont().kotra_songeulssi_13
+            cell.contentNumLabel.text = ""
+        } else {
+            let row = tasksTag[indexPath.row - 1]
+            
+            cell.tagLabel.text = row.tag
+            cell.tagLabel.font = UIFont().kotra_songeulssi_13
+            
             cell.contentNumLabel.text = "\(row.contentNum)"
             cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
-        } else {
-            cell.contentNumLabel.text = ""
         }
+        
 
         
         return cell
@@ -156,8 +191,14 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
         if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
             
+            if indexPath.row == 0 {
+                vc.selectedTag = "All"
+            } else {
+                vc.selectedTag = self.tasksTag[indexPath.row - 1].tag
+                vc.tagData = self.tasksTag[indexPath.row - 1]
+            }
             
-            vc.tagData = self.tasksTag[indexPath.row]
+            
             vc.modalPresentationStyle = .fullScreen
                 
             //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
@@ -167,8 +208,11 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        //일단 스와이프 자체를 비활성화 시켜둠
-        return false
+        if indexPath.row <= 1 {
+            return false
+        } else {
+            return true
+        }
     }
     
     //오른쪽 스와이프 - 폴더 삭제 기능
@@ -181,9 +225,21 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
             let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: "네"), style: .default) {
                 (action) in
                 
+                let tasks = self.localRealm.objects(UserDiary.self).filter("tag = '\(self.tasksTag[indexPath.row - 1].tag)'")
+                print(tasks)
+                //기기에 저장된 이미지 삭제
+                if tasks.count != 0 {
+                    for i in 0...tasks.count - 1 {
+                        print(tasks[i]._id)
+                        self.deleteImageFromDocumentDirectory(imageName: "\(tasks[i]._id).png")
+                    }
+                }
+                
+                //Realm에서 삭제
                 try! self.localRealm.write {
                     
-                    self.localRealm.delete(self.tasksTag[indexPath.row])
+                    self.localRealm.delete(self.tasksTag[indexPath.row - 1])
+                    self.localRealm.delete(tasks)
                     
                     //self.localRealm.delete(self.tasksDiary.filter())
                     

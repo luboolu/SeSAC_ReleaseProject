@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  TimeDiary
+
+  Created by 김진영 on 2021/12/01.
+  
+*/
+
+"CFBundleDisplayName" = "타임베어";
+
+"NSCameraUsageDescription" = "타임스탬프 이미지를 만들기 위해 사용자의 카메라 권한이 필요합니다 ";
+"NSPhotoLibraryAddUsageDescription" = "생성한 타임스탬프 이미지를 앨범에 저장하기 위해 사용자의 앨범 접근 권한이 필요합니다";

@@ -28,22 +28,20 @@ class UserAlbumViewController: UIViewController  {
         let task = localRealm.objects(UserTag.self)
         
         if task.count == 0 {
-            let data = UserTag(tag: "All", contentNum: 0)
+            let allData = UserTag(tag: NSLocalizedString("all", comment: "전체"), contentNum: 0)
+            let notClassifiedData = UserTag(tag: NSLocalizedString("notClassified", comment: "미분류"), contentNum: 0)
+            
             
             try! localRealm.write {
-                localRealm.add(data)
+                //localRealm.add(allData)
+                localRealm.add(notClassifiedData)
             }
 
         }
         
-//        timeDiaryTitleLabel.text = "Time Diary"
-//        timeDiaryTitleLabel.font = UIFont().kotra_songeulssi_30
-//        timeDiaryTitleLabel.textColor = .black
-        
+
         cameraButton.setTitle(String(format: NSLocalizedString("camera", comment: "카메라로 타임스탬프 이미지 생성")), for: .normal)
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
-        //cameraButton.titleLabel?.textColor = .black
-        //cameraButton.tintColor = .black
         cameraButton.backgroundColor = .clear
         
 
@@ -66,6 +64,8 @@ class UserAlbumViewController: UIViewController  {
         
         //tabbar setting
         tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("image", comment: "이미지")
+        
+
 
         tabBarController?.tabBar.tintColor = UIColor(named: "bear")
         

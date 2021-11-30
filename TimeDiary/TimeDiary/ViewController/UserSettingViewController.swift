@@ -14,7 +14,8 @@ class UserSettingViewController: UIViewController {
     @IBOutlet weak var settingLabel: UILabel!
     @IBOutlet weak var settingTableView: UITableView!
     
-    let settingList = [["백업하기", "복구하기"], ["개인정보처리방침", "앱 버전"]]
+    //let settingList = [["백업하기", "복구하기"], ["개인정보처리방침", "앱 버전"]]
+    let settingList = [[NSLocalizedString("privacy", comment: "개인정보처리방침"), NSLocalizedString("appVersion", comment: "앱 버전")]]
     
 
     override func viewDidLoad() {
