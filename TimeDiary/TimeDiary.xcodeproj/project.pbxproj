@@ -38,6 +38,9 @@
 		DC927FAC27576A45005A919B /* DungGeunMo.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FAB27576A45005A919B /* DungGeunMo.otf */; };
 		DC927FAE27576CD6005A919B /* JejuMyeongjoOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FAD27576CD6005A919B /* JejuMyeongjoOTF.otf */; };
 		DC927FB227576EB3005A919B /* Kyobo Handwriting 2019.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FB127576EB3005A919B /* Kyobo Handwriting 2019.otf */; };
+		DC927FB427579C1D005A919B /* UserAppVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FB327579C1D005A919B /* UserAppVersionViewController.swift */; };
+		DC927FB62757A196005A919B /* OpenSourceLicense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */; };
+		DC927FB82757A1A7005A919B /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */; };
 		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
 		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
 		DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46027522CD6002038C0 /* Date+Extension.swift */; };
@@ -119,6 +122,10 @@
 		DC927FAB27576A45005A919B /* DungGeunMo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DungGeunMo.otf; sourceTree = "<group>"; };
 		DC927FAD27576CD6005A919B /* JejuMyeongjoOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JejuMyeongjoOTF.otf; sourceTree = "<group>"; };
 		DC927FB127576EB3005A919B /* Kyobo Handwriting 2019.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kyobo Handwriting 2019.otf"; sourceTree = "<group>"; };
+		DC927FB327579C1D005A919B /* UserAppVersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppVersionViewController.swift; sourceTree = "<group>"; };
+		DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenSourceLicense.storyboard; sourceTree = "<group>"; };
+		DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
+		DC927FB92757BA08005A919B /* PrivacyPolicy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
 		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCDA46027522CD6002038C0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -214,6 +221,7 @@
 				DCCECFBA27463FD0002EEABD /* StoryBoard */,
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
 				DCCECFD0274B4764002EEABD /* identifier.swift */,
+				DC927FB92757BA08005A919B /* PrivacyPolicy.html */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
 				DCCDA49927567715002038C0 /* InfoPlist.strings */,
 				DCCDA4812754C036002038C0 /* Info.plist */,
@@ -235,6 +243,7 @@
 				DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */,
 				DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */,
 				DC927F6B27570E53005A919B /* UserAppVersion.storyboard */,
+				DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -249,6 +258,8 @@
 				DCCECFE5274B9DBF002EEABD /* UserDiaryViewController.swift */,
 				DCCDA47027546CCA002038C0 /* UserTagAlbumViewController.swift */,
 				DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */,
+				DC927FB327579C1D005A919B /* UserAppVersionViewController.swift */,
+				DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -459,6 +470,7 @@
 				DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */,
 				DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */,
 				DC927FA6275766F2005A919B /* KOTRA HOPE_OTF.otf in Resources */,
+				DC927FB62757A196005A919B /* OpenSourceLicense.storyboard in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
@@ -492,6 +504,7 @@
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DC927F882757529A005A919B /* Stamp_12.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
+				DC927FB82757A1A7005A919B /* OpenSourceLicenseViewController.swift in Sources */,
 				DCCDA46527528ACE002038C0 /* Stamp_3.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
 				DC927F9027575718005A919B /* Stamp_14.swift in Sources */,
@@ -505,6 +518,7 @@
 				DCCDA46927533822002038C0 /* Stamp_4.swift in Sources */,
 				DCCECFE8274BA3B5002EEABD /* DiaryTagTableViewCell.swift in Sources */,
 				DCCECFCD27492574002EEABD /* AddDiaryViewController.swift in Sources */,
+				DC927FB427579C1D005A919B /* UserAppVersionViewController.swift in Sources */,
 				DCCECFD1274B4765002EEABD /* identifier.swift in Sources */,
 				DCCECFC3274652DE002EEABD /* UserAlbumViewController.swift in Sources */,
 				DCCED000274E974B002EEABD /* Stamp_1.swift in Sources */,

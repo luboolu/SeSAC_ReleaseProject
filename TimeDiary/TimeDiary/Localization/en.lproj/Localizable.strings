@@ -53,4 +53,7 @@
 //UserSetting.storyboard
 "setting" = "Setting";
 "privacy" = "privacy";
+"openSourceLicense" = "opensource license";
 "appVersion" = "app version";
+"needUpdate" = "need update";
+"notNeedUpdate" = "latest version";
