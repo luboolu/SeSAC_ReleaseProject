@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import Toast
+import Photos
 
 class UserTagAlbumDetailViewController: UIViewController {
     
@@ -130,8 +131,30 @@ class UserTagAlbumDetailViewController: UIViewController {
     
     
     @IBAction func shareButtonClicked(_ sender: UIButton) {
-        
         print(#function)
+        
+        let requiredAccessLevel: PHAccessLevel = .addOnly
+        
+        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { (status) in
+            print("***** Status: \(status)")
+            switch status {
+            case .limited:
+                print("limited authorization granted")
+            case .authorized:
+                print("authorization granted")
+            case .denied:
+                DispatchQueue.global().async {
+                    // UI 업데이트 전 실행되는 코드
+                    DispatchQueue.main.sync {
+                        //self.dismiss(animated: true, completion: nil)
+                        self.settingAlert()
+                    }
+                }
+            default: //FIXME: Implement handling for all authorizationStatus
+                print("Unimplemented")
+
+            }
+        }
         
         let image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
 
@@ -207,6 +230,25 @@ class UserTagAlbumDetailViewController: UIViewController {
             }
         }
         
+    }
+    
+    func settingAlert() {
+        print(#function)
+        if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
+            let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
+            let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            }
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok", comment: "확인"), style: .default) { action in
+                
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            
+            alert.addAction(cancleAction)
+            alert.addAction(confirmAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 

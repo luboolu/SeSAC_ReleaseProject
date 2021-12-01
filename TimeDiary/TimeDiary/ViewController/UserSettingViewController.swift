@@ -68,6 +68,16 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         //테이블뷰 선택되면 화면전환
         if indexPath.row == 0 {
             
+            let st = UIStoryboard(name: "Privacy", bundle: nil)
+            if let vc = st.instantiateViewController(withIdentifier: PrivacyViewController.identifier) as? PrivacyViewController {
+                
+                
+                vc.modalPresentationStyle = .fullScreen
+                    
+                //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
         } else if indexPath.row == 1 {
             
             let st = UIStoryboard(name: "OpenSourceLicense", bundle: nil)

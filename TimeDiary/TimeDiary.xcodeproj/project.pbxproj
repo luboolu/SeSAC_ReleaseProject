@@ -41,6 +41,8 @@
 		DC927FB427579C1D005A919B /* UserAppVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FB327579C1D005A919B /* UserAppVersionViewController.swift */; };
 		DC927FB62757A196005A919B /* OpenSourceLicense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */; };
 		DC927FB82757A1A7005A919B /* OpenSourceLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */; };
+		DC927FBB2757BA8F005A919B /* Privacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC927FBA2757BA8F005A919B /* Privacy.storyboard */; };
+		DC927FBD2757BA9A005A919B /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FBC2757BA9A005A919B /* PrivacyViewController.swift */; };
 		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
 		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
 		DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46027522CD6002038C0 /* Date+Extension.swift */; };
@@ -126,6 +128,8 @@
 		DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OpenSourceLicense.storyboard; sourceTree = "<group>"; };
 		DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceLicenseViewController.swift; sourceTree = "<group>"; };
 		DC927FB92757BA08005A919B /* PrivacyPolicy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
+		DC927FBA2757BA8F005A919B /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
+		DC927FBC2757BA9A005A919B /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCDA46027522CD6002038C0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				DCCECFD4274B48C5002EEABD /* UserSetting.storyboard */,
 				DC927F6B27570E53005A919B /* UserAppVersion.storyboard */,
 				DC927FB52757A196005A919B /* OpenSourceLicense.storyboard */,
+				DC927FBA2757BA8F005A919B /* Privacy.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */,
 				DC927FB327579C1D005A919B /* UserAppVersionViewController.swift */,
 				DC927FB72757A1A7005A919B /* OpenSourceLicenseViewController.swift */,
+				DC927FBC2757BA9A005A919B /* PrivacyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DC927F8627574BE4005A919B /* Stamp_11.xib in Resources */,
 				DC927F7E27574010005A919B /* Stamp_9.xib in Resources */,
+				DC927FBB2757BA8F005A919B /* Privacy.storyboard in Resources */,
 				DC927F8A275752A5005A919B /* Stamp_12.xib in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
 				DC927FAC27576A45005A919B /* DungGeunMo.otf in Resources */,
@@ -510,6 +517,7 @@
 				DC927F9027575718005A919B /* Stamp_14.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
 				DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */,
+				DC927FBD2757BA9A005A919B /* PrivacyViewController.swift in Sources */,
 				DC927F8C2757546D005A919B /* Stamp_13.swift in Sources */,
 				DC927F7627573DC0005A919B /* Stamp_8.swift in Sources */,
 				DCCDA46B27533A0F002038C0 /* Stamp_5.swift in Sources */,

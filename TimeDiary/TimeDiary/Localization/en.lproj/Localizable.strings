@@ -38,9 +38,12 @@
 "cancle" = "cancle";
 "addFolderCancleToast" = "Folder creation has been canceled";
 "addFolderFailToast" = "Folder creation has been failed";
+"addFolderLongName" = "Please enter it in 15 letters or less";
+"addFolderEmptyName" = "Please enter a text that's not blank";
 "ok" = "ok";
 "alert" = "alert";
 "deleteFolderMessage" = "Do you really want to delete the folder? All images in the folder will be deleted.";
+
 
 //UserTagAlbum.storyboard
 "guide" = "Please make a timestamp image!";
@@ -52,7 +55,7 @@
 
 //UserSetting.storyboard
 "setting" = "Setting";
-"privacy" = "privacy";
+"privacy" = "privacy policy";
 "openSourceLicense" = "opensource license";
 "appVersion" = "app version";
 "needUpdate" = "need update";

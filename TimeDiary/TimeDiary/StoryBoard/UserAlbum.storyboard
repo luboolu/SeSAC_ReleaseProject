@@ -18,53 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="L46-sn-PQM">
-                                <rect key="frame" x="50" y="437" width="328" height="129"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4UC-BW-ir7">
+                                <rect key="frame" x="50" y="245" width="328" height="436"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBearTitle2" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-V6-t3u">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="328"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Nwp-V6-t3u" secondAttribute="height" id="aWa-9D-JB7"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSI-d2-Rvt">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="55"/>
+                                        <rect key="frame" x="20" y="338" width="288" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="qJR-B7-fRG"/>
+                                            <constraint firstAttribute="height" constant="44" id="dNl-JH-KFi"/>
                                         </constraints>
                                         <color key="tintColor" name="bear"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Camera" backgroundImage="buttonBlack"/>
+                                        <state key="normal" title="Camera"/>
                                         <connections>
                                             <action selector="cameraOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HfK-pQ-OCo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7od-OP-XEd">
-                                        <rect key="frame" x="0.0" y="74" width="328" height="55"/>
+                                        <rect key="frame" x="20" y="392" width="288" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="b0E-qa-Q3P"/>
+                                            <constraint firstAttribute="height" constant="44" id="08o-C7-Jpj"/>
                                         </constraints>
                                         <color key="tintColor" name="bear"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Album" backgroundImage="buttonBlack"/>
+                                        <state key="normal" title="Album"/>
                                         <connections>
                                             <action selector="albumOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="I1q-pg-1dr"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBearTitle2" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-V6-t3u">
-                                <rect key="frame" x="50" y="89" width="328" height="328"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Nwp-V6-t3u" secondAttribute="height" multiplier="1:1" id="JUs-nP-dq3"/>
+                                    <constraint firstAttribute="trailing" secondItem="7od-OP-XEd" secondAttribute="trailing" constant="20" id="0sT-iL-bjX"/>
+                                    <constraint firstItem="zSI-d2-Rvt" firstAttribute="leading" secondItem="4UC-BW-ir7" secondAttribute="leading" constant="20" id="O16-x8-SsI"/>
+                                    <constraint firstAttribute="trailing" secondItem="zSI-d2-Rvt" secondAttribute="trailing" constant="20" id="QPm-Pz-QrZ"/>
+                                    <constraint firstItem="7od-OP-XEd" firstAttribute="leading" secondItem="4UC-BW-ir7" secondAttribute="leading" constant="20" id="Rka-DD-7KG"/>
                                 </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Nwp-V6-t3u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="AD6-CN-AYt"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="L46-sn-PQM" secondAttribute="trailing" constant="50" id="DeO-cH-HK2"/>
-                            <constraint firstItem="L46-sn-PQM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="MoH-rU-nax"/>
-                            <constraint firstItem="L46-sn-PQM" firstAttribute="top" secondItem="Nwp-V6-t3u" secondAttribute="bottom" constant="20" id="RAf-Hu-tz3"/>
-                            <constraint firstItem="Nwp-V6-t3u" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="1" id="wIF-nW-TSx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nwp-V6-t3u" secondAttribute="trailing" constant="50" id="ztb-TE-Vrs"/>
+                            <constraint firstAttribute="trailing" secondItem="4UC-BW-ir7" secondAttribute="trailing" constant="50" id="A0a-8V-aKs"/>
+                            <constraint firstItem="4UC-BW-ir7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XGr-EP-vRv"/>
+                            <constraint firstItem="4UC-BW-ir7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="fYl-rI-9lG"/>
+                            <constraint firstItem="4UC-BW-ir7" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="lOK-Kj-KBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eyY-Vu-vVw"/>
@@ -184,7 +188,6 @@
     <resources>
         <image name="TimeBearTitle2" width="1080" height="1080"/>
         <image name="TimeBear_Clear_25" width="25" height="25"/>
-        <image name="buttonBlack" width="2035" height="479"/>
         <namedColor name="bear">
             <color red="0.36800000071525574" green="0.18400000035762787" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

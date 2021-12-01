@@ -41,6 +41,8 @@
 "cancle" = "취소";
 "addFolderCancleToast" = "폴더 생성이 취소되었습니다";
 "addFolderFailToast" = "폴더 생성에 실패했습니다";
+"addFolderLongName" = "15자 이하로 입력해주세요";
+"addFolderEmptyName" = "공백이 아닌 문자를 입력해주세요";
 "ok" = "네";
 "alert" = "확인";
 "deleteFolderMessage" = "정말 폴더를 삭제하시겠습니까? 폴더의 이미지도 모두 삭제됩니다.";

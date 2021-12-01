@@ -73,25 +73,32 @@ class UserDiaryViewController: UIViewController {
         let ok = UIAlertAction(title: NSLocalizedString("add", comment: "추가"), style: .default) { ok in
             //ok 버튼이 눌리면 textField에 입력된 값을 UserTag에 추가
             if let tag = alert.textFields?[0].text {
-                //1.UserTag에 존재하지 않는 값이 입력된 경우 - 성공
-                let searchTag = self.localRealm.objects(UserTag.self).filter("tag = '\(tag)'")
-                
-                if searchTag.count == 0 {
-                    //성공
-                    let data = UserTag(tag: tag, contentNum: 0)
-                    
-                    try! self.localRealm.write {
-                        self.localRealm.add(data)
-                        self.diaryTagTableView.reloadData()
-                    }
-                } else {
-                    //실패 - 중복 존재
+                //if tag 길이가 15자 이상인 경우
+                if tag.count > 15 {
                     // present the toast with the new style
-                    self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: self.style)
+                    self.view.makeToast(NSLocalizedString("addFolderLongName", comment: "폴더 생성 실패 - 이름 길어서") ,duration: 2.0, position: .bottom, style: self.style)
+                } else {
+                    //1.UserTag에 존재하지 않는 값이 입력된 경우 - 성공
+                    let searchTag = self.localRealm.objects(UserTag.self).filter("tag = '\(tag)'")
+                    
+                    if searchTag.count == 0 {
+                        //성공
+                        let data = UserTag(tag: tag, contentNum: 0)
+                        
+                        try! self.localRealm.write {
+                            self.localRealm.add(data)
+                            self.diaryTagTableView.reloadData()
+                        }
+                    } else {
+                        //실패 - 중복 존재
+                        // present the toast with the new style
+                        self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: self.style)
+                    }
+                    //2.UserTag에 존재하는 값이 입력된 경우 - 실패
+                    
+                    //2-1. "" 공백값이 입력된 경우 - 실패
                 }
-                //2.UserTag에 존재하는 값이 입력된 경우 - 실패
-                
-                //2-1. "" 공백값이 입력된 경우 - 실패
+
             } else {
                 // present the toast with the new style
                 self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: self.style)

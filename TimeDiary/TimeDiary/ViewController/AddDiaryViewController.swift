@@ -142,12 +142,10 @@ class AddDiaryViewController: UIViewController {
                 DispatchQueue.global().async {
                     // UI 업데이트 전 실행되는 코드
                     DispatchQueue.main.sync {
-                        self.dismiss(animated: true, completion: nil)
+                        //self.dismiss(animated: true, completion: nil)
                         self.settingAlert()
                     }
                 }
-
-
             default: //FIXME: Implement handling for all authorizationStatus
                 print("Unimplemented")
 
