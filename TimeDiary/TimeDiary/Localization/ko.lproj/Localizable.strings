@@ -48,6 +48,7 @@
 //UserTagAlbumDetail.storyboard
 "deleteDiaryMessage" = "정말 일기를 삭제하시겠습니까?";
 "noDiary" = "작성된 일기가 없습니다!";
+"editSave" = "저장되었습니다";
 
 //UserSetting.storyboard
 "setting" = "설정";

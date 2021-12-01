@@ -96,9 +96,9 @@ class AddDiaryViewController: UIViewController {
         
         //Activity View Controller present
         let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
+
         vc.popoverPresentationController?.sourceView = self.view
         self.present(vc, animated: true, completion: nil)
-
 
         
         vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in

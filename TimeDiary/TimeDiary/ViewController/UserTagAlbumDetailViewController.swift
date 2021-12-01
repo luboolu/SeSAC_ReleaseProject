@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Toast
 
 class UserTagAlbumDetailViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class UserTagAlbumDetailViewController: UIViewController {
     let localRealm = try! Realm()
     
     var tasksDiary: UserDiary!
+    var style = ToastStyle()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
@@ -46,6 +48,11 @@ class UserTagAlbumDetailViewController: UIViewController {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 10
         
+        // this is just one of many style options
+        self.style.messageColor = .white
+        self.style.backgroundColor = .lightGray
+        self.style.messageFont = UIFont().kotra_songeulssi_13
+        
     }
     
     @objc func removeButtonClicked() {
@@ -76,6 +83,7 @@ class UserTagAlbumDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             
         }
+        
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default, handler: nil)
         alert.addAction(okAction)
         alert.addAction(cancelAction)
@@ -115,9 +123,8 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [trashButton, editButton]
         self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
         
-        
+        self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
 
-        
     }
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기

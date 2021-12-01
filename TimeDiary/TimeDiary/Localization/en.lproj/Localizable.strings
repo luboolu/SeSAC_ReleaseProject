@@ -46,6 +46,7 @@
 //UserTagAlbumDetail.storyboard
 "deleteDiaryMessage" = "Do you really want to delete the diary?";
 "noDiary" = "There's no diary yet!";
+"editSave" = "saved";
 
 //UserSetting.storyboard
 "setting" = "Setting";

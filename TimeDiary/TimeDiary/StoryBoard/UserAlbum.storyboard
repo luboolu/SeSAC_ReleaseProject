@@ -117,8 +117,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="bear"/>
-                        <color key="barTintColor" name="bear"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="bear"/>
                     </tabBar>
                     <connections>
                         <segue destination="etY-x1-rLA" kind="relationship" relationship="viewControllers" id="bDe-p2-Rfi"/>
@@ -185,7 +186,7 @@
         <image name="TimeBear_Clear_25" width="25" height="25"/>
         <image name="buttonBlack" width="2035" height="479"/>
         <namedColor name="bear">
-            <color red="0.61574614049999998" green="0.31011876459999999" blue="0.06481476873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.36800000071525574" green="0.18400000035762787" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

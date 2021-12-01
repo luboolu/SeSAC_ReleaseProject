@@ -269,6 +269,24 @@ class ImageEditViewController: UIViewController {
         } else if self.stampDesignName == .Stamp_5 {
             self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor)
             
+        } else if self.stampDesignName == .Stamp_6 {
+            self.customView = Stamp_6(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_7 {
+            self.customView = Stamp_7(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_8 {
+            self.customView = Stamp_8(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_9 {
+            self.customView = Stamp_9(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_10 {
+            self.customView = Stamp_10(frame: self.designView.frame, color: self.stampDesignColor)
+            
+        } else if self.stampDesignName == .Stamp_11 {
+            self.customView = Stamp_11(frame: self.designView.frame, color: self.stampDesignColor)
+            
         } else {
             
         }
@@ -286,7 +304,7 @@ class ImageEditViewController: UIViewController {
 
 extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -352,6 +370,18 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
             self.stampDesignName = .Stamp_4
         } else if indexPath.row == 4 {
             self.stampDesignName = .Stamp_5
+        } else if indexPath.row == 5 {
+            self.stampDesignName = .Stamp_6
+        } else if indexPath.row == 6 {
+            self.stampDesignName = .Stamp_7
+        } else if indexPath.row == 7 {
+            self.stampDesignName = .Stamp_8
+        } else if indexPath.row == 8 {
+            self.stampDesignName = .Stamp_9
+        } else if indexPath.row == 9 {
+            self.stampDesignName = .Stamp_10
+        } else if indexPath.row == 10 {
+            self.stampDesignName = .Stamp_11
         } else {
             
         }
