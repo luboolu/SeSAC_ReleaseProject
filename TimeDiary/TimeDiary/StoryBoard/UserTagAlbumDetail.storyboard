@@ -4,6 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,21 +26,37 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-xu-Utc">
-                                <rect key="frame" x="20" y="502" width="374" height="160"/>
+                                <rect key="frame" x="20" y="502" width="374" height="156"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-UN-Ce9">
+                                <rect key="frame" x="347.5" y="668" width="46.5" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="psL-nZ-UVh"/>
+                                </constraints>
+                                <color key="tintColor" name="bear"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shareButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K7a-wz-2HE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0Ew-UN-Ce9" secondAttribute="bottom" constant="150" id="2dK-2k-ma2"/>
                             <constraint firstItem="9Wv-Lf-WUQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Gow-24-NKF"/>
                             <constraint firstItem="2Fw-xu-Utc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LvV-ZS-AH2"/>
+                            <constraint firstItem="0Ew-UN-Ce9" firstAttribute="top" secondItem="2Fw-xu-Utc" secondAttribute="bottom" constant="10" id="SNg-cs-DO5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Fw-xu-Utc" secondAttribute="trailing" constant="20" id="SwE-ZD-byY"/>
                             <constraint firstItem="2Fw-xu-Utc" firstAttribute="top" secondItem="9Wv-Lf-WUQ" secondAttribute="bottom" constant="20" id="Xtg-zT-dL8"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Fw-xu-Utc" secondAttribute="bottom" constant="200" id="hL8-qE-fdW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0Ew-UN-Ce9" secondAttribute="trailing" constant="20" id="Yfu-bZ-dV7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Wv-Lf-WUQ" secondAttribute="trailing" constant="20" id="tRe-E3-NPm"/>
                             <constraint firstItem="9Wv-Lf-WUQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="trz-vu-3HF"/>
                         </constraints>
@@ -73,6 +91,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="bear">
+            <color red="0.36800000071525574" green="0.18400000035762787" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

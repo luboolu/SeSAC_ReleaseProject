@@ -34,7 +34,8 @@ class Stamp_1 : UIView {
 
         contentLabel1.text = "\(timestamp1) \(timestamp2)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont().kotra_leap_30
+        contentLabel1.font = UIFont(name: "Kyobo Handwriting 2019", size: 35)
+        
         //text field의 글자가 모두 보이는지 확인하고, 보이지 않는다면 글자의 크기를 조정하여 모두 보이게 함
         if contentLabel1.adjustsFontSizeToFitWidth == false {
             contentLabel1.adjustsFontSizeToFitWidth = true

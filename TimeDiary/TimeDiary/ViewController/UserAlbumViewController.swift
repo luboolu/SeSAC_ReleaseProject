@@ -8,6 +8,8 @@
 import UIKit
 import PhotosUI
 import RealmSwift
+import Network
+import AVFoundation
 
 class UserAlbumViewController: UIViewController  {
     
@@ -80,7 +82,26 @@ class UserAlbumViewController: UIViewController  {
         self.imagePickerController.delegate = self
         self.imagePickerController.sourceType = .camera
         
-        self.present(self.imagePickerController, animated: true, completion: nil)
+        
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+            if granted {
+                DispatchQueue.global().async {
+                    // UI 업데이트 전 실행되는 코드
+                    DispatchQueue.main.sync {
+                        self.present(self.imagePickerController, animated: true, completion: nil)
+                    }
+                }
+            } else {
+                DispatchQueue.global().async {
+                    // UI 업데이트 전 실행되는 코드
+                    DispatchQueue.main.sync {
+                        self.settingAlert()
+                    }
+                }
+            }
+        })
+        
+
     }
     
     //사용자의 앨범에서 편집할 사진을 선택
@@ -96,8 +117,24 @@ class UserAlbumViewController: UIViewController  {
         
         self.present(picker, animated: true, completion: nil)
 
-
-        
+    }
+    
+    func settingAlert() {
+        if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
+            let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
+            let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            }
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok", comment: "확인"), style: .default) { action in
+                
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            
+            alert.addAction(cancleAction)
+            alert.addAction(confirmAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

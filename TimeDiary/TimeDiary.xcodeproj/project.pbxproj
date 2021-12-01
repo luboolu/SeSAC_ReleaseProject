@@ -24,6 +24,20 @@
 		DC927F82275744BA005A919B /* Stamp_10.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F81275744BA005A919B /* Stamp_10.xib */; };
 		DC927F8427574BDB005A919B /* Stamp_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927F8327574BDB005A919B /* Stamp_11.swift */; };
 		DC927F8627574BE4005A919B /* Stamp_11.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F8527574BE4005A919B /* Stamp_11.xib */; };
+		DC927F882757529A005A919B /* Stamp_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927F872757529A005A919B /* Stamp_12.swift */; };
+		DC927F8A275752A5005A919B /* Stamp_12.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F89275752A5005A919B /* Stamp_12.xib */; };
+		DC927F8C2757546D005A919B /* Stamp_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927F8B2757546D005A919B /* Stamp_13.swift */; };
+		DC927F8E27575476005A919B /* Stamp_13.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F8D27575476005A919B /* Stamp_13.xib */; };
+		DC927F9027575718005A919B /* Stamp_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927F8F27575718005A919B /* Stamp_14.swift */; };
+		DC927F9227575720005A919B /* Stamp_14.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F9127575720005A919B /* Stamp_14.xib */; };
+		DC927F9427575930005A919B /* Stamp_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927F9327575930005A919B /* Stamp_15.swift */; };
+		DC927F9627575938005A919B /* Stamp_15.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC927F9527575938005A919B /* Stamp_15.xib */; };
+		DC927F9827575C0D005A919B /* HeirofLightOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927F9727575C0D005A919B /* HeirofLightOTFBold.otf */; };
+		DC927FA6275766F2005A919B /* KOTRA HOPE_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FA5275766F1005A919B /* KOTRA HOPE_OTF.otf */; };
+		DC927FAA27576962005A919B /* esamanru OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FA927576962005A919B /* esamanru OTF Bold.otf */; };
+		DC927FAC27576A45005A919B /* DungGeunMo.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FAB27576A45005A919B /* DungGeunMo.otf */; };
+		DC927FAE27576CD6005A919B /* JejuMyeongjoOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FAD27576CD6005A919B /* JejuMyeongjoOTF.otf */; };
+		DC927FB227576EB3005A919B /* Kyobo Handwriting 2019.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC927FB127576EB3005A919B /* Kyobo Handwriting 2019.otf */; };
 		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
 		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
 		DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46027522CD6002038C0 /* Date+Extension.swift */; };
@@ -91,6 +105,20 @@
 		DC927F81275744BA005A919B /* Stamp_10.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_10.xib; sourceTree = "<group>"; };
 		DC927F8327574BDB005A919B /* Stamp_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_11.swift; sourceTree = "<group>"; };
 		DC927F8527574BE4005A919B /* Stamp_11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_11.xib; sourceTree = "<group>"; };
+		DC927F872757529A005A919B /* Stamp_12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_12.swift; sourceTree = "<group>"; };
+		DC927F89275752A5005A919B /* Stamp_12.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_12.xib; sourceTree = "<group>"; };
+		DC927F8B2757546D005A919B /* Stamp_13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_13.swift; sourceTree = "<group>"; };
+		DC927F8D27575476005A919B /* Stamp_13.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_13.xib; sourceTree = "<group>"; };
+		DC927F8F27575718005A919B /* Stamp_14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_14.swift; sourceTree = "<group>"; };
+		DC927F9127575720005A919B /* Stamp_14.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_14.xib; sourceTree = "<group>"; };
+		DC927F9327575930005A919B /* Stamp_15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_15.swift; sourceTree = "<group>"; };
+		DC927F9527575938005A919B /* Stamp_15.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_15.xib; sourceTree = "<group>"; };
+		DC927F9727575C0D005A919B /* HeirofLightOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HeirofLightOTFBold.otf; sourceTree = "<group>"; };
+		DC927FA5275766F1005A919B /* KOTRA HOPE_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA HOPE_OTF.otf"; sourceTree = "<group>"; };
+		DC927FA927576962005A919B /* esamanru OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "esamanru OTF Bold.otf"; sourceTree = "<group>"; };
+		DC927FAB27576A45005A919B /* DungGeunMo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DungGeunMo.otf; sourceTree = "<group>"; };
+		DC927FAD27576CD6005A919B /* JejuMyeongjoOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JejuMyeongjoOTF.otf; sourceTree = "<group>"; };
+		DC927FB127576EB3005A919B /* Kyobo Handwriting 2019.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kyobo Handwriting 2019.otf"; sourceTree = "<group>"; };
 		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCDA46027522CD6002038C0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -278,6 +306,12 @@
 			children = (
 				DCCECFF8274D2D38002EEABD /* KOTRA LEAP_OTF.otf */,
 				DCCECFF6274D2D22002EEABD /* KOTRA_SONGEULSSI.otf */,
+				DC927FA5275766F1005A919B /* KOTRA HOPE_OTF.otf */,
+				DC927F9727575C0D005A919B /* HeirofLightOTFBold.otf */,
+				DC927FA927576962005A919B /* esamanru OTF Bold.otf */,
+				DC927FAB27576A45005A919B /* DungGeunMo.otf */,
+				DC927FAD27576CD6005A919B /* JejuMyeongjoOTF.otf */,
+				DC927FB127576EB3005A919B /* Kyobo Handwriting 2019.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -308,6 +342,14 @@
 				DC927F81275744BA005A919B /* Stamp_10.xib */,
 				DC927F8327574BDB005A919B /* Stamp_11.swift */,
 				DC927F8527574BE4005A919B /* Stamp_11.xib */,
+				DC927F872757529A005A919B /* Stamp_12.swift */,
+				DC927F89275752A5005A919B /* Stamp_12.xib */,
+				DC927F8B2757546D005A919B /* Stamp_13.swift */,
+				DC927F8D27575476005A919B /* Stamp_13.xib */,
+				DC927F8F27575718005A919B /* Stamp_14.swift */,
+				DC927F9127575720005A919B /* Stamp_14.xib */,
+				DC927F9327575930005A919B /* Stamp_15.swift */,
+				DC927F9527575938005A919B /* Stamp_15.xib */,
 			);
 			path = TimeStampDesignView;
 			sourceTree = "<group>";
@@ -390,9 +432,13 @@
 				DCCECFB327463FB9002EEABD /* LaunchScreen.storyboard in Resources */,
 				DC927F8627574BE4005A919B /* Stamp_11.xib in Resources */,
 				DC927F7E27574010005A919B /* Stamp_9.xib in Resources */,
+				DC927F8A275752A5005A919B /* Stamp_12.xib in Resources */,
 				DCCECFB027463FB9002EEABD /* Assets.xcassets in Resources */,
+				DC927FAC27576A45005A919B /* DungGeunMo.otf in Resources */,
 				DC927F7027573A30005A919B /* Stamp_6.xib in Resources */,
 				DCCDA46F27546CA7002038C0 /* UserTagAlbum.storyboard in Resources */,
+				DC927F9827575C0D005A919B /* HeirofLightOTFBold.otf in Resources */,
+				DC927F9227575720005A919B /* Stamp_14.xib in Resources */,
 				DC927F7827573DCA005A919B /* Stamp_8.xib in Resources */,
 				DCCDA46D27533A1B002038C0 /* Stamp_5.xib in Resources */,
 				DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */,
@@ -400,13 +446,19 @@
 				DC927F7227573C71005A919B /* Stamp_7.xib in Resources */,
 				DCCDA49727567715002038C0 /* InfoPlist.strings in Resources */,
 				DCCECFF7274D2D22002EEABD /* KOTRA_SONGEULSSI.otf in Resources */,
+				DC927FAA27576962005A919B /* esamanru OTF Bold.otf in Resources */,
+				DC927F9627575938005A919B /* Stamp_15.xib in Resources */,
 				DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */,
+				DC927FB227576EB3005A919B /* Kyobo Handwriting 2019.otf in Resources */,
+				DC927F8E27575476005A919B /* Stamp_13.xib in Resources */,
 				DCCDA46327528ABC002038C0 /* Stamp_3.xib in Resources */,
 				DCCECFD3274B48B8002EEABD /* UserDiary.storyboard in Resources */,
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
+				DC927FAE27576CD6005A919B /* JejuMyeongjoOTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
 				DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */,
 				DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */,
+				DC927FA6275766F2005A919B /* KOTRA HOPE_OTF.otf in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
@@ -431,17 +483,21 @@
 				DCCDA4842754D05C002038C0 /* TagAlbumTableViewCell.swift in Sources */,
 				DCCDA47127546CCA002038C0 /* UserTagAlbumViewController.swift in Sources */,
 				DCCECFAB27463FB7002EEABD /* ViewController.swift in Sources */,
+				DC927F9427575930005A919B /* Stamp_15.swift in Sources */,
 				DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */,
 				DCCECFEA274BD061002EEABD /* SettingTableViewCell.swift in Sources */,
 				DCCECFC727468568002EEABD /* ImageEditViewController.swift in Sources */,
 				DC927F80275744B3005A919B /* Stamp_10.swift in Sources */,
 				DCCECFDC274B8AF1002EEABD /* RealmModel.swift in Sources */,
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
+				DC927F882757529A005A919B /* Stamp_12.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
 				DCCDA46527528ACE002038C0 /* Stamp_3.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
+				DC927F9027575718005A919B /* Stamp_14.swift in Sources */,
 				DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */,
 				DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */,
+				DC927F8C2757546D005A919B /* Stamp_13.swift in Sources */,
 				DC927F7627573DC0005A919B /* Stamp_8.swift in Sources */,
 				DCCDA46B27533A0F002038C0 /* Stamp_5.swift in Sources */,
 				DCCECFE6274B9DBF002EEABD /* UserDiaryViewController.swift in Sources */,

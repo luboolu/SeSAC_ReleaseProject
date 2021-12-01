@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0w-A2-WzK">
-                    <rect key="frame" x="20" y="995.5" width="1040" height="64.5"/>
+                    <rect key="frame" x="20" y="1005.5" width="1040" height="64.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="54"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="j0w-A2-WzK" secondAttribute="trailing" constant="20" id="3cr-OW-4nt"/>
                 <constraint firstItem="j0w-A2-WzK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Lcc-VC-axY"/>
-                <constraint firstAttribute="bottom" secondItem="j0w-A2-WzK" secondAttribute="bottom" constant="20" id="q86-2H-qTs"/>
+                <constraint firstAttribute="bottom" secondItem="j0w-A2-WzK" secondAttribute="bottom" constant="10" id="q86-2H-qTs"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="116"/>

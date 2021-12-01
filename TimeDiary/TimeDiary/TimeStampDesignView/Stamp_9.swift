@@ -30,11 +30,11 @@ class Stamp_9: UIView {
         
         let date = Date()
         let timestamp1 = DateFormatter.dayFormat5.string(from: date)
-        let timestamp2 = DateFormatter.timeFormat2.string(from: date)
+        let timestamp2 = DateFormatter.timeFormat2_2.string(from: date)
 
         contentLabel1.text = "\(timestamp1) \(timestamp2)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont().kotra_leap_30
+        contentLabel1.font = UIFont(name: "esamanru OTF Bold", size: 30)
         
 
 

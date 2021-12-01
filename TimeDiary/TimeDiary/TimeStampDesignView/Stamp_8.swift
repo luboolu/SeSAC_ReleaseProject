@@ -36,11 +36,11 @@ class Stamp_8: UIView {
 
         contentLabel1.text = "\(timestamp1)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont().kotra_songeulssi_13
+        contentLabel1.font = UIFont(name: "DungGeunMo", size: 35)
         
         contentLabel2.text = "\(timestamp2)"
         contentLabel2.textColor = color
-        contentLabel2.font = UIFont().kotra_songeulssi_30
+        contentLabel2.font = UIFont(name: "DungGeunMo", size: 45)
         
         
         //text field의 글자가 모두 보이는지 확인하고, 보이지 않는다면 글자의 크기를 조정하여 모두 보이게 함

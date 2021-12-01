@@ -8,6 +8,8 @@
 import UIKit
 import RealmSwift
 import Toast
+import Photos
+
 
 class AddDiaryViewController: UIViewController {
     
@@ -69,7 +71,7 @@ class AddDiaryViewController: UIViewController {
     
     @objc func saveButtonClicked() {
         print(#function)
-        print(showTagPicker.text)
+        //print(showTagPicker.text)
         //image, diary 저장
         var tag = NSLocalizedString("notClassified", comment: "미분류")
         
@@ -84,15 +86,17 @@ class AddDiaryViewController: UIViewController {
         try! localRealm.write {
             localRealm.add(data)
         }
-        print(tag)
+        //print(tag)
         let tagData = localRealm.objects(UserTag.self).filter("tag == '\(tag)'").first!
-        print(tagData)
+        //print(tagData)
         //UserTag 데이터 갱신
         try! localRealm.write {
             self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum + 1], update: .modified)
         }
 
         saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
+
+
         
         //Activity View Controller present
         let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
@@ -100,6 +104,57 @@ class AddDiaryViewController: UIViewController {
         vc.popoverPresentationController?.sourceView = self.view
         self.present(vc, animated: true, completion: nil)
 
+        
+        let requiredAccessLevel: PHAccessLevel = .addOnly
+        
+//        switch PHPhotoLibrary.authorizationStatus(for: requiredAccessLevel) {
+//        case .denied:
+//            print("denied")
+//
+//            //DispatchQueue.global().async {
+//                // UI 업데이트 전 실행되는 코드
+//            DispatchQueue.main.async {
+//                //self.dismiss(animated: true, completion: nil)
+//                self.settingAlert()
+//            }
+//            //}
+//        case .restricted:
+//            print("restricted")
+//        case .authorized:
+//            print("authorized")
+//        case .notDetermined:
+//            print("notDetermined")
+//        default:
+//            print("default")
+//
+//        }
+        
+  
+ 
+        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { (status) in
+            print("***** Status: \(status)")
+            switch status {
+            case .limited:
+                print("limited authorization granted")
+            case .authorized:
+                print("authorization granted")
+            case .denied:
+                DispatchQueue.global().async {
+                    // UI 업데이트 전 실행되는 코드
+                    DispatchQueue.main.sync {
+                        self.dismiss(animated: true, completion: nil)
+                        self.settingAlert()
+                    }
+                }
+
+
+            default: //FIXME: Implement handling for all authorizationStatus
+                print("Unimplemented")
+
+            }
+        }
+
+        
         
         vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
@@ -112,7 +167,6 @@ class AddDiaryViewController: UIViewController {
             if let shareError = error {
                 print(shareError)
                 self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
-                
             }
             
         }
@@ -198,9 +252,26 @@ class AddDiaryViewController: UIViewController {
         } catch {
             print("이미지 저장 실패")
         }
-        
-        
-        
+         
+    }
+    
+    func settingAlert() {
+        print(#function)
+        if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
+            let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
+            let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            }
+            let confirmAction = UIAlertAction(title: NSLocalizedString("ok", comment: "확인"), style: .default) { action in
+                
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            
+            alert.addAction(cancleAction)
+            alert.addAction(confirmAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

@@ -118,6 +118,7 @@ class UserTagAlbumDetailViewController: UIViewController {
         }
         
         let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+
         let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
         
         self.navigationItem.rightBarButtonItems = [trashButton, editButton]
@@ -126,6 +127,38 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
 
     }
+    
+    
+    @IBAction func shareButtonClicked(_ sender: UIButton) {
+        
+        print(#function)
+        
+        let image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
+
+        //Activity View Controller present
+        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+
+        vc.popoverPresentationController?.sourceView = self.view
+        self.present(vc, animated: true, completion: nil)
+
+        
+        vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
+                
+            } else {
+                print("취소")
+                
+            }
+            if let shareError = error {
+                print(shareError)
+                self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+                
+            }
+            
+        }
+    }
+    
     
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {

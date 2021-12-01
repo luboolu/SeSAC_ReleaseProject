@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsF-kg-hGS">
-                    <rect key="frame" x="20" y="1039" width="1040" height="21"/>
+                    <rect key="frame" x="20" y="1049" width="1040" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -28,7 +28,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="LsF-kg-hGS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="06q-t6-tsL"/>
-                <constraint firstAttribute="bottom" secondItem="LsF-kg-hGS" secondAttribute="bottom" constant="20" id="2kt-BC-bpm"/>
+                <constraint firstAttribute="bottom" secondItem="LsF-kg-hGS" secondAttribute="bottom" constant="10" id="2kt-BC-bpm"/>
                 <constraint firstAttribute="trailing" secondItem="LsF-kg-hGS" secondAttribute="trailing" constant="20" id="MOZ-Ad-4kd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

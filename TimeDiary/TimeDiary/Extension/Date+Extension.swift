@@ -248,18 +248,32 @@ extension DateFormatter {
         
         return date
     }
+    
+    static var timeFormat2_3: DateFormatter {
+        let date = DateFormatter()
+        date.dateFormat = "H:mm"
+        
+        return date
+    }
 
     //PM 5:25
     static var timeFormat3: DateFormatter {
         let date = DateFormatter()
-        date.dateFormat = "a H:m"
+        date.dateFormat = "a h:m"
+        
+        return date
+    }
+    
+    static var timeFormat3_1: DateFormatter {
+        let date = DateFormatter()
+        date.dateFormat = "a h:mm"
         
         return date
     }
     
     static var timeFormat3_2: DateFormatter {
         let date = DateFormatter()
-        date.dateFormat = "a HH:mm"
+        date.dateFormat = "a hh:mm"
         
         return date
     }

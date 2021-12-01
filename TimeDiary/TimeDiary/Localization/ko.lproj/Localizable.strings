@@ -12,6 +12,7 @@
 "image" = "이미지";
 "all" = "전체";
 "notClassified" = "미분류";
+"accessSetting" = "이(가) 카메라 접근 허용되어있지 않습니다. 설정화면으로 가시겠습니까?";
 
 //ImageEdit.storyboard
 "next" = "다음";
