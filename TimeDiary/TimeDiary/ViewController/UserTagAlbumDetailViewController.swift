@@ -112,20 +112,31 @@ class UserTagAlbumDetailViewController: UIViewController {
     @objc func saveButtonClicked() {
         print(#function)
         
-        contentView.isEditable = false
+        //일기 내용이 1000자 이상이면 저장되지 않도록
+        let content = contentView.text!
         
-        try! localRealm.write {
-            self.localRealm.create(UserDiary.self, value: ["_id": self.tasksDiary._id, "content": contentView.text], update: .modified)
+        if content.count < 1000 {
+            
+            contentView.isEditable = false
+            
+            try! localRealm.write {
+                self.localRealm.create(UserDiary.self, value: ["_id": self.tasksDiary._id, "content": contentView.text], update: .modified)
+            }
+            
+            let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+
+            let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
+            
+            self.navigationItem.rightBarButtonItems = [trashButton, editButton]
+            self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+            
+            self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
+            
+        } else {
+            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
         }
         
-        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
 
-        let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
-        
-        self.navigationItem.rightBarButtonItems = [trashButton, editButton]
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
-        
-        self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
 
     }
     

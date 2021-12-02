@@ -25,6 +25,7 @@
 "error" = "에러!";
 "folder" = "폴더";
 "content" = "내용";
+"longContent" = "1000자 이하로 입력해주세요";
 
 
 //UserTagAlbum.storyboard

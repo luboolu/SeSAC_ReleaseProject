@@ -33,6 +33,7 @@ class AddDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //UserTag Realm 접근
         tasks = localRealm.objects(UserTag.self)
         
@@ -71,103 +72,89 @@ class AddDiaryViewController: UIViewController {
     
     @objc func saveButtonClicked() {
         print(#function)
-        //print(showTagPicker.text)
-        //image, diary 저장
-        var tag = NSLocalizedString("notClassified", comment: "미분류")
         
-        if showTagPicker.text! != "" {
-            tag = showTagPicker.text!
-        }
+        //일기 내용이 1000자 이상이면 저장되지 않도록
+        let content = contentTextView.text!
         
-        //UserDiary에 데이터 추가
-        let content = contentTextView.text
-        let data = UserDiary(content: content, date: self.selectedDate, tag: tag)
-        
-        try! localRealm.write {
-            localRealm.add(data)
-        }
-        //print(tag)
-        let tagData = localRealm.objects(UserTag.self).filter("tag == '\(tag)'").first!
-        //print(tagData)
-        //UserTag 데이터 갱신
-        try! localRealm.write {
-            self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum + 1], update: .modified)
-        }
-
-        saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
-
-
-        
-        //Activity View Controller present
-        let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
-
-        vc.popoverPresentationController?.sourceView = self.view
-        self.present(vc, animated: true, completion: nil)
-
-        
-        let requiredAccessLevel: PHAccessLevel = .addOnly
-        
-//        switch PHPhotoLibrary.authorizationStatus(for: requiredAccessLevel) {
-//        case .denied:
-//            print("denied")
-//
-//            //DispatchQueue.global().async {
-//                // UI 업데이트 전 실행되는 코드
-//            DispatchQueue.main.async {
-//                //self.dismiss(animated: true, completion: nil)
-//                self.settingAlert()
-//            }
-//            //}
-//        case .restricted:
-//            print("restricted")
-//        case .authorized:
-//            print("authorized")
-//        case .notDetermined:
-//            print("notDetermined")
-//        default:
-//            print("default")
-//
-//        }
-        
-  
- 
-        PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { (status) in
-            print("***** Status: \(status)")
-            switch status {
-            case .limited:
-                print("limited authorization granted")
-            case .authorized:
-                print("authorization granted")
-            case .denied:
-                DispatchQueue.global().async {
-                    // UI 업데이트 전 실행되는 코드
-                    DispatchQueue.main.sync {
-                        //self.dismiss(animated: true, completion: nil)
-                        self.settingAlert()
-                    }
-                }
-            default: //FIXME: Implement handling for all authorizationStatus
-                print("Unimplemented")
-
-            }
-        }
-
-        
-        
-        vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
-            if completed {
-                self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
-                
-            } else {
-                print("취소")
-                
-            }
-            if let shareError = error {
-                print(shareError)
-                self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+        if content.count < 1000 {
+            //print(showTagPicker.text)
+            //image, diary 저장
+            var tag = NSLocalizedString("notClassified", comment: "미분류")
+            
+            if showTagPicker.text! != "" {
+                tag = showTagPicker.text!
             }
             
+            //UserDiary에 데이터 추가
+            let data = UserDiary(content: content, date: self.selectedDate, tag: tag)
+            
+            try! localRealm.write {
+                localRealm.add(data)
+            }
+            //print(tag)
+            let tagData = localRealm.objects(UserTag.self).filter("tag == '\(tag)'").first!
+            //print(tagData)
+            //UserTag 데이터 갱신
+            try! localRealm.write {
+                self.localRealm.create(UserTag.self, value: ["_id": tagData._id, "contentNum": tagData.contentNum + 1], update: .modified)
+            }
+
+            saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
+
+
+            
+            //Activity View Controller present
+            let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
+
+            vc.popoverPresentationController?.sourceView = self.view
+            self.present(vc, animated: true, completion: nil)
+
+            
+            let requiredAccessLevel: PHAccessLevel = .addOnly
+     
+            PHPhotoLibrary.requestAuthorization(for: requiredAccessLevel) { (status) in
+                print("***** Status: \(status)")
+                switch status {
+                case .limited:
+                    print("limited authorization granted")
+                case .authorized:
+                    print("authorization granted")
+                case .denied:
+                    DispatchQueue.global().async {
+                        // UI 업데이트 전 실행되는 코드
+                        DispatchQueue.main.sync {
+                            //self.dismiss(animated: true, completion: nil)
+                            self.settingAlert()
+                        }
+                    }
+                default: //FIXME: Implement handling for all authorizationStatus
+                    print("Unimplemented")
+
+                }
+            }
+
+            
+            
+            vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                if completed {
+                    self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
+                    
+                } else {
+                    print("취소")
+                    
+                }
+                if let shareError = error {
+                    print(shareError)
+                    self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+                }
+                
+            }
+        } else {
+            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
         }
+        
+        
+
 
 
     }

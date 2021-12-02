@@ -110,7 +110,7 @@
     </scenes>
     <resources>
         <namedColor name="bear">
-            <color red="0.36816237761340209" green="0.18432279486880374" blue="0.034639532891628196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.36800000071525574" green="0.18400000035762787" blue="0.035000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

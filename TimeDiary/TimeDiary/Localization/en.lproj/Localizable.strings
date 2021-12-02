@@ -26,6 +26,7 @@
 "error" = "error!";
 "folder" = "folder";
 "content" = "content";
+"longContent" = "Please enter less than 1,000 characters.";
 
 
 //UserDiary.storyboard
