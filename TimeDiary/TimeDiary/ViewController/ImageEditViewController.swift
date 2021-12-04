@@ -318,11 +318,6 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeStampDesignCell", for: indexPath) as?
-//                TimeStampDesignCollectionViewCell else {
-//            return UICollectionViewCell()
-//        }
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DesignCollectionViewCell.identifier, for: indexPath) as? DesignCollectionViewCell else {
             return UICollectionViewCell()
             
@@ -409,7 +404,6 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
 
 
 extension ImageEditViewController: UIScrollViewDelegate {
-    
 
    @available(iOS 2.0, *)
    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
