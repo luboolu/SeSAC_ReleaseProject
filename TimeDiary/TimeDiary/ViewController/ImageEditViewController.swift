@@ -213,12 +213,7 @@ class ImageEditViewController: UIViewController {
         self.designUpdate()
     }
     
-    
-    
-    
-    
-    
-    
+
     func setColorButton(button: UIButton, color: UIColor) {
         DispatchQueue.global().async {
             // UI 업데이트 전 실행되는 코드
