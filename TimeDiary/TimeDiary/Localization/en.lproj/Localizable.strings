@@ -13,6 +13,8 @@
 "all" = "all";
 "notClassified" = "not classified";
 "accessSetting" = "app is not allowed to access the camera. Do you want to go to the setting screen?";
+"imageLoadingError" = "error!Please select the image again";
+
 
 
 //ImageEdit.storyboard

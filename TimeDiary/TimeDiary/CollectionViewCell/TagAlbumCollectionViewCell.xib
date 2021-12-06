@@ -20,19 +20,29 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DUV-Gs-Emp">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XTH-0z-jee">
+                        <rect key="frame" x="75" y="5.5" width="20" height="19"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="XTH-0z-jee" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="5a2-iW-JJT"/>
                 <constraint firstAttribute="trailing" secondItem="DUV-Gs-Emp" secondAttribute="trailing" id="9H0-Ox-7VN"/>
                 <constraint firstAttribute="bottom" secondItem="DUV-Gs-Emp" secondAttribute="bottom" id="Bnq-FO-T7U"/>
                 <constraint firstItem="DUV-Gs-Emp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="IGP-4i-kfX"/>
                 <constraint firstItem="DUV-Gs-Emp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S6l-bK-ERq"/>
+                <constraint firstAttribute="trailing" secondItem="XTH-0z-jee" secondAttribute="trailing" constant="5" id="SKu-Jn-Vyr"/>
             </constraints>
             <connections>
                 <outlet property="albumImageView" destination="DUV-Gs-Emp" id="Q17-Ke-IMK"/>
+                <outlet property="selectedButton" destination="XTH-0z-jee" id="a1w-uK-lSX"/>
             </connections>
-            <point key="canvasLocation" x="139" y="105"/>
+            <point key="canvasLocation" x="137.68115942028987" y="104.46428571428571"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

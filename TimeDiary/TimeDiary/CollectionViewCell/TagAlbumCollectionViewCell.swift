@@ -12,6 +12,7 @@ class TagAlbumCollectionViewCell: UICollectionViewCell {
     static let identifier = "TagAlbumCollectionViewCell"
     
     @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var selectedButton: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
