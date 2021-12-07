@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import CoreHaptics
 
 class UserTagAlbumViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class UserTagAlbumViewController: UIViewController {
     var tagData: UserTag!
     var selectedTag: String!
     var tasksDiary: Results<UserDiary>!
+    var hapticFeedbackGenerator: UISelectionFeedbackGenerator?
     
     @IBOutlet weak var albumCollectionView: UICollectionView!
     
@@ -25,6 +27,9 @@ class UserTagAlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //햅틱셀렉션피드백
+        hapticFeedbackGenerator = UISelectionFeedbackGenerator()
+        hapticFeedbackGenerator?.prepare()
         
         
         // Do any additional setup after loading the view.
@@ -33,6 +38,8 @@ class UserTagAlbumViewController: UIViewController {
         } else {
             self.navigationItem.title = NSLocalizedString("all", comment: "전체")
         }
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
         
         
         
@@ -79,6 +86,7 @@ class UserTagAlbumViewController: UIViewController {
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         albumCollectionView.reloadData()
         
@@ -97,6 +105,23 @@ class UserTagAlbumViewController: UIViewController {
         }
     }
     
+    @objc func moveStartButtonClicked() {
+        print(#function)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(moveEndButtonClicked))
+    }
+    
+    @objc func moveEndButtonClicked() {
+        print(#function)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+        movingData()
+    }
+    
+    func movingData() {
+        print(#function)
+    }
+    
+    
+    
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
         
@@ -114,6 +139,31 @@ class UserTagAlbumViewController: UIViewController {
         
         return nil
     }
+    
+    
+//    func generateHapticFeedback(for hapticFeedback: HapticFeedback) {
+//        switch hapticFeedback {
+//        case .selection:
+//            // Initialize Selection Feedback Generator
+//            let feedbackGenerator = UISelectionFeedbackGenerator()
+//
+//            // Trigger Haptic Feedback
+//            feedbackGenerator.selectionChanged()
+//        case .impact(let feedbackStyle):
+//            // Initialize Impact Feedback Generator
+//            let feedbackGenerator = UIImpactFeedbackGenerator(style: feedbackStyle)
+//
+//            // Trigger Haptic Feedback
+//            feedbackGenerator.impactOccurred()
+//        case .notification(let feedbackType):
+//            // Initialize Notification Feedback Generator
+//            let feedbackGenerator = UINotificationFeedbackGenerator()
+//
+//            // Trigger Haptic Feedback
+//            feedbackGenerator.notificationOccurred(feedbackType)
+//        }
+//    }
+    
 
 }
 
@@ -139,6 +189,8 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //self.hapticFeedbackGenerator?.selectionChanged()
         
         collectionView.deselectItem(at: indexPath, animated: true)
         
