@@ -29,7 +29,7 @@ class UserTagAlbumDetailViewController: UIViewController {
 
         let date = tasksDiary.date
         let timestamp1 = DateFormatter.yearDayFormat1.string(from: date)
-        let timestamp2 = DateFormatter.timeFormat1.string(from: date)
+        let timestamp2 = DateFormatter.timeFormat3_2.string(from: date)
         
         self.navigationItem.title = "\(timestamp1) \(timestamp2)"
         // Do any additional setup after loading the view.

@@ -20,6 +20,16 @@ class UserTagAlbumViewController: UIViewController {
     var tasksDiary: Results<UserDiary>!
     var hapticFeedbackGenerator: UISelectionFeedbackGenerator?
     
+    //폴더 이동 모드인지 아닌지
+    var moveMode = false {
+        didSet(mode) {
+            print("모드가 \(mode)에서 \(moveMode)로 변경되었습니다.")
+            self.albumCollectionView.reloadData()
+        }
+    }
+    
+    var selectedList: [Bool] = []
+    
     @IBOutlet weak var albumCollectionView: UICollectionView!
     
     @IBOutlet weak var guideLabel: UILabel!
@@ -46,7 +56,7 @@ class UserTagAlbumViewController: UIViewController {
         if selectedTag == "All" {
             tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
         } else {
-            tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'")
+            tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
         }
         
         //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
@@ -61,6 +71,17 @@ class UserTagAlbumViewController: UIViewController {
         } else {
             albumCollectionView.isHidden = false
             guideLabel.isHidden = true
+            
+            //날짜별로 데이터 분류하기
+            print(tasksDiary)
+            
+            
+            
+            for i in 0...tasksDiary.count - 1 {
+                self.selectedList.append(false)
+            }
+            print(self.selectedList)
+            
         }
         
         
@@ -108,12 +129,15 @@ class UserTagAlbumViewController: UIViewController {
     @objc func moveStartButtonClicked() {
         print(#function)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(moveEndButtonClicked))
+        
+        self.moveMode = true
     }
     
     @objc func moveEndButtonClicked() {
         print(#function)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
         movingData()
+        self.moveMode = false
     }
     
     func movingData() {
@@ -169,6 +193,11 @@ class UserTagAlbumViewController: UIViewController {
 
 
 extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.tasksDiary.count
     }
@@ -185,6 +214,21 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
             cell.albumImageView.image = image
         }
         
+        //move mode에 따른 동그라미 이미지 보여주기
+        if self.moveMode {
+            cell.selectedButton.isHidden = false
+            
+            if self.selectedList[indexPath.row] {
+                cell.selectedButton.image = UIImage(systemName: "circle.fill")
+            } else {
+                cell.selectedButton.image = UIImage(systemName: "circle")
+                
+            }
+        } else {
+            cell.selectedButton.isHidden = true
+        }
+        
+        
         return cell
     }
     
@@ -192,19 +236,28 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
         
         //self.hapticFeedbackGenerator?.selectionChanged()
         
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        //컬렉션뷰 선택되면 화면전환
-        let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
-        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumDetailViewController.identifier) as? UserTagAlbumDetailViewController {
+        if self.moveMode {
+            print("select!\(indexPath)")
+            self.selectedList[indexPath.row] = !self.selectedList[indexPath.row]
+            collectionView.reloadItems(at: [indexPath])
             
+        } else {
+            collectionView.deselectItem(at: indexPath, animated: true)
             
-            vc.tasksDiary = self.tasksDiary[indexPath.row]
-            vc.modalPresentationStyle = .fullScreen
+            //컬렉션뷰 선택되면 화면전환
+            let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
+            if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumDetailViewController.identifier) as? UserTagAlbumDetailViewController {
                 
-            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
-            self.navigationController?.pushViewController(vc, animated: true)
+                
+                vc.tasksDiary = self.tasksDiary[indexPath.row]
+                vc.modalPresentationStyle = .fullScreen
+                    
+                //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
+        
+
         
     }
     
