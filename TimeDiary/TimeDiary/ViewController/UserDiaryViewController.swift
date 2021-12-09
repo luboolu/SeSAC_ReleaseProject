@@ -52,6 +52,8 @@ class UserDiaryViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        
         diaryTagTableView.reloadData()
     }
 

@@ -56,7 +56,7 @@ class UserTagAlbumViewController: UIViewController {
         if selectedTag == "All" {
             tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
         } else {
-            tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
+            selectedListAndDataInit()
         }
         
         //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
@@ -73,14 +73,8 @@ class UserTagAlbumViewController: UIViewController {
             guideLabel.isHidden = true
             
             //날짜별로 데이터 분류하기
-            print(tasksDiary)
+            //print(tasksDiary)
             
-            
-            
-            for i in 0...tasksDiary.count - 1 {
-                self.selectedList.append(false)
-            }
-            print(self.selectedList)
             
         }
         
@@ -104,11 +98,13 @@ class UserTagAlbumViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
         albumCollectionView.collectionViewLayout = layout
+
         
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        print("TagAlbum\(#function)")
         albumCollectionView.reloadData()
         
         //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
@@ -142,6 +138,64 @@ class UserTagAlbumViewController: UIViewController {
     
     func movingData() {
         print(#function)
+        
+        if self.selectedList.contains(true) {
+            print("이동시킬 항목이 선택되었습니다!")
+            print(self.selectedList)
+            
+            var selectedTasks: [UserDiary] = []
+
+            for i in 0...tasksDiary.count - 1 {
+                if self.selectedList[i] {
+                    print(type(of: tasksDiary[i]))
+                    selectedTasks.append(tasksDiary[i])
+                }
+            }
+            
+            let st = UIStoryboard(name: "UserTagSelect", bundle: nil)
+            if let vc = st.instantiateViewController(withIdentifier: UserTagSelectViewController.identifier) as? UserTagSelectViewController {
+                
+                vc.selectedData = selectedTasks
+
+                self.present(vc, animated: true, completion: nil)
+                //vc.modalPresentationStyle = .
+                    
+                //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+               // self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            //tagSelect화면 보여주기
+
+            
+            print(selectedTasks)
+            
+//            for i in 0...selectedTasks.count - 1 {
+//                try! localRealm.write {
+//                    self.localRealm.create(UserDiary.self, value: ["_id": selectedTasks[i]._id, "tag": "미분류"], update: .modified)
+//                }
+//            }
+            
+            
+            selectedListAndDataInit()
+            
+        } else {
+            print("선택된 항목이 없습니다!")
+        }
+        
+        self.albumCollectionView.reloadData()
+ 
+    }
+    
+    func selectedListAndDataInit() {
+        tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
+        self.selectedList.removeAll()
+        
+        if tasksDiary.count > 0 {
+            for _ in 0...tasksDiary.count - 1 {
+                self.selectedList.append(false)
+            }
+        }
+
     }
     
     
@@ -189,6 +243,8 @@ class UserTagAlbumViewController: UIViewController {
 //    }
     
 
+    
+
 }
 
 
@@ -219,12 +275,15 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
             cell.selectedButton.isHidden = false
             
             if self.selectedList[indexPath.row] {
-                cell.selectedButton.image = UIImage(systemName: "circle.fill")
+                cell.selectEffect.isHidden = false
+                cell.selectedButton.image = UIImage(systemName: "checkmark.circle.fill")
             } else {
+                cell.selectEffect.isHidden = true
                 cell.selectedButton.image = UIImage(systemName: "circle")
                 
             }
         } else {
+            cell.selectEffect.isHidden = true
             cell.selectedButton.isHidden = true
         }
         

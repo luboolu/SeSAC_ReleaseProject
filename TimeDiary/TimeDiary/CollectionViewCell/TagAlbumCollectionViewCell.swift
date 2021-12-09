@@ -13,6 +13,7 @@ class TagAlbumCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var selectedButton: UIImageView!
+    @IBOutlet weak var selectEffect: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

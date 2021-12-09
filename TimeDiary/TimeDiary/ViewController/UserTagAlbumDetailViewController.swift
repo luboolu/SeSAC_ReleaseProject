@@ -55,6 +55,7 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.style.messageFont = UIFont().kotra_songeulssi_13
         
     }
+
     
     @objc func removeButtonClicked() {
         print(#function)

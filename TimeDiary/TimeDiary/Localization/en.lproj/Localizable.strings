@@ -51,6 +51,10 @@
 //UserTagAlbum.storyboard
 "guide" = "Please make a timestamp image!";
 
+//UserTagSelect.storyboard
+"moveComplete" = "complete!";
+"selectFolder" = "select folder";
+
 //UserTagAlbumDetail.storyboard
 "deleteDiaryMessage" = "Do you really want to delete the diary?";
 "noDiary" = "There's no diary yet!";

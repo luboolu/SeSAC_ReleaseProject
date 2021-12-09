@@ -20,6 +20,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DUV-Gs-Emp">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdD-Wc-Nqu">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XTH-0z-jee">
                         <rect key="frame" x="70" y="4.5" width="25" height="26"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,14 +38,19 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="XTH-0z-jee" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="5a2-iW-JJT"/>
+                <constraint firstItem="rdD-Wc-Nqu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="65z-yW-rH9"/>
                 <constraint firstAttribute="trailing" secondItem="DUV-Gs-Emp" secondAttribute="trailing" id="9H0-Ox-7VN"/>
                 <constraint firstAttribute="bottom" secondItem="DUV-Gs-Emp" secondAttribute="bottom" id="Bnq-FO-T7U"/>
                 <constraint firstItem="DUV-Gs-Emp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="IGP-4i-kfX"/>
+                <constraint firstAttribute="trailing" secondItem="rdD-Wc-Nqu" secondAttribute="trailing" id="OYY-JL-fPe"/>
+                <constraint firstItem="rdD-Wc-Nqu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QDr-FR-4gz"/>
                 <constraint firstItem="DUV-Gs-Emp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S6l-bK-ERq"/>
                 <constraint firstAttribute="trailing" secondItem="XTH-0z-jee" secondAttribute="trailing" constant="5" id="SKu-Jn-Vyr"/>
+                <constraint firstAttribute="bottom" secondItem="rdD-Wc-Nqu" secondAttribute="bottom" id="ltf-ol-x7z"/>
             </constraints>
             <connections>
                 <outlet property="albumImageView" destination="DUV-Gs-Emp" id="Q17-Ke-IMK"/>
+                <outlet property="selectEffect" destination="rdD-Wc-Nqu" id="HxR-Y7-8gp"/>
                 <outlet property="selectedButton" destination="XTH-0z-jee" id="a1w-uK-lSX"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="104.46428571428571"/>
