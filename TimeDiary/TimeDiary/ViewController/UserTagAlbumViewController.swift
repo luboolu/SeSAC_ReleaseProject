@@ -156,7 +156,8 @@ class UserTagAlbumViewController: UIViewController {
             if let vc = st.instantiateViewController(withIdentifier: UserTagSelectViewController.identifier) as? UserTagSelectViewController {
                 
                 vc.selectedData = selectedTasks
-
+                vc.modalPresentationStyle = .fullScreen
+                //self.navigationController?.present(vc, animated: true, completion: nil)
                 self.present(vc, animated: true, completion: nil)
                 //vc.modalPresentationStyle = .
                     

@@ -143,19 +143,21 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
 //        }
         
         let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
-        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
-            //vc.albumCollectionView.reloadData()
-            self.dismiss(animated: true) {
-                vc.albumCollectionView.reloadData()
-            }
-        }
         
-//        if let vc = presentedViewController as? UserTagAlbumViewController {
-//            print("컬렉션뷰 갱신")
-//            vc.albumCollectionView.reloadData()
+//        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
+//            //vc.albumCollectionView.reloadData()
+//            self.dismiss(animated: true) {
+//                vc.albumCollectionView.reloadData()
+//            }
 //        }
         
-//        self.dismiss(animated: true, completion: nil)
+        if let vc = presentedViewController as? UserTagAlbumViewController {
+            //full screen으로 띄우니깐 되네..?근데 그렇다면 present-dismiss를 사용할 이유가..?읭??
+            print("컬렉션뷰 갱신")
+            vc.albumCollectionView.reloadData()
+        }
+        
+        self.dismiss(animated: true, completion: nil)
 
 
 
