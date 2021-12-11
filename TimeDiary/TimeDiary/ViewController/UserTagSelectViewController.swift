@@ -142,12 +142,20 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
 //            }
 //        }
         
-        if let vc = presentedViewController as? UserTagAlbumViewController {
-            print("컬렉션뷰 갱신")
-            vc.albumCollectionView.reloadData()
+        let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
+        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
+            //vc.albumCollectionView.reloadData()
+            self.dismiss(animated: true) {
+                vc.albumCollectionView.reloadData()
+            }
         }
         
-        self.dismiss(animated: true, completion: nil)
+//        if let vc = presentedViewController as? UserTagAlbumViewController {
+//            print("컬렉션뷰 갱신")
+//            vc.albumCollectionView.reloadData()
+//        }
+        
+//        self.dismiss(animated: true, completion: nil)
 
 
 
