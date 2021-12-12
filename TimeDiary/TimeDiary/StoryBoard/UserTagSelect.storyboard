@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL4-7h-74M">
-                                <rect key="frame" x="40" y="84" width="354" height="21"/>
+                                <rect key="frame" x="40" y="128" width="354" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cz2-iV-O9V">
-                                <rect key="frame" x="20" y="125" width="374" height="717"/>
+                                <rect key="frame" x="20" y="169" width="374" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTagSelectTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserTagSelectTableViewCell" rowHeight="65" id="QSp-bx-O6f" customClass="UserTagSelectTableViewCell" customModule="TimeDiary" customModuleProvider="target">
@@ -76,12 +76,31 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cz2-iV-O9V" secondAttribute="bottom" constant="20" id="xL6-Ye-O7O"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BJd-xn-0Xr"/>
                     <connections>
                         <outlet property="tagTableView" destination="cz2-iV-O9V" id="QyI-eV-g8N"/>
                         <outlet property="titleLabel" destination="PL4-7h-74M" id="031-bn-pN3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.05797101449286" y="83.705357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ouc-9p-Ocu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="57t-82-5jO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3jf-JZ-iI7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="JZA-cU-2el"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAW-4t-1mc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="83.705357142857139"/>
         </scene>

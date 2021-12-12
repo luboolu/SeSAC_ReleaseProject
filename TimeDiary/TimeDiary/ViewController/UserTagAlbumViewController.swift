@@ -156,13 +156,16 @@ class UserTagAlbumViewController: UIViewController {
             if let vc = st.instantiateViewController(withIdentifier: UserTagSelectViewController.identifier) as? UserTagSelectViewController {
                 
                 vc.selectedData = selectedTasks
-                vc.modalPresentationStyle = .fullScreen
+                vc.modalPresentationStyle = .automatic
+                
+                self.navigationController?.present(vc, animated: true, completion: nil)
+                
                 //self.navigationController?.present(vc, animated: true, completion: nil)
-                self.present(vc, animated: true, completion: nil)
+                //self.present(vc, animated: true, completion: nil)
                 //vc.modalPresentationStyle = .
                     
                 //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
-               // self.navigationController?.pushViewController(vc, animated: true)
+                //self.navigationController?.pushViewController(vc, animated: true)
             }
             
             //tagSelect화면 보여주기
