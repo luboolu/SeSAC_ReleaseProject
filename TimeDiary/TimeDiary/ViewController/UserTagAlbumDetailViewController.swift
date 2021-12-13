@@ -26,6 +26,8 @@ class UserTagAlbumDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNeedsStatusBarAppearanceUpdate()
 
         let date = tasksDiary.date
         let timestamp1 = DateFormatter.yearDayFormat1.string(from: date)
@@ -63,10 +65,29 @@ class UserTagAlbumDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        self.editMode = false
+        self.contentView.isEditable = false
+        
+        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
+
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
+        
+        self.navigationItem.rightBarButtonItems = [trashButton, editButton]
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+
     }
 
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
     
     @objc func removeButtonClicked() {
         print(#function)
@@ -87,13 +108,13 @@ class UserTagAlbumDetailViewController: UIViewController {
             }
             
             try! self.localRealm.write {
-                
                 //UserDiary 데이터 삭제
                 self.localRealm.delete(self.tasksDiary)
-  
             }
             
             self.navigationController?.popViewController(animated: true)
+            //self.navigationController?.popViewController(animated: true)
+
             
         }
         
@@ -113,15 +134,15 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "저장"), style: .plain, target: self, action: #selector(saveButtonClicked))
 
-        
         self.navigationItem.rightBarButtonItems = [saveButton]
         
-        self.navigationController?.navigationBar.backgroundColor = UIColor().orange
-        self.navigationController?.navigationBar.tintColor = UIColor().red
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "bear")
+        //UINavigationBar.appearance().barTintColor = UIColor().orange
+        //self.navigationController?.navigationBar.barStyle = .
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
     
-        
-        
     }
     
     @objc func saveButtonClicked() {
@@ -143,7 +164,9 @@ class UserTagAlbumDetailViewController: UIViewController {
             let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
             
             self.navigationItem.rightBarButtonItems = [trashButton, editButton]
+            self.navigationController?.navigationBar.backgroundColor = .clear
             self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+            self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
             
             self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
             
@@ -170,7 +193,7 @@ class UserTagAlbumDetailViewController: UIViewController {
             //4. present
             present(alert, animated: true, completion: nil)
         } else {
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

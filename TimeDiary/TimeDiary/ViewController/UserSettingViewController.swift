@@ -31,6 +31,14 @@ class UserSettingViewController: UIViewController {
 
         tabBarController?.tabBar.tintColor = UIColor(named: "bear")
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
 
 }
 

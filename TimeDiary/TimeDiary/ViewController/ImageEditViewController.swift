@@ -138,6 +138,14 @@ class ImageEditViewController: UIViewController {
 
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     @objc func closeButtonClicked() {
         print(#function)
         self.navigationController?.popViewController(animated: true)

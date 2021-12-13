@@ -39,6 +39,14 @@ class UserAppVersionViewController: UIViewController {
 
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     func isUpdateAvailable() -> Bool {
 
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,

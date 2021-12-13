@@ -70,6 +70,14 @@ class AddDiaryViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     @objc func saveButtonClicked() {
         print(#function)
         

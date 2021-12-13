@@ -70,15 +70,15 @@ class UserTagAlbumViewController: UIViewController {
             
             
         } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+            if selectedTag != "All" {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+            }
             
             albumCollectionView.isHidden = false
             guideLabel.isHidden = true
             
             //날짜별로 데이터 분류하기
             //print(tasksDiary)
-            
-            
         }
         
         
@@ -125,9 +125,37 @@ class UserTagAlbumViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+        
+        self.moveMode = false
+        
+        selectedListAndDataInit()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     @objc func moveStartButtonClicked() {
         print(#function)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(moveEndButtonClicked))
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "bear")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         self.moveMode = true
     }
@@ -137,6 +165,11 @@ class UserTagAlbumViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
         movingData()
         self.moveMode = false
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
+        
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
     }
     
     @objc func didDismissPostCommentNotification(_ noti: Notification) {
@@ -187,12 +220,7 @@ class UserTagAlbumViewController: UIViewController {
             
             print(selectedTasks)
             
-//            for i in 0...selectedTasks.count - 1 {
-//                try! localRealm.write {
-//                    self.localRealm.create(UserDiary.self, value: ["_id": selectedTasks[i]._id, "tag": "미분류"], update: .modified)
-//                }
-//            }
-            
+
             
             selectedListAndDataInit()
             
@@ -201,18 +229,20 @@ class UserTagAlbumViewController: UIViewController {
         }
         
         self.albumCollectionView.reloadData()
- 
     }
     
     func selectedListAndDataInit() {
-        tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
-        self.selectedList.removeAll()
-        
-        if tasksDiary.count > 0 {
-            for _ in 0...tasksDiary.count - 1 {
-                self.selectedList.append(false)
+        if tagData != nil {
+            tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
+            self.selectedList.removeAll()
+            
+            if tasksDiary.count > 0 {
+                for _ in 0...tasksDiary.count - 1 {
+                    self.selectedList.append(false)
+                }
             }
         }
+
 
     }
     

@@ -56,6 +56,14 @@ class UserDiaryViewController: UIViewController {
         
         diaryTagTableView.reloadData()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
 
     @objc func addTagButtonClicked(_ sender: UIButton) {
         print(#function)

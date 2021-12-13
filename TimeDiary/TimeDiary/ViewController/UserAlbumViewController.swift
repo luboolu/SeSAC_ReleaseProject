@@ -62,6 +62,14 @@ class UserAlbumViewController: UIViewController  {
         tabBarController?.tabBar.tintColor = UIColor(named: "bear")
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     //카메라로 편집할 사진을 촬영
     @IBAction func cameraOpenButtonClicked(_ sender: UIButton) {
         print(#function)
