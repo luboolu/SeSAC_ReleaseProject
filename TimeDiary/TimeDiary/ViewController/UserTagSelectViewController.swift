@@ -14,6 +14,7 @@ class UserTagSelectViewController: UIViewController {
     static let identifier = "UserTagSelectViewController"
     
     let localRealm = try! Realm()
+    let DidDismissPostCommentViewController: Notification.Name = Notification.Name("DidDismissPostCommentViewController")
     
     var tasksTag: Results<UserTag>!
     var tasksDiary: Results<UserDiary>!
@@ -24,6 +25,7 @@ class UserTagSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tagTableView.delegate = self
         tagTableView.dataSource = self
@@ -41,10 +43,15 @@ class UserTagSelectViewController: UIViewController {
         print(#function)
         super.viewWillDisappear(animated)
         //컬렉션뷰 선택되면 화면전환
-        let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
+        let vcs = self.navigationController?.viewControllers
+        print(vcs)
         
 
-        
+        if let vc = presentedViewController as? UserTagAlbumViewController {
+            //full screen으로 띄우니깐 되네..?근데 그렇다면 present-dismiss를 사용할 이유가..?읭??
+            print("컬렉션뷰 갱신")
+            vc.albumCollectionView.reloadData()
+        }
 //        if let firstVC = presentingViewController as? UserTagAlbumViewController {
 //            DispatchQueue.main.async {
 //                firstVC.albumCollectionView.reloadData()
@@ -124,40 +131,16 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
         
 
         self.view.makeToast(NSLocalizedString("moveComplete", comment: "폴더 변경 완료") ,duration: 1.0, position: .bottom, style: ToastStyle.defaultStyle)
-        
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//          // 1초 후 화면 전환
-//            self.dismiss(animated: true) {
-//
-//
-//            }
-//        }
-        print("tagSelect Dismiss!!!")
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-//            if let fvc = self.presentingViewController as? UserTagAlbumViewController {
-//
-//                self.dismiss(animated: true) {
-//                    fvc.albumCollectionView.reloadData()
-//                }
-//            }
-//        }
-        
-        let st = UIStoryboard(name: "UserTagAlbum", bundle: nil)
-        
-//        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
-//            //vc.albumCollectionView.reloadData()
-//            self.dismiss(animated: true) {
-//                vc.albumCollectionView.reloadData()
-//            }
-//        }
-        
-        if let vc = presentedViewController as? UserTagAlbumViewController {
-            //full screen으로 띄우니깐 되네..?근데 그렇다면 present-dismiss를 사용할 이유가..?읭??
-            print("컬렉션뷰 갱신")
-            vc.albumCollectionView.reloadData()
+        NotificationCenter.default.post(name: DidDismissPostCommentViewController, object: nil, userInfo: nil)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+          // 1초 후 화면 전환
+            self.dismiss(animated: true, completion: nil)
         }
+        print("tagSelect Dismiss!!!")
+
         
-        self.dismiss(animated: true, completion: nil)
+
+
 
 
 

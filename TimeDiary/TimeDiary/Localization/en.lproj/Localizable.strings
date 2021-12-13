@@ -53,12 +53,14 @@
 
 //UserTagSelect.storyboard
 "moveComplete" = "complete!";
-"selectFolder" = "select folder";
+"selectFolder" = "select a folder to move";
 
 //UserTagAlbumDetail.storyboard
 "deleteDiaryMessage" = "Do you really want to delete the diary?";
 "noDiary" = "There's no diary yet!";
 "editSave" = "saved";
+"needSaveTitle" = "attention";
+"needSaveMessage" = "If you leave this page, the created content will not be saved. Please save the contents.";
 
 //UserSetting.storyboard
 "setting" = "Setting";

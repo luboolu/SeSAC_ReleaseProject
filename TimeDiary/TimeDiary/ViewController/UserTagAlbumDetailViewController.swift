@@ -18,10 +18,10 @@ class UserTagAlbumDetailViewController: UIViewController {
     
     var tasksDiary: UserDiary!
     var style = ToastStyle()
+    var editMode = false
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
-    
 
     
     override func viewDidLoad() {
@@ -39,6 +39,10 @@ class UserTagAlbumDetailViewController: UIViewController {
         let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
         
         self.navigationItem.rightBarButtonItems = [trashButton, editButton]
+ 
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
+        self.navigationItem.leftBarButtonItem = backButton
+        //self.navigationItem.backBarButtonItem = backButton
         
         
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
@@ -55,6 +59,13 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.style.messageFont = UIFont().kotra_songeulssi_13
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+    }
+
 
     
     @objc func removeButtonClicked() {
@@ -97,12 +108,15 @@ class UserTagAlbumDetailViewController: UIViewController {
     @objc func editButtonClicked() {
         print(#function)
         
+        editMode = true
         contentView.isEditable = true
         
         let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "저장"), style: .plain, target: self, action: #selector(saveButtonClicked))
 
         
         self.navigationItem.rightBarButtonItems = [saveButton]
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor().orange
         self.navigationController?.navigationBar.tintColor = UIColor().red
         
     
@@ -117,7 +131,7 @@ class UserTagAlbumDetailViewController: UIViewController {
         let content = contentView.text!
         
         if content.count < 1000 {
-            
+            editMode = false
             contentView.isEditable = false
             
             try! localRealm.write {
@@ -136,9 +150,28 @@ class UserTagAlbumDetailViewController: UIViewController {
         } else {
             self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
         }
+
+    }
+    
+    @objc func backButtonClicked() {
+        print(#function)
         
+        if editMode {
+            //1. UIAlertController 생성: 밑바탕 + 타이틀 + 본문
+            //let alert = UIAlertController(title: "타이틀 테스트", message: "메시지가 입력되었습니다.", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("needSaveTitle", comment: "저장필요"), message: NSLocalizedString("needSaveMessage", comment: "저장필요"), preferredStyle: .alert)
+            
+            //2. UIAlertAction 생성: 버튼들을...
+            let ok = UIAlertAction(title: NSLocalizedString("alert", comment: "ok"), style: .default)
 
-
+            //3. 1 + 2
+            alert.addAction(ok)
+            
+            //4. present
+            present(alert, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     

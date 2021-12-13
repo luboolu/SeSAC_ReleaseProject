@@ -14,6 +14,7 @@ class UserTagAlbumViewController: UIViewController {
     static let identifier = "UserTagAlbumViewController"
     
     let localRealm = try! Realm()
+    let DidDismissPostCommentViewController: Notification.Name = Notification.Name("DidDismissPostCommentViewController")
     
     var tagData: UserTag!
     var selectedTag: String!
@@ -37,6 +38,8 @@ class UserTagAlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissPostCommentNotification(_:)), name: DidDismissPostCommentViewController, object: nil)
+        
         //햅틱셀렉션피드백
         hapticFeedbackGenerator = UISelectionFeedbackGenerator()
         hapticFeedbackGenerator?.prepare()
@@ -48,8 +51,6 @@ class UserTagAlbumViewController: UIViewController {
         } else {
             self.navigationItem.title = NSLocalizedString("all", comment: "전체")
         }
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
         
         
         
@@ -69,6 +70,8 @@ class UserTagAlbumViewController: UIViewController {
             
             
         } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+            
             albumCollectionView.isHidden = false
             guideLabel.isHidden = true
             
@@ -136,6 +139,17 @@ class UserTagAlbumViewController: UIViewController {
         self.moveMode = false
     }
     
+    @objc func didDismissPostCommentNotification(_ noti: Notification) {
+        //notification center로 reload하는 부분!!?!뭐지?!
+        DispatchQueue.global().async {
+            DispatchQueue.main.sync {
+
+                self.albumCollectionView.reloadData()
+            }
+        }
+
+    }
+    
     func movingData() {
         print(#function)
         
@@ -158,10 +172,10 @@ class UserTagAlbumViewController: UIViewController {
                 vc.selectedData = selectedTasks
                 vc.modalPresentationStyle = .automatic
                 
-                self.navigationController?.present(vc, animated: true, completion: nil)
+                //self.navigationController?.present(vc, animated: true, completion: nil)
                 
                 //self.navigationController?.present(vc, animated: true, completion: nil)
-                //self.present(vc, animated: true, completion: nil)
+                self.present(vc, animated: true, completion: nil)
                 //vc.modalPresentationStyle = .
                     
                 //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
