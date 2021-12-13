@@ -22,8 +22,6 @@ class UserTagAlbumDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
-    @IBOutlet weak var tagLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +45,7 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         //self.navigationItem.backBarButtonItem = backButton
         
-        tagLabel.text = "<\(tasksDiary.tag)>"
-        tagLabel.font = UIFont().kotra_songeulssi_13
-        
+
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
         
         contentView.isEditable = false
@@ -122,8 +118,8 @@ class UserTagAlbumDetailViewController: UIViewController {
         }
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default, handler: nil)
-        alert.addAction(okAction)
         alert.addAction(cancelAction)
+        alert.addAction(okAction)
         
         
         self.present(alert, animated: false, completion: nil)

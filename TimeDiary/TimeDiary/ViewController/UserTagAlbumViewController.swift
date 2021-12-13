@@ -176,7 +176,7 @@ class UserTagAlbumViewController: UIViewController {
         //notification center로 reload하는 부분!!?!뭐지?!
         DispatchQueue.global().async {
             DispatchQueue.main.sync {
-
+                self.viewDidLoad()
                 self.albumCollectionView.reloadData()
             }
         }

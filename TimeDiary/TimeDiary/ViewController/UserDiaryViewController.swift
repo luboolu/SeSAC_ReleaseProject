@@ -123,8 +123,8 @@ class UserDiaryViewController: UIViewController {
 
         }
         //3. 1 + 2
-        alert.addAction(ok)
         alert.addAction(cancle)
+        alert.addAction(ok)
 
 
         //4. present
