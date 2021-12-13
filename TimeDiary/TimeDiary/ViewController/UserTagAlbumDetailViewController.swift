@@ -22,7 +22,8 @@ class UserTagAlbumDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
-
+    @IBOutlet weak var tagLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,8 @@ class UserTagAlbumDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButton
         //self.navigationItem.backBarButtonItem = backButton
         
+        tagLabel.text = "<\(tasksDiary.tag)>"
+        tagLabel.font = UIFont().kotra_songeulssi_13
         
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
         

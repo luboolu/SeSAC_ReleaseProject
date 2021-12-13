@@ -58,7 +58,7 @@
                                     <constraint firstItem="2Fw-xu-Utc" firstAttribute="leading" secondItem="uVA-Va-X18" secondAttribute="leading" id="x2L-SA-knT"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-Vp-0Jz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7f-Vp-0Jz">
                                 <rect key="frame" x="20" y="96" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DWO-n6-MZO"/>
@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="contentView" destination="2Fw-xu-Utc" id="NQM-mG-zbx"/>
                         <outlet property="imageView" destination="9Wv-Lf-WUQ" id="8Xd-tF-GRE"/>
+                        <outlet property="tagLabel" destination="Z7f-Vp-0Jz" id="YvB-7l-5lm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
