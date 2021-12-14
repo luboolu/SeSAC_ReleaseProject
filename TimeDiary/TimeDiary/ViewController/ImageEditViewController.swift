@@ -26,12 +26,18 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var colorButton8: UIButton!
     @IBOutlet weak var colorButton9: UIButton!
     
+    @IBOutlet weak var colorWell: UIColorWell!
+    
+
+    
+    
     @IBOutlet weak var designCollectionView: UICollectionView!
     
     var selectedImage = UIImage() //앨범, 카메라에서 선택한 사진 전달받을 변수
     var customView: UIView! //타임스탬프 디자인을 담을 view
     var stampDesignName = StampDesign.Stamp_1 //디자인 초기값
     var stampDesignColor = UIColor.white //디자인 색상 초기값
+    var stampFontSizePlus = CGFloat(0) //디자인 폰트 +- 해줄 값
     var stampDate = Date()
     
 
@@ -112,7 +118,16 @@ class ImageEditViewController: UIViewController {
         setColorButton(button: colorButton8, color: UIColor().pink)
         setColorButton(button: colorButton9, color: UIColor().purple)
         
+        //let colorPickerButton = UIColorWell(frame: colorWellView.frame)
+        //colorWellView.addSubview(colorPickerButton)
+        //colorPickerButton.center = colorWellView.center
+        //colorPickerButton.layer.zPosition = 999
         
+        print("selected color: \(colorWell.selectedColor)")
+        
+        colorWell.supportsAlpha = false
+        colorWell.addTarget(self, action: #selector(colorWellChanged), for: .valueChanged)
+
         //collection view setting
         designCollectionView.delegate = self
         designCollectionView.dataSource = self
@@ -173,10 +188,30 @@ class ImageEditViewController: UIViewController {
         }
     }
     
+    @objc func colorWellChanged(_ sender: Any) {
+        if let colorWellColor = colorWell.selectedColor {
+            self.stampDesignColor = colorWellColor
+            self.designUpdate()
+        }
+    }
+    
     
     @IBAction func whiteColorButtonClicked(_ sender: UIButton) {
         self.stampDesignColor = .white
         self.designUpdate()
+        
+//비정상 종료 만들기
+//        //컬렉션뷰 선택되면 화면전환
+//        let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
+//        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
+//
+//
+//            vc.modalPresentationStyle = .fullScreen
+//
+//            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+        
     }
     
     @IBAction func blackColorButtonClicked(_ sender: UIButton) {
@@ -221,6 +256,35 @@ class ImageEditViewController: UIViewController {
         self.designUpdate()
     }
     
+    
+    @IBAction func showColorPickerButtonClicked(_ sender: UIButton) {
+        
+        let picker = UIColorPickerViewController()
+        picker.delegate = self
+        picker.supportsAlpha = false
+        self.present(picker, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func fontPlusButtonClicked(_ sender: UIButton) {
+        if self.stampFontSizePlus <= 20 {
+            self.stampFontSizePlus += 1
+            self.stampDesignName = .Stamp_1
+            designUpdate()
+        }
+
+    }
+    
+    @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
+        if self.stampFontSizePlus >= -20 {
+            self.stampFontSizePlus -= 1
+            self.stampDesignName = .Stamp_1
+            designUpdate()
+        }
+
+    }
+    
 
     func setColorButton(button: UIButton, color: UIColor) {
         DispatchQueue.global().async {
@@ -258,7 +322,7 @@ class ImageEditViewController: UIViewController {
         self.stampDate = Date()
         
         if self.stampDesignName == .Stamp_1 {
-            self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
 
         } else if self.stampDesignName == .Stamp_2 {
             self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor)
@@ -468,4 +532,12 @@ extension UIView {
         return UIView.image(view: self, subview: withSubview)
     }
 }
+
+
+extension ImageEditViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        print(#function)
+    }
+}
+
 

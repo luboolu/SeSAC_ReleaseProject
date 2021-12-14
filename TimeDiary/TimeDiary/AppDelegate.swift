@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 import IQKeyboardManagerSwift
 
 @main
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .highlighted)
 
+        FirebaseApp.configure()
         
         //custom font 있는지 없는지 if로 확인해서 실행함
         

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC169556276879780050460F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = DC169555276879780050460F /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		DC169558276879780050460F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = DC169557276879780050460F /* FirebaseCrashlytics */; };
+		DC16955B2768952E0050460F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC16955A2768952E0050460F /* GoogleService-Info.plist */; };
 		DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3B4438274F86AC009C07D3 /* Stamp_2.xib */; };
 		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
 		DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443C274FCD74009C07D3 /* StampDesign.swift */; };
@@ -97,6 +100,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC16955A2768952E0050460F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
 		DC3B443A274F888E009C07D3 /* Stamp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_2.swift; sourceTree = "<group>"; };
 		DC3B443C274FCD74009C07D3 /* StampDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDesign.swift; sourceTree = "<group>"; };
@@ -194,7 +198,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCDA49127552F1D002038C0 /* Toast in Frameworks */,
+				DC169556276879780050460F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */,
+				DC169558276879780050460F /* FirebaseCrashlytics in Frameworks */,
 				DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */,
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
 			);
@@ -237,6 +243,7 @@
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
 				DCCDA49927567715002038C0 /* InfoPlist.strings */,
 				DCCDA4812754C036002038C0 /* Info.plist */,
+				DC16955A2768952E0050460F /* GoogleService-Info.plist */,
 				DCCECFAA27463FB7002EEABD /* ViewController.swift */,
 				DCCECFAF27463FB9002EEABD /* Assets.xcassets */,
 			);
@@ -393,6 +400,7 @@
 				DCCECF9F27463FB7002EEABD /* Sources */,
 				DCCECFA027463FB7002EEABD /* Frameworks */,
 				DCCECFA127463FB7002EEABD /* Resources */,
+				DC169559276879DA0050460F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -404,6 +412,8 @@
 				DCCECFE0274B8B35002EEABD /* RealmSwift */,
 				DCCDA49027552F1D002038C0 /* Toast */,
 				DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */,
+				DC169555276879780050460F /* FirebaseAnalyticsWithoutAdIdSupport */,
+				DC169557276879780050460F /* FirebaseCrashlytics */,
 			);
 			productName = TimeDiary;
 			productReference = DCCECFA327463FB7002EEABD /* TimeDiary.app */;
@@ -438,6 +448,7 @@
 				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DC169554276879780050460F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
@@ -492,11 +503,33 @@
 				DC927FA6275766F2005A919B /* KOTRA HOPE_OTF.otf in Resources */,
 				DC927FB62757A196005A919B /* OpenSourceLicense.storyboard in Resources */,
 				DCCECFC127465234002EEABD /* UserAlbum.storyboard in Resources */,
+				DC16955B2768952E0050460F /* GoogleService-Info.plist in Resources */,
 				DCCECFCB27492559002EEABD /* AddDiary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC169559276879DA0050460F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DCCECF9F27463FB7002EEABD /* Sources */ = {
@@ -617,7 +650,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -707,6 +740,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202112024;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
@@ -724,7 +758,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -740,6 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202112024;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8H53VPN638;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeDiary/Info.plist;
@@ -757,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.TimeBear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -790,6 +825,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC169554276879780050460F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -817,6 +860,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC169555276879780050460F /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC169554276879780050460F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		DC169557276879780050460F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC169554276879780050460F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		DCCDA49027552F1D002038C0 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
