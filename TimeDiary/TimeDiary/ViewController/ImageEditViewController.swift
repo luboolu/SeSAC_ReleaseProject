@@ -270,7 +270,7 @@ class ImageEditViewController: UIViewController {
     @IBAction func fontPlusButtonClicked(_ sender: UIButton) {
         if self.stampFontSizePlus <= 20 {
             self.stampFontSizePlus += 1
-            self.stampDesignName = .Stamp_1
+            //self.stampDesignName = .Stamp_1
             designUpdate()
         }
 
@@ -279,7 +279,7 @@ class ImageEditViewController: UIViewController {
     @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
         if self.stampFontSizePlus >= -20 {
             self.stampFontSizePlus -= 1
-            self.stampDesignName = .Stamp_1
+            //self.stampDesignName = .Stamp_1
             designUpdate()
         }
 
@@ -325,7 +325,7 @@ class ImageEditViewController: UIViewController {
             self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
 
         } else if self.stampDesignName == .Stamp_2 {
-            self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_3 {
             self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor)
