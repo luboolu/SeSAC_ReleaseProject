@@ -22,7 +22,7 @@ class Stamp_1 : UIView {
     //using customView in XIB
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit(color: .white, fontSize: 35)
+        commonInit(color: .white, fontSize: 0)
     }
     
     private func commonInit(color: UIColor, fontSize: CGFloat) {

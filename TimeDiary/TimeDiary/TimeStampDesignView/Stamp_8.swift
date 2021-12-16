@@ -16,18 +16,18 @@ class Stamp_8: UIView {
     @IBOutlet weak var contentLabel2: UILabel!
     
     //using customeView in code -> 사용중
-    init(frame: CGRect, color: UIColor) {
+    init(frame: CGRect, color: UIColor, fontSize: CGFloat) {
         super.init(frame: frame)
-        commonInit(color: color)
+        commonInit(color: color, fontSize: fontSize)
     }
     
     //using customView in XIB
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit(color: .white)
+        commonInit(color: .white, fontSize: 0)
     }
     
-    private func commonInit(color: UIColor) {
+    private func commonInit(color: UIColor, fontSize: CGFloat) {
         Bundle.main.loadNibNamed("Stamp_8", owner: self, options: nil)
         
         let date = Date()
@@ -36,16 +36,20 @@ class Stamp_8: UIView {
 
         contentLabel1.text = "\(timestamp1)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont(name: "DungGeunMo", size: 35)
+        contentLabel1.font = UIFont(name: "DungGeunMo", size: 35 + fontSize)
         
         contentLabel2.text = "\(timestamp2)"
         contentLabel2.textColor = color
-        contentLabel2.font = UIFont(name: "DungGeunMo", size: 45)
+        contentLabel2.font = UIFont(name: "DungGeunMo", size: 45 + fontSize)
         
         
         //text field의 글자가 모두 보이는지 확인하고, 보이지 않는다면 글자의 크기를 조정하여 모두 보이게 함
         if contentLabel1.adjustsFontSizeToFitWidth == false {
             contentLabel1.adjustsFontSizeToFitWidth = true
+        }
+        
+        if contentLabel2.adjustsFontSizeToFitWidth == false {
+            contentLabel2.adjustsFontSizeToFitWidth = true
         }
         
         addSubview(contentView)

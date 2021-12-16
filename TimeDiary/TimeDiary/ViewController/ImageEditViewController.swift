@@ -145,7 +145,7 @@ class ImageEditViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         designCollectionView.collectionViewLayout = layout
 
         
@@ -200,8 +200,10 @@ class ImageEditViewController: UIViewController {
         self.stampDesignColor = .white
         self.designUpdate()
         
+        
 //비정상 종료 만들기
-//        //컬렉션뷰 선택되면 화면전환
+        fatalError()
+        //컬렉션뷰 선택되면 화면전환
 //        let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
 //        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
 //
@@ -277,7 +279,7 @@ class ImageEditViewController: UIViewController {
     }
     
     @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
-        if self.stampFontSizePlus >= -20 {
+        if self.stampFontSizePlus >= -5 {
             self.stampFontSizePlus -= 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
@@ -328,43 +330,43 @@ class ImageEditViewController: UIViewController {
             self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_3 {
-            self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_4 {
-            self.customView = Stamp_4(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_4(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_5 {
-            self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_6 {
-            self.customView = Stamp_6(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_6(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_7 {
-            self.customView = Stamp_7(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_7(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_8 {
-            self.customView = Stamp_8(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_8(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_9 {
-            self.customView = Stamp_9(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_9(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_10 {
-            self.customView = Stamp_10(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_10(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_11 {
-            self.customView = Stamp_11(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_11(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_12 {
-            self.customView = Stamp_12(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_12(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_13 {
-            self.customView = Stamp_13(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_13(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_14 {
-            self.customView = Stamp_14(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_14(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else {
-            self.customView = Stamp_15(frame: self.designView.frame, color: self.stampDesignColor)
+            self.customView = Stamp_15(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
         }
 
         self.designView.addSubview(self.customView)

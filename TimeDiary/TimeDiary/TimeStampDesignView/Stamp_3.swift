@@ -13,18 +13,18 @@ class Stamp_3: UIView {
     @IBOutlet weak var contentLabel1: UILabel!
     
     //using customeView in code
-    init(frame: CGRect, color: UIColor) {
+    init(frame: CGRect, color: UIColor, fontSize: CGFloat) {
         super.init(frame: frame)
-        commonInit(color: color)
+        commonInit(color: color, fontSize: fontSize)
     }
     
     //using customView in XIB
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit(color: .white)
+        commonInit(color: .white, fontSize: 0)
     }
     
-    private func commonInit(color: UIColor) {
+    private func commonInit(color: UIColor, fontSize: CGFloat) {
         Bundle.main.loadNibNamed("Stamp_3", owner: self, options: nil)
         
         let date = Date()
@@ -33,7 +33,7 @@ class Stamp_3: UIView {
 
         contentLabel1.text = "\(timestamp1)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont(name: "KOTRAHOPE", size: 45)
+        contentLabel1.font = UIFont(name: "KOTRAHOPE", size: 45 + fontSize)
         //text field의 글자가 모두 보이는지 확인하고, 보이지 않는다면 글자의 크기를 조정하여 모두 보이게 함
         if contentLabel1.adjustsFontSizeToFitWidth == false {
             contentLabel1.adjustsFontSizeToFitWidth = true
