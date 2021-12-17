@@ -221,8 +221,39 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-vq-oZT">
-                                <rect key="frame" x="20" y="501.5" width="374" height="33"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sx3-at-7yo">
+                                <rect key="frame" x="40" y="501.5" width="132" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrf-BC-9n2">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hrf-BC-9n2" secondAttribute="height" multiplier="1:1" id="ghu-D8-zcx"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title=" "/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEG-8B-Osl">
+                                        <rect key="frame" x="33" y="0.0" width="66" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="QSA-W8-jSC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXb-3x-jXQ">
+                                        <rect key="frame" x="99" y="0.0" width="33" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MXb-3x-jXQ" secondAttribute="height" id="JSG-Sa-iUE"/>
+                                            <constraint firstAttribute="height" constant="33" id="VNp-DA-kTC"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" title=" "/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjL-vq-oZT">
+                                <rect key="frame" x="242" y="501.5" width="132" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsC-Oz-jcy">
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
@@ -235,14 +266,17 @@
                                             <action selector="fontMinusButtonClicked:" destination="sZL-UE-XnZ" eventType="touchUpInside" id="xga-qk-rIK"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKI-SH-Jq3">
-                                        <rect key="frame" x="42" y="0.0" width="290" height="33"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKI-SH-Jq3">
+                                        <rect key="frame" x="33" y="0.0" width="66" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="KWT-T7-YCe"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEt-ek-NwX">
-                                        <rect key="frame" x="341" y="0.0" width="33" height="33"/>
+                                        <rect key="frame" x="99" y="0.0" width="33" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SEt-ek-NwX" secondAttribute="height" id="QMe-KZ-BIZ"/>
                                             <constraint firstAttribute="height" constant="33" id="mLp-Kl-CyK"/>
@@ -259,17 +293,19 @@
                         <viewLayoutGuide key="safeArea" id="nMv-Z2-5iX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2r4-Ep-bJm" firstAttribute="top" secondItem="Sx3-at-7yo" secondAttribute="bottom" constant="8" id="29o-pb-mVS"/>
                             <constraint firstItem="nMv-Z2-5iX" firstAttribute="trailing" secondItem="2r4-Ep-bJm" secondAttribute="trailing" constant="20" id="2cr-90-7DK"/>
                             <constraint firstItem="SSb-pl-YDk" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="30" id="Htc-dg-Fnh"/>
+                            <constraint firstItem="nMv-Z2-5iX" firstAttribute="trailing" secondItem="fjL-vq-oZT" secondAttribute="trailing" constant="40" id="JUR-Je-6RQ"/>
+                            <constraint firstItem="Sx3-at-7yo" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="40" id="LHH-mA-0cf"/>
                             <constraint firstItem="bWh-us-6gb" firstAttribute="top" secondItem="SSb-pl-YDk" secondAttribute="bottom" constant="8" id="XEv-oO-PIk"/>
+                            <constraint firstItem="Sx3-at-7yo" firstAttribute="top" secondItem="bWh-us-6gb" secondAttribute="bottom" constant="8" id="XLX-yB-Ltv"/>
                             <constraint firstItem="SSb-pl-YDk" firstAttribute="top" secondItem="nMv-Z2-5iX" secondAttribute="top" constant="8" id="ac8-Sv-mli"/>
                             <constraint firstItem="2r4-Ep-bJm" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="20" id="bWu-Qy-MvW"/>
+                            <constraint firstItem="fjL-vq-oZT" firstAttribute="top" secondItem="bWh-us-6gb" secondAttribute="bottom" constant="8" id="co3-l1-bIg"/>
                             <constraint firstAttribute="trailing" secondItem="bWh-us-6gb" secondAttribute="trailing" constant="20" id="dCF-bp-KdW"/>
-                            <constraint firstItem="nMv-Z2-5iX" firstAttribute="trailing" secondItem="fjL-vq-oZT" secondAttribute="trailing" constant="20" id="fDx-2C-DX5"/>
                             <constraint firstItem="nMv-Z2-5iX" firstAttribute="trailing" secondItem="SSb-pl-YDk" secondAttribute="trailing" constant="30" id="jzF-iG-Mit"/>
-                            <constraint firstItem="2r4-Ep-bJm" firstAttribute="top" secondItem="fjL-vq-oZT" secondAttribute="bottom" constant="8" id="qDN-nR-9Og"/>
-                            <constraint firstItem="fjL-vq-oZT" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="20" id="v0a-pK-LYe"/>
-                            <constraint firstItem="fjL-vq-oZT" firstAttribute="top" secondItem="bWh-us-6gb" secondAttribute="bottom" constant="8" id="vPG-7y-JIh"/>
+                            <constraint firstItem="2r4-Ep-bJm" firstAttribute="top" secondItem="fjL-vq-oZT" secondAttribute="bottom" constant="8" id="xTP-lb-Elg"/>
                             <constraint firstItem="bWh-us-6gb" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="20" id="yXg-ft-62s"/>
                         </constraints>
                     </view>
@@ -316,6 +352,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="paintbrush.pointed.fill" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
