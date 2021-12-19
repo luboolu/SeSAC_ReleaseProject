@@ -328,6 +328,8 @@
                         <outlet property="colorWell" destination="5Jh-At-j3S" id="Svn-wn-2sE"/>
                         <outlet property="designCollectionView" destination="2r4-Ep-bJm" id="eIh-Fv-JLV"/>
                         <outlet property="designView" destination="Q00-Ar-yTE" id="eTZ-vZ-wk4"/>
+                        <outlet property="fontNameLabel" destination="tEG-8B-Osl" id="vXI-n0-L1u"/>
+                        <outlet property="fontSizeLabel" destination="xKI-SH-Jq3" id="QRg-Wj-2fG"/>
                         <outlet property="imageView" destination="ixF-KT-ooM" id="z1A-TN-fz0"/>
                         <outlet property="scrollView" destination="Lwg-mQ-wnC" id="xa7-Wd-I67"/>
                         <outlet property="timeStampView" destination="SSb-pl-YDk" id="mfh-vJ-5oy"/>

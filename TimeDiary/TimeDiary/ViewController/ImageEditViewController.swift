@@ -29,7 +29,8 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var colorWell: UIColorWell!
     
 
-    
+    @IBOutlet weak var fontNameLabel: UILabel!
+    @IBOutlet weak var fontSizeLabel: UILabel!
     
     @IBOutlet weak var designCollectionView: UICollectionView!
     
@@ -135,6 +136,16 @@ class ImageEditViewController: UIViewController {
         //collection view xib setting
         let nibName = UINib(nibName: DesignCollectionViewCell.identifier, bundle: nil)
         designCollectionView.register(nibName, forCellWithReuseIdentifier: DesignCollectionViewCell.identifier)
+        
+        //폰트 종류, 사이즈 조절 버튼 설정
+        fontNameLabel.text = "폰트"
+        fontNameLabel.font = UIFont().kotra_songeulssi_13
+        fontNameLabel.textColor = UIColor(named: "bear")
+        
+        fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
+        fontSizeLabel.font = UIFont().kotra_songeulssi_13
+        fontSizeLabel.textColor = UIColor(named: "bear")
+        
         
         //collection view flow layout 설정
         let layout = UICollectionViewFlowLayout()
@@ -270,19 +281,21 @@ class ImageEditViewController: UIViewController {
     
     
     @IBAction func fontPlusButtonClicked(_ sender: UIButton) {
-        if self.stampFontSizePlus <= 20 {
+        if self.stampFontSizePlus < 20 {
             self.stampFontSizePlus += 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
         }
 
     }
     
     @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
-        if self.stampFontSizePlus >= -5 {
+        if self.stampFontSizePlus > -5 {
             self.stampFontSizePlus -= 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
         }
 
     }

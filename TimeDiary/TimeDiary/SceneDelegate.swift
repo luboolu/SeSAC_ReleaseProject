@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //ATT Framework
             ATTrackingManager.requestTrackingAuthorization { status in
                 switch status {
-                    
+
                 case .notDetermined:
                     print("not determind")
                     Analytics.setAnalyticsCollectionEnabled(false)
@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     Analytics.setAnalyticsCollectionEnabled(false)
                 }
             }
-            
+
         }
     }
 
