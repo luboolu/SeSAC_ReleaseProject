@@ -158,10 +158,6 @@ class ImageEditViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .horizontal
         designCollectionView.collectionViewLayout = layout
-
-        
-
-
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
