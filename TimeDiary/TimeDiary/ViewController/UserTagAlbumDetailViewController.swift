@@ -22,6 +22,7 @@ class UserTagAlbumDetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
+    @IBOutlet weak var textLengthLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,14 @@ class UserTagAlbumDetailViewController: UIViewController {
         contentView.font = UIFont().kotra_songeulssi_13
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 10
+        
+        //textview didchange 사용위해서 delegate 연결
+        contentView.delegate = self
+        
+        textLengthLabel.isHidden = true //처음엔 hidden
+        textLengthLabel.text = "\(contentView.text.count)/1000"
+        textLengthLabel.font = UIFont().kotra_songeulssi_13
+        textLengthLabel.textColor = UIColor(named: "bear")
         
         // this is just one of many style options
         self.style.messageColor = .white
@@ -130,6 +139,7 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         editMode = true
         contentView.isEditable = true
+        textLengthLabel.isHidden = false
         
         let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "저장"), style: .plain, target: self, action: #selector(saveButtonClicked))
 
@@ -150,9 +160,10 @@ class UserTagAlbumDetailViewController: UIViewController {
         //일기 내용이 1000자 이상이면 저장되지 않도록
         let content = contentView.text!
         
-        if content.count < 1000 {
+        if content.count <= 1000 {
             editMode = false
             contentView.isEditable = false
+            textLengthLabel.isHidden = true
             
             try! localRealm.write {
                 self.localRealm.create(UserDiary.self, value: ["_id": self.tasksDiary._id, "content": contentView.text], update: .modified)
@@ -195,7 +206,7 @@ class UserTagAlbumDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
+
     
     @IBAction func shareButtonClicked(_ sender: UIButton) {
         print(#function)
@@ -320,4 +331,25 @@ class UserTagAlbumDetailViewController: UIViewController {
     
 
 
+}
+
+extension UserTagAlbumDetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        
+        let count = textView.text.count ?? 0
+        
+        if count <= 1000 {
+            DispatchQueue.main.async {
+                self.textLengthLabel.textColor = UIColor(named: "bear")
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.textLengthLabel.textColor = UIColor().red
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.textLengthLabel.text = "\(textView.text.count ?? 0)/1000"
+        }
+    }
 }

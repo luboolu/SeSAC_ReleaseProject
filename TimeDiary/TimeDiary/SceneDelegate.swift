@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Firebase
-import AppTrackingTransparency
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -33,30 +31,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         
         //ios15부터 ATT present 방식이 바뀌었기 때문에 appdelegate아닌 scenedelegate에서 권한 띄움
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            //ATT Framework
-            ATTrackingManager.requestTrackingAuthorization { status in
-                switch status {
-
-                case .notDetermined:
-                    print("not determind")
-                    Analytics.setAnalyticsCollectionEnabled(false)
-                case .restricted:
-                    print("restricted")
-                    Analytics.setAnalyticsCollectionEnabled(false)
-                case .denied:
-                    print("denied")
-                    Analytics.setAnalyticsCollectionEnabled(false)
-                case .authorized:
-                    print("authorized")
-                    Analytics.setAnalyticsCollectionEnabled(true)
-                @unknown default:
-                    print("default")
-                    Analytics.setAnalyticsCollectionEnabled(false)
-                }
-            }
-
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            //ATT Framework
+//            ATTrackingManager.requestTrackingAuthorization { status in
+//                switch status {
+//
+//                case .notDetermined:
+//                    print("not determind")
+//                    Analytics.setAnalyticsCollectionEnabled(false)
+//                case .restricted:
+//                    print("restricted")
+//                    Analytics.setAnalyticsCollectionEnabled(false)
+//                case .denied:
+//                    print("denied")
+//                    Analytics.setAnalyticsCollectionEnabled(false)
+//                case .authorized:
+//                    print("authorized")
+//                    Analytics.setAnalyticsCollectionEnabled(true)
+//                @unknown default:
+//                    print("default")
+//                    Analytics.setAnalyticsCollectionEnabled(false)
+//                }
+//            }
+//
+//        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

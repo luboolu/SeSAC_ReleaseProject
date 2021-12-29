@@ -41,9 +41,12 @@ class ImageEditViewController: UIViewController {
     var stampFontSizePlus = CGFloat(0) //디자인 폰트 +- 해줄 값
     var stampDate = Date()
     
+    let fontList = ["Kyobo Handwriting 2019", "HeirofLightOTFBold", "KOTRAHOPE", "esamanru OTF Bold",
+    "DungGeunMo", "JejuMyeongjoOTF", "KOTRA_SONGEULSSI"]
+    var fontIndex: Int = 0
+    
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         super.viewDidLoad()
         
         self.navigationController?.hidesBarsOnSwipe = false
@@ -129,6 +132,7 @@ class ImageEditViewController: UIViewController {
         colorWell.supportsAlpha = false
         colorWell.addTarget(self, action: #selector(colorWellChanged), for: .valueChanged)
 
+
         //collection view setting
         designCollectionView.delegate = self
         designCollectionView.dataSource = self
@@ -138,12 +142,16 @@ class ImageEditViewController: UIViewController {
         designCollectionView.register(nibName, forCellWithReuseIdentifier: DesignCollectionViewCell.identifier)
         
         //폰트 종류, 사이즈 조절 버튼 설정
-        fontNameLabel.text = "폰트"
-        fontNameLabel.font = UIFont().kotra_songeulssi_13
+        fontNameLabel.text = "Aa"
+        fontNameLabel.font = UIFont(name: fontList[fontIndex], size: 25)
         fontNameLabel.textColor = UIColor(named: "bear")
         
-        fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
-        fontSizeLabel.font = UIFont().kotra_songeulssi_13
+        if fontNameLabel.adjustsFontSizeToFitWidth == false {
+            fontNameLabel.adjustsFontSizeToFitWidth = true
+        }
+        
+        fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
+        fontSizeLabel.font = UIFont(name: "KOTRA_SONGEULSSI", size: 20)
         fontSizeLabel.textColor = UIColor(named: "bear")
         
         
@@ -152,6 +160,7 @@ class ImageEditViewController: UIViewController {
         let spacing: CGFloat = 10
         let width = UIScreen.main.bounds.width - (spacing * 4) - 40
         layout.itemSize = CGSize(width: width / 3, height: (width / 3))
+        
         //print(UIScreen.main.bounds.width, width / 3, width / 3)
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
@@ -209,18 +218,8 @@ class ImageEditViewController: UIViewController {
         
         
 //비정상 종료 만들기
-        fatalError()
-        //컬렉션뷰 선택되면 화면전환
-//        let st = UIStoryboard(name: "UserTagAlbumDetail", bundle: nil)
-//        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
-//
-//
-//            vc.modalPresentationStyle = .fullScreen
-//
-//            //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-        
+//        fatalError()
+
     }
     
     @IBAction func blackColorButtonClicked(_ sender: UIButton) {
@@ -281,7 +280,7 @@ class ImageEditViewController: UIViewController {
             self.stampFontSizePlus += 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
-            fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
         }
 
     }
@@ -291,12 +290,43 @@ class ImageEditViewController: UIViewController {
             self.stampFontSizePlus -= 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
-            fontSizeLabel.text = "\(Int(self.stampFontSizePlus))"
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
         }
 
     }
     
-
+    
+    @IBAction func nextFontButtonClicked(_ sender: UIButton) {
+        fontIndex += 1
+        
+        if fontIndex >= fontList.count - 1 {
+            fontIndex = 0
+        }
+        
+        DispatchQueue.main.async {
+            self.fontNameLabel.font = UIFont(name: self.fontList[self.fontIndex], size: 20)
+            
+            if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
+                self.fontNameLabel.adjustsFontSizeToFitWidth = true
+            }
+        }
+    }
+    
+    @IBAction func previousFontButtonClicked(_ sender: UIButton) {
+        fontIndex -= 1
+        
+        if fontIndex < 0 {
+            fontIndex = fontList.count - 1
+        }
+        
+        DispatchQueue.main.async {
+            self.fontNameLabel.font = UIFont(name: self.fontList[self.fontIndex], size: 20)
+            if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
+                self.fontNameLabel.adjustsFontSizeToFitWidth = true
+            }
+        }
+    }
+    
     func setColorButton(button: UIButton, color: UIColor) {
         DispatchQueue.global().async {
             // UI 업데이트 전 실행되는 코드
