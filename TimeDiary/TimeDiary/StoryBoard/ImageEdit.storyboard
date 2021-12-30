@@ -199,11 +199,8 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ep-bJm">
-                                <rect key="frame" x="20" y="542.5" width="374" height="120"/>
+                                <rect key="frame" x="20" y="542.5" width="374" height="299.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="5tv-h3-26F"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DPO-gb-uHi">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -212,7 +209,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeStampDesignCell" id="WiN-Em-56T" customClass="TimeStampDesignCollectionViewCell" customModule="TimeDiary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qa6-Bx-5ho">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -316,6 +313,7 @@
                             <constraint firstItem="fjL-vq-oZT" firstAttribute="top" secondItem="bWh-us-6gb" secondAttribute="bottom" constant="8" id="co3-l1-bIg"/>
                             <constraint firstAttribute="trailing" secondItem="bWh-us-6gb" secondAttribute="trailing" constant="20" id="dCF-bp-KdW"/>
                             <constraint firstItem="nMv-Z2-5iX" firstAttribute="trailing" secondItem="SSb-pl-YDk" secondAttribute="trailing" constant="30" id="jzF-iG-Mit"/>
+                            <constraint firstItem="nMv-Z2-5iX" firstAttribute="bottom" secondItem="2r4-Ep-bJm" secondAttribute="bottom" constant="20" id="sFY-TG-wC5"/>
                             <constraint firstItem="2r4-Ep-bJm" firstAttribute="top" secondItem="fjL-vq-oZT" secondAttribute="bottom" constant="8" id="xTP-lb-Elg"/>
                             <constraint firstItem="bWh-us-6gb" firstAttribute="leading" secondItem="nMv-Z2-5iX" secondAttribute="leading" constant="20" id="yXg-ft-62s"/>
                         </constraints>

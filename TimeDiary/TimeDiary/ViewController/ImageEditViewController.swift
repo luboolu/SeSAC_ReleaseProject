@@ -165,7 +165,15 @@ class ImageEditViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = .horizontal
+        
+        
+        //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
+        if designCollectionView.frame.height >= (width / 3) * 2 {
+            layout.scrollDirection = .horizontal
+        } else {
+            layout.scrollDirection = .vertical
+        }
+
         designCollectionView.collectionViewLayout = layout
     }
     
@@ -309,6 +317,8 @@ class ImageEditViewController: UIViewController {
             if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
                 self.fontNameLabel.adjustsFontSizeToFitWidth = true
             }
+            
+            self.designUpdate()
         }
     }
     
@@ -324,6 +334,8 @@ class ImageEditViewController: UIViewController {
             if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
                 self.fontNameLabel.adjustsFontSizeToFitWidth = true
             }
+            
+            self.designUpdate()
         }
     }
     
@@ -405,7 +417,7 @@ class ImageEditViewController: UIViewController {
             self.customView = Stamp_14(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
             
         } else {
-            self.customView = Stamp_15(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_15(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
         }
 
         self.designView.addSubview(self.customView)
