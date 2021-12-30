@@ -18,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="1080" height="1080"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-N0-Owm">
-                    <rect key="frame" x="20" y="987" width="160" height="83"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-N0-Owm">
+                    <rect key="frame" x="20" y="987" width="1040" height="83"/>
                     <fontDescription key="fontDescription" type="system" pointSize="69"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -29,6 +29,7 @@
             <constraints>
                 <constraint firstItem="lXP-N0-Owm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="FRk-hK-V9a"/>
                 <constraint firstAttribute="bottom" secondItem="lXP-N0-Owm" secondAttribute="bottom" constant="10" id="ewq-Cb-54u"/>
+                <constraint firstAttribute="trailing" secondItem="lXP-N0-Owm" secondAttribute="trailing" constant="20" id="ovQ-cJ-j4V"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="116"/>

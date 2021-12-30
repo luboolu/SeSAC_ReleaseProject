@@ -154,27 +154,37 @@ class ImageEditViewController: UIViewController {
         fontSizeLabel.font = UIFont(name: "KOTRA_SONGEULSSI", size: 20)
         fontSizeLabel.textColor = UIColor(named: "bear")
         
-        
-        //collection view flow layout 설정
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 10
-        let width = UIScreen.main.bounds.width - (spacing * 4) - 40
-        layout.itemSize = CGSize(width: width / 3, height: (width / 3))
-        
-        //print(UIScreen.main.bounds.width, width / 3, width / 3)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        
-        
-        //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
-        if designCollectionView.frame.height >= (width / 3) * 2 {
-            layout.scrollDirection = .horizontal
-        } else {
-            layout.scrollDirection = .vertical
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                
+                //collection view flow layout 설정
+                let layout = UICollectionViewFlowLayout()
+                let spacing: CGFloat = 10
+                let width = UIScreen.main.bounds.width - (spacing * 4) - 40
+                layout.itemSize = CGSize(width: width / 3, height: (width / 3))
+                
+                //print(UIScreen.main.bounds.width, width / 3, width / 3)
+                layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+                layout.minimumLineSpacing = spacing
+                layout.minimumInteritemSpacing = spacing
+                
+                self.designCollectionView.backgroundColor = UIColor().blue
+                //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
+                if self.designCollectionView.frame.height >= (width / 3) * 2 {
+                    layout.scrollDirection = .vertical
+                } else {
+                    layout.scrollDirection = .horizontal
+                }
+                print("view frmae: \(self.designCollectionView.frame.minY) \(self.designCollectionView.frame.maxY)")
+                print("view width: \(self.designCollectionView.frame.width)")
+                print("view height: \(self.designCollectionView.frame.height)")
+                print("cell height: \(layout.itemSize)")
+                self.designCollectionView.collectionViewLayout = layout
+                
+            }
         }
 
-        designCollectionView.collectionViewLayout = layout
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -284,21 +294,21 @@ class ImageEditViewController: UIViewController {
     
     
     @IBAction func fontPlusButtonClicked(_ sender: UIButton) {
-        if self.stampFontSizePlus < 20 {
+        if self.stampFontSizePlus < 10 {
             self.stampFontSizePlus += 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
-            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         }
 
     }
     
     @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
-        if self.stampFontSizePlus > -5 {
+        if self.stampFontSizePlus > -10 {
             self.stampFontSizePlus -= 1
             //self.stampDesignName = .Stamp_1
             designUpdate()
-            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
+            fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         }
 
     }
@@ -375,46 +385,46 @@ class ImageEditViewController: UIViewController {
         self.stampDate = Date()
         
         if self.stampDesignName == .Stamp_1 {
-            self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_1(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
 
         } else if self.stampDesignName == .Stamp_2 {
-            self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_2(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_3 {
-            self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_3(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_4 {
-            self.customView = Stamp_4(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_4(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_5 {
-            self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_5(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_6 {
-            self.customView = Stamp_6(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_6(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_7 {
-            self.customView = Stamp_7(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_7(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_8 {
-            self.customView = Stamp_8(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_8(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_9 {
-            self.customView = Stamp_9(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_9(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_10 {
-            self.customView = Stamp_10(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_10(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_11 {
-            self.customView = Stamp_11(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_11(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_12 {
-            self.customView = Stamp_12(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_12(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_13 {
-            self.customView = Stamp_13(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_13(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else if self.stampDesignName == .Stamp_14 {
-            self.customView = Stamp_14(frame: self.designView.frame, color: self.stampDesignColor, fontSize: self.stampFontSizePlus)
+            self.customView = Stamp_14(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)
             
         } else {
             self.customView = Stamp_15(frame: self.designView.frame, color: self.stampDesignColor, fontName: self.fontList[self.fontIndex], fontSize: self.stampFontSizePlus)

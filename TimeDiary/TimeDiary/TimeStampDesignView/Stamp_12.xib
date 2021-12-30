@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DKH-gy-DBj">
-                    <rect key="frame" x="519.5" y="518.5" width="41.5" height="43"/>
+                    <rect key="frame" x="20" y="518.5" width="1040" height="43"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-b1-Ihk">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgA-H6-J6l">
-                            <rect key="frame" x="0.0" y="22.5" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="22.5" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -40,7 +40,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="DKH-gy-DBj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Imp-Zr-HYP"/>
+                <constraint firstAttribute="trailing" secondItem="DKH-gy-DBj" secondAttribute="trailing" constant="20" id="JNn-97-X8z"/>
                 <constraint firstItem="DKH-gy-DBj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="e3v-nt-OKx"/>
+                <constraint firstItem="DKH-gy-DBj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="osH-7g-DyP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="104"/>

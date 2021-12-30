@@ -19,14 +19,14 @@
             <rect key="frame" x="0.0" y="0.0" width="1080" height="1080"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0I-F6-HlH">
-                    <rect key="frame" x="20" y="10" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0I-F6-HlH">
+                    <rect key="frame" x="20" y="10" width="1050" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDe-Vr-TqM">
-                    <rect key="frame" x="519" y="529.5" width="42" height="21"/>
+                    <rect key="frame" x="20" y="529.5" width="1040" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,8 +35,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="TDe-Vr-TqM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2Dg-g1-dvO"/>
+                <constraint firstAttribute="trailing" secondItem="TDe-Vr-TqM" secondAttribute="trailing" constant="20" id="Ju0-IK-iBb"/>
                 <constraint firstItem="n0I-F6-HlH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="T44-lT-4it"/>
                 <constraint firstItem="TDe-Vr-TqM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aNU-uG-kYY"/>
+                <constraint firstItem="TDe-Vr-TqM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="dfV-yz-IKk"/>
+                <constraint firstAttribute="trailing" secondItem="n0I-F6-HlH" secondAttribute="trailing" constant="10" id="iKE-lC-AKn"/>
                 <constraint firstItem="n0I-F6-HlH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rEq-kk-jmd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

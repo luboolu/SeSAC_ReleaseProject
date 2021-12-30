@@ -18,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="1080" height="1080"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAT-xP-Ryd">
-                    <rect key="frame" x="959" y="10" width="101" height="52"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAT-xP-Ryd">
+                    <rect key="frame" x="20" y="10" width="1040" height="52"/>
                     <fontDescription key="fontDescription" type="system" pointSize="43"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -29,6 +29,7 @@
             <constraints>
                 <constraint firstItem="RAT-xP-Ryd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="INh-Fu-Oo9"/>
                 <constraint firstAttribute="trailing" secondItem="RAT-xP-Ryd" secondAttribute="trailing" constant="20" id="MiF-dM-mtQ"/>
+                <constraint firstItem="RAT-xP-Ryd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="eyb-oG-Xgh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="104"/>

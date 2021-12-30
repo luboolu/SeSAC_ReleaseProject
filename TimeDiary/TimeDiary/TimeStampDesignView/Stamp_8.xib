@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NRp-4J-3LY">
-                    <rect key="frame" x="519.5" y="518.5" width="41.5" height="43"/>
+                    <rect key="frame" x="20" y="518.5" width="1040" height="43"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-dR-3TK">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwk-46-BuW">
-                            <rect key="frame" x="0.0" y="22.5" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="22.5" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -39,6 +39,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="NRp-4J-3LY" secondAttribute="trailing" constant="20" id="Ux9-2b-nb8"/>
+                <constraint firstItem="NRp-4J-3LY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="eGU-dL-eIL"/>
                 <constraint firstItem="NRp-4J-3LY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sPK-WS-FnG"/>
                 <constraint firstItem="NRp-4J-3LY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zhl-Og-6Hf"/>
             </constraints>

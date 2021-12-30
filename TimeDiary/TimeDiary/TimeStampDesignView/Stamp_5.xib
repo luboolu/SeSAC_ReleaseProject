@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-GT-imv">
-                    <rect key="frame" x="519.5" y="518.5" width="41.5" height="43"/>
+                    <rect key="frame" x="20" y="518.5" width="1040" height="43"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqd-Iw-63F">
-                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcO-qG-ZlH">
-                            <rect key="frame" x="0.0" y="22.5" width="41.5" height="20.5"/>
+                            <rect key="frame" x="0.0" y="22.5" width="1040" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -40,6 +40,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="MVb-GT-imv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ABn-cG-w05"/>
+                <constraint firstItem="MVb-GT-imv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ABq-vl-yEG"/>
+                <constraint firstAttribute="trailing" secondItem="MVb-GT-imv" secondAttribute="trailing" constant="20" id="dxI-9c-y7M"/>
                 <constraint firstItem="MVb-GT-imv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rk4-QF-Gll"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

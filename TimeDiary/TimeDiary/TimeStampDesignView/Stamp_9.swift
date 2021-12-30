@@ -13,19 +13,19 @@ class Stamp_9: UIView {
     
     @IBOutlet weak var contentLabel1: UILabel!
     
-    //using customeView in code -> 사용중
-    init(frame: CGRect, color: UIColor, fontSize: CGFloat) {
+    //using customeView in code
+    init(frame: CGRect, color: UIColor, fontName: String, fontSize: CGFloat) {
         super.init(frame: frame)
-        commonInit(color: color, fontSize: fontSize)
+        commonInit(color: color, fontName: fontName, fontSize: fontSize)
     }
     
     //using customView in XIB
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit(color: .white, fontSize: 0)
+        commonInit(color: .white, fontName: "esamanru OTF Bold", fontSize: 0)
     }
     
-    private func commonInit(color: UIColor, fontSize: CGFloat) {
+    private func commonInit(color: UIColor, fontName: String, fontSize: CGFloat) {
         Bundle.main.loadNibNamed("Stamp_9", owner: self, options: nil)
         
         let date = Date()
@@ -34,7 +34,7 @@ class Stamp_9: UIView {
 
         contentLabel1.text = "\(timestamp1) \(timestamp2)"
         contentLabel1.textColor = color
-        contentLabel1.font = UIFont(name: "esamanru OTF Bold", size: 30 + fontSize)
+        contentLabel1.font = UIFont(name: fontName, size: 30 + fontSize)
         
 
 
