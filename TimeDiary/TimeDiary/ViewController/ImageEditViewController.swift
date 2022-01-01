@@ -150,7 +150,7 @@ class ImageEditViewController: UIViewController {
             fontNameLabel.adjustsFontSizeToFitWidth = true
         }
         
-        fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 5)"
+        fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         fontSizeLabel.font = UIFont(name: "KOTRA_SONGEULSSI", size: 20)
         fontSizeLabel.textColor = UIColor(named: "bear")
         
@@ -169,17 +169,17 @@ class ImageEditViewController: UIViewController {
                 layout.minimumLineSpacing = spacing
                 layout.minimumInteritemSpacing = spacing
                 
-                self.designCollectionView.backgroundColor = UIColor().blue
+
                 //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
                 if self.designCollectionView.frame.height >= (width / 3) * 2 {
                     layout.scrollDirection = .vertical
                 } else {
                     layout.scrollDirection = .horizontal
                 }
-                print("view frmae: \(self.designCollectionView.frame.minY) \(self.designCollectionView.frame.maxY)")
-                print("view width: \(self.designCollectionView.frame.width)")
-                print("view height: \(self.designCollectionView.frame.height)")
-                print("cell height: \(layout.itemSize)")
+//                print("view frmae: \(self.designCollectionView.frame.minY) \(self.designCollectionView.frame.maxY)")
+//                print("view width: \(self.designCollectionView.frame.width)")
+//                print("view height: \(self.designCollectionView.frame.height)")
+//                print("cell height: \(layout.itemSize)")
                 self.designCollectionView.collectionViewLayout = layout
                 
             }
@@ -493,6 +493,15 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.stampFontSizePlus = CGFloat(0)
+        
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                self.fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
+            }
+        }
         
         if indexPath.row == 0 {
             self.stampDesignName = .Stamp_1

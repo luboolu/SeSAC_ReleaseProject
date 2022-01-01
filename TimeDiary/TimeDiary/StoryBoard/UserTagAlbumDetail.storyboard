@@ -28,23 +28,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uVA-Va-X18">
                                 <rect key="frame" x="20" y="502" width="374" height="291"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-xu-Utc">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="217"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000/1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raU-ne-wn5">
-                                        <rect key="frame" x="294" y="222" width="80" height="20"/>
+                                        <rect key="frame" x="294" y="0.0" width="80" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="PGm-t5-FGN"/>
-                                            <constraint firstAttribute="width" constant="80" id="Weh-qF-xjW"/>
+                                            <constraint firstAttribute="height" constant="20" id="DGI-K0-TRS"/>
+                                            <constraint firstAttribute="width" constant="80" id="MiM-ez-cr7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text=" " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-xu-Utc">
+                                        <rect key="frame" x="0.0" y="25" width="374" height="217"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-UN-Ce9">
                                         <rect key="frame" x="330" y="247" width="44" height="44"/>
                                         <constraints>
@@ -63,7 +63,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2Fw-xu-Utc" secondAttribute="trailing" id="H1U-8m-bFQ"/>
-                                    <constraint firstItem="2Fw-xu-Utc" firstAttribute="top" secondItem="uVA-Va-X18" secondAttribute="top" id="KFf-Fs-0x0"/>
+                                    <constraint firstItem="2Fw-xu-Utc" firstAttribute="top" secondItem="raU-ne-wn5" secondAttribute="bottom" constant="5" id="wnG-8i-m7T"/>
                                     <constraint firstItem="2Fw-xu-Utc" firstAttribute="leading" secondItem="uVA-Va-X18" secondAttribute="leading" id="x2L-SA-knT"/>
                                 </constraints>
                             </stackView>

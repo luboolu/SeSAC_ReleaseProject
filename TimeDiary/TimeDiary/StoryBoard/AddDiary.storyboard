@@ -25,8 +25,8 @@
                                     <constraint firstAttribute="width" constant="254" id="mWy-2i-fhm"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tG8-Yz-g2u">
-                                <rect key="frame" x="20" y="338" width="374" height="61"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tG8-Yz-g2u">
+                                <rect key="frame" x="20" y="338" width="374" height="57"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="폴더" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbZ-71-Ixa">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="폴더를 선택해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XmX-mg-uos">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="33"/>
+                                        <rect key="frame" x="0.0" y="24" width="374" height="33"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -52,8 +52,8 @@
                                     <constraint firstItem="TbZ-71-Ixa" firstAttribute="leading" secondItem="tG8-Yz-g2u" secondAttribute="leading" id="gsn-Sf-ou5"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hl8-pl-a7i">
-                                <rect key="frame" x="20" y="419" width="374" height="423"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hl8-pl-a7i">
+                                <rect key="frame" x="20" y="415" width="374" height="427"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6q-b9-EOc">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
@@ -65,8 +65,17 @@
                                         <color key="textColor" name="bear"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEK-qB-Ilu">
+                                        <rect key="frame" x="0.0" y="24" width="364" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Bw8-vv-vNE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPi-WR-aVg">
-                                        <rect key="frame" x="0.0" y="30" width="374" height="393"/>
+                                        <rect key="frame" x="0.0" y="48" width="374" height="379"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -76,6 +85,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="X6q-b9-EOc" secondAttribute="trailing" id="KMA-bu-lLw"/>
                                     <constraint firstAttribute="trailing" secondItem="PPi-WR-aVg" secondAttribute="trailing" id="LbE-Vx-yXl"/>
+                                    <constraint firstAttribute="trailing" secondItem="IEK-qB-Ilu" secondAttribute="trailing" constant="10" id="NtU-in-0vp"/>
                                     <constraint firstItem="X6q-b9-EOc" firstAttribute="leading" secondItem="Hl8-pl-a7i" secondAttribute="leading" id="QCE-6g-o1d"/>
                                     <constraint firstItem="PPi-WR-aVg" firstAttribute="leading" secondItem="Hl8-pl-a7i" secondAttribute="leading" id="io0-TM-P6g"/>
                                 </constraints>
@@ -96,6 +106,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentLengthLabel" destination="IEK-qB-Ilu" id="OZL-NQ-0qb"/>
                         <outlet property="contentTextView" destination="PPi-WR-aVg" id="abA-K1-BEK"/>
                         <outlet property="contentTitle" destination="X6q-b9-EOc" id="VDV-MB-lUp"/>
                         <outlet property="imageView" destination="bZ3-mb-tn0" id="g4y-RA-UZz"/>

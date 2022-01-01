@@ -19,6 +19,7 @@ class AddDiaryViewController: UIViewController {
     
     @IBOutlet weak var showTagTitle: UILabel!
     @IBOutlet weak var contentTitle: UILabel!
+    @IBOutlet weak var contentLengthLabel: UILabel!
     
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var showTagPicker: UITextField!
@@ -62,6 +63,11 @@ class AddDiaryViewController: UIViewController {
         contentTextView.font = UIFont().kotra_songeulssi_13
         contentTextView.clipsToBounds = true
         contentTextView.layer.cornerRadius = 10
+        contentTextView.delegate = self
+        
+        contentLengthLabel.text = "\(contentTextView.text.count)/1000"
+        contentLengthLabel.font = UIFont().kotra_songeulssi_13
+        contentLengthLabel.textColor = UIColor(named: "bear")
         
         // this is just one of many style options
         self.style.messageColor = .white
@@ -287,4 +293,26 @@ extension AddDiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
+}
+
+
+extension AddDiaryViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        
+        let count = textView.text.count ?? 0
+        
+        if count <= 1000 {
+            DispatchQueue.main.async {
+                self.contentLengthLabel.textColor = UIColor(named: "bear")
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.contentLengthLabel.textColor = UIColor().red
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.contentLengthLabel.text = "\(textView.text.count ?? 0)/1000"
+        }
+    }
 }
