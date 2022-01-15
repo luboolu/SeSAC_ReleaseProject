@@ -31,9 +31,7 @@ class UserDiaryViewController: UIViewController {
         tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
         tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
         
-        
-        
-        
+
         //navigationbar setting
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
         

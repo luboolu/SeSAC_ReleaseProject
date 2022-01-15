@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC030E2527906B5D000B83B9 /* JGProgressHUD */; };
 		DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3B4438274F86AC009C07D3 /* Stamp_2.xib */; };
 		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
 		DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443C274FCD74009C07D3 /* StampDesign.swift */; };
@@ -199,6 +200,7 @@
 				DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */,
 				DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */,
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
+				DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +410,7 @@
 				DCCECFE0274B8B35002EEABD /* RealmSwift */,
 				DCCDA49027552F1D002038C0 /* Toast */,
 				DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */,
+				DC030E2527906B5D000B83B9 /* JGProgressHUD */,
 			);
 			productName = TimeDiary;
 			productReference = DCCECFA327463FB7002EEABD /* TimeDiary.app */;
@@ -442,6 +445,7 @@
 				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
@@ -820,6 +824,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -847,6 +859,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DC030E2527906B5D000B83B9 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		DCCDA49027552F1D002038C0 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;

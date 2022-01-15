@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 import Toast
 import Photos
+import JGProgressHUD
 
 
 class AddDiaryViewController: UIViewController {
@@ -147,12 +148,21 @@ class AddDiaryViewController: UIViewController {
                 }
             }
 
+            let savingHud = JGProgressHUD()
+            savingHud.vibrancyEnabled = true
+            savingHud.hudView.backgroundColor = .darkGray
+            savingHud.textLabel.text = "이미지 저장중"
             
-            
+            let saveCompleteHud = JGProgressHUD()
+            saveCompleteHud.textLabel.text = "저장 성공"
+
+
             vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                savingHud.show(in: self.view)
+                
                 if completed {
                     self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
-                    
+                    savingHud.dismiss(animated: true)
                 } else {
                     print("취소")
                     
