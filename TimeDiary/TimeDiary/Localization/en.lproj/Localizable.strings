@@ -24,7 +24,8 @@
 "save" = "save";
 "selectTag" = "select tag";
 "select" = "select";
-"imageSaveComplete" = "image has been saved";
+"imageSaving" = "saving";
+"imageSaveComplete" = "saved";
 "error" = "error!";
 "folder" = "folder";
 "content" = "content";

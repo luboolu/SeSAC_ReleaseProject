@@ -22,7 +22,8 @@
 "save" = "저장";
 "selectTag" = "분류값을 선택해주세요";
 "select" = "선택";
-"imageSaveComplete" = "이미지가 저장되었습니다";
+"imageSaving" = "이미지 저장중";
+"imageSaveComplete" = "저장 완료";
 "error" = "에러!";
 "folder" = "폴더";
 "content" = "내용";

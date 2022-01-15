@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 import Toast
 import Photos
+import JGProgressHUD
 
 class UserTagAlbumDetailViewController: UIViewController {
     
@@ -241,11 +242,21 @@ class UserTagAlbumDetailViewController: UIViewController {
 
         vc.popoverPresentationController?.sourceView = self.view
         self.present(vc, animated: true, completion: nil)
-
         
+        //이미지 저장에 보여줄 hud 정의
+        let savingHud = JGProgressHUD()
+        savingHud.vibrancyEnabled = true
+        savingHud.style = .dark
+        savingHud.textLabel.text = NSLocalizedString("imageSaving", comment: "이미지 저장중")
+        savingHud.detailTextLabel.text = nil
+
+
         vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
-                self.view.makeToast(NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료") ,duration: 2.0, position: .bottom, style: self.style)
+                savingHud.show(in: self.view)
+                savingHud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                savingHud.textLabel.text = NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료")
+                savingHud.dismiss(afterDelay: 1.5, animated: true)
                 
             } else {
                 print("취소")
