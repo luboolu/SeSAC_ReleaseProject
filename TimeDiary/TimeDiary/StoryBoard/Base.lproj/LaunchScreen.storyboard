@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBearTitle1" translatesAutoresizingMaskIntoConstraints="NO" id="9tD-Hz-Gec">
-                                <rect key="frame" x="20" y="261" width="374" height="374"/>
+                                <rect key="frame" x="40" y="281" width="334" height="334"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9tD-Hz-Gec" secondAttribute="height" id="hhg-NL-HQT"/>
                                 </constraints>
@@ -29,8 +29,8 @@
                         <constraints>
                             <constraint firstItem="9tD-Hz-Gec" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Adg-Z1-kf4"/>
                             <constraint firstItem="9tD-Hz-Gec" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Bvl-8H-qbf"/>
-                            <constraint firstItem="9tD-Hz-Gec" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="RWY-Hm-ACd"/>
-                            <constraint firstAttribute="trailing" secondItem="9tD-Hz-Gec" secondAttribute="trailing" constant="20" id="RmG-yb-v6H"/>
+                            <constraint firstItem="9tD-Hz-Gec" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="40" id="RWY-Hm-ACd"/>
+                            <constraint firstAttribute="trailing" secondItem="9tD-Hz-Gec" secondAttribute="trailing" constant="40" id="RmG-yb-v6H"/>
                         </constraints>
                     </view>
                 </viewController>

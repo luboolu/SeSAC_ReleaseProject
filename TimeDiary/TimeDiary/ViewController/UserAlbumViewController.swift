@@ -44,16 +44,16 @@ class UserAlbumViewController: UIViewController  {
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
         cameraButton.backgroundColor = .clear
         cameraButton.clipsToBounds = true
-        cameraButton.layer.cornerRadius = 10
-        cameraButton.layer.borderWidth = 1
+        cameraButton.layer.cornerRadius = 0.5 * cameraButton.bounds.width
+        cameraButton.layer.borderWidth = 0
         cameraButton.layer.borderColor = UIColor(named: "bear")?.cgColor
         
         albumButton.setTitle(String(format: NSLocalizedString("album", comment: "앨범으로 타임스탬프 이미지 생성")), for: .normal)
         albumButton.titleLabel?.font = UIFont().kotra_songeulssi_13
         albumButton.backgroundColor = .clear
         albumButton.clipsToBounds = true
-        albumButton.layer.cornerRadius = 10
-        albumButton.layer.borderWidth = 1
+        albumButton.layer.cornerRadius = 0.5 * albumButton.bounds.width
+        albumButton.layer.borderWidth = 0
         albumButton.layer.borderColor = UIColor(named: "bear")?.cgColor
         
         //tabbar setting
@@ -205,3 +205,17 @@ extension UserAlbumViewController: PHPickerViewControllerDelegate {
     
     
 }
+
+extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
+    }
+    
+}
+

@@ -17,26 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MHC-yv-abe">
-                                <rect key="frame" x="20" y="108" width="374" height="734"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r97-P8-3JB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MHC-yv-abe" secondAttribute="bottom" constant="20" id="CeY-bG-xLT"/>
-                            <constraint firstItem="MHC-yv-abe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="JcN-FC-1OO"/>
-                            <constraint firstItem="MHC-yv-abe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MkR-Za-QG2"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MHC-yv-abe" secondAttribute="trailing" constant="20" id="zLb-uE-oDU"/>
+                            <constraint firstItem="r97-P8-3JB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Dyh-0y-Kbk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="r97-P8-3JB" secondAttribute="trailing" id="mCw-km-ZCn"/>
+                            <constraint firstItem="r97-P8-3JB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pVh-OF-vJ7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="r97-P8-3JB" secondAttribute="bottom" id="wYK-2H-YNE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wc2-M7-FxC"/>
                     <connections>
-                        <outlet property="licenseTextView" destination="MHC-yv-abe" id="eTD-AR-eRO"/>
+                        <outlet property="webView" destination="r97-P8-3JB" id="JHg-fL-IWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -63,9 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

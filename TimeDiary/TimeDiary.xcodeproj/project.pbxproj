@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC030E2527906B5D000B83B9 /* JGProgressHUD */; };
+		DC143CAF27942F01006F0244 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = DC143CAE27942F01006F0244 /* OpenSource.html */; };
 		DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3B4438274F86AC009C07D3 /* Stamp_2.xib */; };
 		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
 		DC3B443D274FCD74009C07D3 /* StampDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443C274FCD74009C07D3 /* StampDesign.swift */; };
@@ -99,6 +100,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC143CAE27942F01006F0244 /* OpenSource.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
 		DC3B443A274F888E009C07D3 /* Stamp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_2.swift; sourceTree = "<group>"; };
 		DC3B443C274FCD74009C07D3 /* StampDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampDesign.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				DCCECFA627463FB7002EEABD /* AppDelegate.swift */,
 				DCCECFD0274B4764002EEABD /* identifier.swift */,
 				DC927FB92757BA08005A919B /* PrivacyPolicy.html */,
+				DC143CAE27942F01006F0244 /* OpenSource.html */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
 				DCA66D46277C507500B628CF /* Observable.swift */,
 				DCCDA49927567715002038C0 /* InfoPlist.strings */,
@@ -495,6 +498,7 @@
 				DCCECFF9274D2D38002EEABD /* KOTRA LEAP_OTF.otf in Resources */,
 				DC927FAE27576CD6005A919B /* JejuMyeongjoOTF.otf in Resources */,
 				DCCECFEE274CEAC0002EEABD /* Localizable.strings in Resources */,
+				DC143CAF27942F01006F0244 /* OpenSource.html in Resources */,
 				DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */,
 				DCCDA48A2754D20C002038C0 /* TagAlbumCollectionViewCell.xib in Resources */,
 				DC927FA6275766F2005A919B /* KOTRA HOPE_OTF.otf in Resources */,

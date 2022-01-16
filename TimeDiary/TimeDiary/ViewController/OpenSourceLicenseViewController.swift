@@ -6,22 +6,41 @@
 //
 
 import UIKit
+import WebKit
 
 class OpenSourceLicenseViewController: UIViewController {
     
     static let identifier = "OpenSourceLicenseViewController"
-
     
-    @IBOutlet weak var licenseTextView: UITextView!
+    @IBOutlet weak var webView: WKWebView!
+    
+    let str = """
+        <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset='utf-8'>
+              <meta name='viewport' content='width=device-width'>
+              <title>Open Source</title>
+              <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+            </head>
+            <body>
+            <strong>Realm</strong><p>https://github.com/realm/realm-cocoa</p>
+            <strong>IQKeyboardManager</strong><p>https://github.com/hackiftekhar/IQKeyboardManager</p>
+            <strong>Toast</strong><p>https://github.com/scalessec/Toast-Swift</p>
+            <strong>JGProgressHUD</strong><p>https://github.com/JonasGessner/JGProgressHUD.git</p>
+                        
+            </body>
+            </html>
+
+        """
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "\(NSLocalizedString("opensourceLicense", comment: "오픈소스 라이센스"))"
+        self.navigationItem.title = "\(NSLocalizedString("openSourceLicense", comment: "오픈소스 라이센스"))"
         
-        licenseTextView.isEditable = false
-        licenseTextView.text = "<Realm>\n https://github.com/realm/realm-cocoa \n\n <IQKeyboardManager>\n https://github.com/hackiftekhar/IQKeyboardManager \n\n <Toast>\n https://github.com/scalessec/Toast-Swift "
-        licenseTextView.font = UIFont().kotra_songeulssi_13
+        self.webView.loadHTMLString(str, baseURL: nil)
 
         // Do any additional setup after loading the view.
     }

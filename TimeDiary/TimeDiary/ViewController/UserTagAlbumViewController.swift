@@ -44,6 +44,8 @@ class UserTagAlbumViewController: UIViewController {
         hapticFeedbackGenerator = UISelectionFeedbackGenerator()
         hapticFeedbackGenerator?.prepare()
         
+        self.tabBarController?.tabBar.isHidden = false
+        
         
         // Do any additional setup after loading the view.
         if tagData != nil {
@@ -109,6 +111,7 @@ class UserTagAlbumViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("TagAlbum\(#function)")
         albumCollectionView.reloadData()
+        self.tabBarController?.tabBar.isHidden = false
         
         //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
         if tasksDiary.count == 0 {
