@@ -19,64 +19,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBearTitle1" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-V6-t3u">
-                                <rect key="frame" x="49" y="325" width="330" height="330"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Nwp-V6-t3u" secondAttribute="height" id="chn-bk-zsw"/>
-                                    <constraint firstAttribute="width" constant="330" id="ku4-Gg-8X6"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="88" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-SQ-EDW">
-                                <rect key="frame" x="82" y="655" width="264" height="88"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IUt-X8-MUo">
+                                <rect key="frame" x="64" y="385" width="300" height="388"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7od-OP-XEd">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeBearTitle1" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-V6-t3u">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="7od-OP-XEd" secondAttribute="height" id="Ox7-vJ-oxu"/>
-                                            <constraint firstAttribute="width" constant="88" id="pn1-Nh-XNV"/>
+                                            <constraint firstAttribute="width" secondItem="Nwp-V6-t3u" secondAttribute="height" id="chn-bk-zsw"/>
+                                            <constraint firstAttribute="width" constant="300" id="ku4-Gg-8X6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <color key="tintColor" name="bear"/>
-                                        <inset key="titleEdgeInsets" minX="-50" minY="55" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <state key="normal" title="Album">
-                                            <imageReference key="image" image="photo.on.rectangle" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="albumOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="I1q-pg-1dr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf8-Is-zKx">
-                                        <rect key="frame" x="176" y="0.0" width="88" height="88"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="88" id="Fgr-BE-PnA"/>
-                                            <constraint firstAttribute="width" secondItem="gf8-Is-zKx" secondAttribute="height" id="xc1-og-IuJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <color key="tintColor" name="bear"/>
-                                        <inset key="titleEdgeInsets" minX="-50" minY="55" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
-                                        <state key="normal" title="Camera">
-                                            <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cameraOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="J8W-Ni-Ww4"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="88" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-SQ-EDW">
+                                        <rect key="frame" x="18" y="300" width="264" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7od-OP-XEd">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7od-OP-XEd" secondAttribute="height" id="Ox7-vJ-oxu"/>
+                                                    <constraint firstAttribute="width" constant="88" id="pn1-Nh-XNV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <color key="tintColor" name="bear"/>
+                                                <inset key="titleEdgeInsets" minX="-50" minY="55" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
+                                                <state key="normal" title="Album">
+                                                    <imageReference key="image" image="photo.on.rectangle" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="albumOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="I1q-pg-1dr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gf8-Is-zKx">
+                                                <rect key="frame" x="176" y="0.0" width="88" height="88"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="88" id="Fgr-BE-PnA"/>
+                                                    <constraint firstAttribute="width" secondItem="gf8-Is-zKx" secondAttribute="height" id="xc1-og-IuJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <color key="tintColor" name="bear"/>
+                                                <inset key="titleEdgeInsets" minX="-50" minY="55" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="10"/>
+                                                <state key="normal" title="Camera">
+                                                    <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="26"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cameraOpenButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="J8W-Ni-Ww4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="UxA-SQ-EDW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="65A-aC-Gcj"/>
-                            <constraint firstItem="Nwp-V6-t3u" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9qn-cO-yHu"/>
-                            <constraint firstItem="UxA-SQ-EDW" firstAttribute="top" secondItem="Nwp-V6-t3u" secondAttribute="bottom" id="bYU-d0-ySK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="UxA-SQ-EDW" secondAttribute="bottom" constant="100" id="u4B-Dh-zlX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="IUt-X8-MUo" secondAttribute="bottom" constant="70" id="ZZi-A8-gqC"/>
+                            <constraint firstItem="IUt-X8-MUo" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="a5E-Ia-jXJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eyY-Vu-vVw"/>
