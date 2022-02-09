@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [ NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont().kotra_songeulssi_13], for: .highlighted)
-
         
         //custom font 있는지 없는지 if로 확인해서 실행함
         

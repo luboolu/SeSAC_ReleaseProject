@@ -37,6 +37,4 @@ extension UIColor {
         return UIColor(named: "purple")!
     }
     
-    
-    
 }

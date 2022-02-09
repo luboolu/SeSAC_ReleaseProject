@@ -457,32 +457,6 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.numLabel.text = "\(indexPath.row + 1)"
         cell.numLabel.font = UIFont().kotra_songeulssi_30
         
-//        if indexPath.row == 0 {
-//            let tmpDesignView = Stamp_1(frame: cell.frame, color: .white)
-//            cell.designView.addSubview(tmpDesignView)
-//        } else if indexPath.row == 1 {
-//            let tmpDesignView = Stamp_2(frame: cell.frame, color: .white)
-//            cell.designView.addSubview(tmpDesignView)
-//        } else if indexPath.row == 2 {
-//
-//        } else if indexPath.row == 3 {
-//
-//        } else if indexPath.row == 4 {
-//
-//        } else if indexPath.row == 5 {
-//
-//        } else if indexPath.row == 6 {
-//
-//        } else if indexPath.row == 7 {
-//
-//        } else if indexPath.row == 8 {
-//
-//        } else if indexPath.row == 9 {
-//
-//        } else {
-//
-//        }
-//
         cell.designView.backgroundColor = UIColor(cgColor: CGColor(red: 0, green: 0, blue: 0, alpha: 0.65))
 
         cell.numLabel.layer.zPosition = 999
