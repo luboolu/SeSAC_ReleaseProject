@@ -1,8 +1,8 @@
 <h1>SSAC iOS 앱 개발자 데뷔과정 - 출시 프로젝트</h1>
 
+###📍프로젝트 정보
 |||
 |:---:|:---:|
-|<h3>###📍프로젝트 정보</h3>|||
 |<h3>프로젝트 기간</h3>|2021.11.15 ~ 2021.11.21|
 |<h3>업데이트 기록</h3>|1.0, 1.1.0, 1.1.1, 1.1.2, 1.2.0|
 |<h3>사용한 기술</h3>|swift, storyboard, realm, webkit, jgprogresshud, toast|
@@ -10,9 +10,10 @@
 |<h3>지원 언어</h3>|한국어, 영어|
 |<h3>개인/팀 여부</h3>|2021.11.29 ~ 2021.12.05|
 
+###📍프로젝트 일지
 ||||
 |:---:|:---:|:--:|
-|<h3>###📍프로젝트 기획서</h3>||<a href="https://lumpy-chip-1b8.notion.site/TimeDiary-4cdb9a025bfd462899b10b4fafe384be">기획서 notion</a>|
+|<h3>기획서</h3>||<a href="https://lumpy-chip-1b8.notion.site/TimeDiary-4cdb9a025bfd462899b10b4fafe384be">기획서 notion</a>|
 |<h3>1주차 일지</h3>|2021.11.15 ~ 2021.11.21|<a href="https://lumpy-chip-1b8.notion.site/1-11-15-11-21-a2ea6c56927a4d7b9c2c20f4869afee4">출시프로젝트 1주차    notion</a>|
 |<h3>2주차 일지</h3>|2021.11.22 ~ 2021.11.28|<a href="https://lumpy-chip-1b8.notion.site/2-11-22-11-28-2e64d6b2fa71415896f847f9e89e48b4">출시프로젝트 2주차    notion</a>|
 |<h3>3주차 일지</h3>|2021.11.29 ~ 2021.12.05|<a href="https://lumpy-chip-1b8.notion.site/3-11-29-12-5-89cc26057f7a4ece9c164315be9b2c12">출시프로젝트 3주차    notion</a>|
@@ -20,7 +21,7 @@
 
 ### 📍프로젝트 설명
 
-![슬라이드11](https://user-images.githubusercontent.com/58027136/156922779-e4c55910-643d-4391-8925-c092bacaa73b.png)
+![슬라이드11](https://user-images.githubusercontent.com/58027136/156922779-e4c55910-643d-4391-8925-c092bacaa73b.png){: width="250" height="250"}
 
 타임베어는 iOS 개발을 배우고나서 처음으로 직접 기획부터 앱스토어 출시까지 진행해본 프로젝트 입니다.
 
