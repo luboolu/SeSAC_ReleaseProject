@@ -109,7 +109,6 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
         /*
          데이터 폴더 이동 코드 작성
          */
@@ -136,24 +135,12 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
             }
 
         }
-        
-
         self.view.makeToast(NSLocalizedString("moveComplete", comment: "폴더 변경 완료") ,duration: 1.0, position: .bottom, style: ToastStyle.defaultStyle)
         NotificationCenter.default.post(name: DidDismissPostCommentViewController, object: nil, userInfo: nil)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
           // 1초 후 화면 전환
             self.dismiss(animated: true, completion: nil)
         }
-        print("tagSelect Dismiss!!!")
-
-        
-
-
-
-
-
-        
-
     }
     
     

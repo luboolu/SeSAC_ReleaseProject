@@ -379,8 +379,6 @@ class ImageEditViewController: UIViewController {
 //        print("designview   :\(self.designView.frame)")
 //        print("scrollview   :\(self.scrollView.frame)")
 //        print("imageview    :\(self.imageView.frame)")
-        
-        //self.designView.frame = self.timeStampView.frame
 
         self.stampDate = Date()
         
@@ -435,9 +433,6 @@ class ImageEditViewController: UIViewController {
         self.designView.reloadInputViews()
         
     }
-    
-    
-
 
 }
 

@@ -46,15 +46,12 @@ class UserTagAlbumViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
-        
         // Do any additional setup after loading the view.
         if tagData != nil {
             self.navigationItem.title = "\(tagData.tag)"
         } else {
             self.navigationItem.title = NSLocalizedString("all", comment: "전체")
         }
-        
-        
         
         if selectedTag == "All" {
             tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
@@ -82,9 +79,7 @@ class UserTagAlbumViewController: UIViewController {
             //날짜별로 데이터 분류하기
             //print(tasksDiary)
         }
-        
-        
-        
+
         albumCollectionView.delegate = self
         albumCollectionView.dataSource = self
         
@@ -103,8 +98,6 @@ class UserTagAlbumViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
         albumCollectionView.collectionViewLayout = layout
-
-        
     }
     
     
@@ -219,12 +212,7 @@ class UserTagAlbumViewController: UIViewController {
             }
             
             //tagSelect화면 보여주기
-
-            
             print(selectedTasks)
-            
-
-            
             selectedListAndDataInit()
             
         } else {
@@ -248,9 +236,7 @@ class UserTagAlbumViewController: UIViewController {
 
 
     }
-    
-    
-    
+
     //도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage로 변환 -> UIImageView에 보여주기
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
         
@@ -292,10 +278,6 @@ class UserTagAlbumViewController: UIViewController {
 //            feedbackGenerator.notificationOccurred(feedbackType)
 //        }
 //    }
-    
-
-    
-
 }
 
 
@@ -366,12 +348,6 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
-
-        
     }
-    
-    
-    
     
 }

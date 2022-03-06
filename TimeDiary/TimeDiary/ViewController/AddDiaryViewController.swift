@@ -35,7 +35,6 @@ class AddDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //UserTag Realm 접근
         tasks = localRealm.objects(UserTag.self)
         
@@ -59,7 +58,6 @@ class AddDiaryViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
         
-        
         contentTextView.text = ""
         contentTextView.font = UIFont().kotra_songeulssi_13
         contentTextView.clipsToBounds = true
@@ -74,7 +72,6 @@ class AddDiaryViewController: UIViewController {
         self.style.messageColor = .white
         self.style.backgroundColor = .lightGray
         self.style.messageFont = UIFont().kotra_songeulssi_13
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -116,14 +113,11 @@ class AddDiaryViewController: UIViewController {
 
             saveImageToDocumentDirectory(imageName: "\(data._id.stringValue).png", image: selectedImage)
 
-
-            
             //Activity View Controller present
             let vc = UIActivityViewController(activityItems: [selectedImage], applicationActivities: [])
 
             vc.popoverPresentationController?.sourceView = self.view
             self.present(vc, animated: true, completion: nil)
-
             
             let requiredAccessLevel: PHAccessLevel = .addOnly
      
@@ -177,10 +171,6 @@ class AddDiaryViewController: UIViewController {
         } else {
             self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
         }
-        
-        
-
-
 
     }
     
@@ -211,10 +201,6 @@ class AddDiaryViewController: UIViewController {
 
     }
     
-
-
-
-    
     func saveImageToDocumentDirectory(imageName: String, image: UIImage) {
         //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
         // Desktop/jack/ios/folder 도큐먼트 폴더의 경로는 계속 변하기 때문에 앙래와 같은 형태로 접근해야 한다.
@@ -231,8 +217,6 @@ class AddDiaryViewController: UIViewController {
             print("Couldn't create document directory")
         }
 
-        
-        
         //2. 이미지 파일 이름
         //Desktop/jack/ios/folder/222.png
         let imageURL = folderPath.appendingPathComponent(imageName)

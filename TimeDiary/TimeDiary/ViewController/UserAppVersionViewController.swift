@@ -20,7 +20,6 @@ class UserAppVersionViewController: UIViewController {
         
         
         self.navigationItem.title = "\(NSLocalizedString("appVersion", comment: "앱 버전"))"
-
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
 

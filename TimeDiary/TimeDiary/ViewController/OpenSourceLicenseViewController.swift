@@ -34,7 +34,6 @@ class OpenSourceLicenseViewController: UIViewController {
 
         """
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +51,5 @@ class OpenSourceLicenseViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return false
     }
-    
 
-    
 }
