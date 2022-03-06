@@ -1,27 +1,27 @@
 <h1>SSAC iOS 앱 개발자 데뷔과정 - 출시 프로젝트</h1>
 
-###📍프로젝트 정보
+## 📍프로젝트 정보
 |||
 |:---:|:---:|
-|<h3>프로젝트 기간</h3>|2021.11.15 ~ 2021.11.21|
-|<h3>업데이트 기록</h3>|1.0, 1.1.0, 1.1.1, 1.1.2, 1.2.0|
-|<h3>사용한 기술</h3>|swift, storyboard, realm, webkit, jgprogresshud, toast|
-|<h3>지원 iOS</h3>|iOS14 이상 호환|
-|<h3>지원 언어</h3>|한국어, 영어|
-|<h3>개인/팀 여부</h3>|2021.11.29 ~ 2021.12.05|
+|프로젝트 기간|2021.11.15 ~ 2021.11.21|
+|업데이트 기록|1.0, 1.1.0, 1.1.1, 1.1.2, 1.2.0|
+|사용한 기술|swift, storyboard, realm, webkit, jgprogresshud, toast|
+|지원 iOS|iOS14 이상 호환|
+|지원 언어|한국어, 영어|
+|개인/팀 여부|2021.11.29 ~ 2021.12.05|
 
-###📍프로젝트 일지
+## 📍프로젝트 일지
 ||||
 |:---:|:---:|:--:|
-|<h3>기획서</h3>||<a href="https://lumpy-chip-1b8.notion.site/TimeDiary-4cdb9a025bfd462899b10b4fafe384be">기획서 notion</a>|
-|<h3>1주차 일지</h3>|2021.11.15 ~ 2021.11.21|<a href="https://lumpy-chip-1b8.notion.site/1-11-15-11-21-a2ea6c56927a4d7b9c2c20f4869afee4">출시프로젝트 1주차    notion</a>|
-|<h3>2주차 일지</h3>|2021.11.22 ~ 2021.11.28|<a href="https://lumpy-chip-1b8.notion.site/2-11-22-11-28-2e64d6b2fa71415896f847f9e89e48b4">출시프로젝트 2주차    notion</a>|
-|<h3>3주차 일지</h3>|2021.11.29 ~ 2021.12.05|<a href="https://lumpy-chip-1b8.notion.site/3-11-29-12-5-89cc26057f7a4ece9c164315be9b2c12">출시프로젝트 3주차    notion</a>|
+|기획서||<a href="https://lumpy-chip-1b8.notion.site/TimeDiary-4cdb9a025bfd462899b10b4fafe384be">기획서 notion</a>|
+|1주차 일지|2021.11.15 ~ 2021.11.21|<a href="https://lumpy-chip-1b8.notion.site/1-11-15-11-21-a2ea6c56927a4d7b9c2c20f4869afee4">출시프로젝트 1주차    notion</a>|
+|2주차 일지|2021.11.22 ~ 2021.11.28|<a href="https://lumpy-chip-1b8.notion.site/2-11-22-11-28-2e64d6b2fa71415896f847f9e89e48b4">출시프로젝트 2주차    notion</a>|
+|3주차 일지|2021.11.29 ~ 2021.12.05|<a href="https://lumpy-chip-1b8.notion.site/3-11-29-12-5-89cc26057f7a4ece9c164315be9b2c12">출시프로젝트 3주차    notion</a>|
 
 
-### 📍프로젝트 설명
+## 📍프로젝트 설명
 
-![슬라이드11](https://user-images.githubusercontent.com/58027136/156922779-e4c55910-643d-4391-8925-c092bacaa73b.png){: width="250" height="250"}
+![슬라이드11](https://user-images.githubusercontent.com/58027136/156922779-e4c55910-643d-4391-8925-c092bacaa73b.png){: width=250 height=250}
 
 타임베어는 iOS 개발을 배우고나서 처음으로 직접 기획부터 앱스토어 출시까지 진행해본 프로젝트 입니다.
 
@@ -35,10 +35,10 @@
 
 앱 출시 이후에는 코드 흐름 개선 및 버그 개선 뿐만 아니라, 앱의 이미지 저장과 같은 부분에 애니메이션 효과를 추가하여 좀 더 직관적인 앱 사용이 가능하도록 업데이트를 꾸준히 하였습니다.
 
-### 📍출시후기-블로그
+## 📍출시후기-블로그
 
 [[iOS] 첫 iOS 앱 출시기 '타임베어'](https://velog.io/@luboolu/iOS-%EC%B2%AB-iOS-%EC%95%B1-%EC%B6%9C%EC%8B%9C%EA%B8%B0-%ED%83%80%EC%9E%84%EB%B2%A0%EC%96%B4)
 
-### 📍앱스토어 링크
+## 📍앱스토어 링크
 
 [‎타임베어 - 타임스탬프 다이어리](https://apps.apple.com/kr/app/%ED%83%80%EC%9E%84%EB%B2%A0%EC%96%B4-%ED%83%80%EC%9E%84%EC%8A%A4%ED%83%AC%ED%94%84-%EB%8B%A4%EC%9D%B4%EC%96%B4%EB%A6%AC/id1597848673)
