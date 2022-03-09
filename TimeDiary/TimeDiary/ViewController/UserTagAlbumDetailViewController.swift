@@ -24,6 +24,7 @@ class UserTagAlbumDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var contentView: UITextView!
     @IBOutlet weak var textLengthLabel: UILabel!
+    @IBOutlet weak var contentStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         self.navigationItem.title = "\(timestamp1) \(timestamp2)"
         // Do any additional setup after loading the view.
-       
         
         let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
         let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))

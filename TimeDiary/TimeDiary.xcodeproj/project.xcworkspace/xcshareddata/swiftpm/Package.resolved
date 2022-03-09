@@ -38,6 +38,24 @@
         }
       },
       {
+        "package": "RxKeyboard",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxKeyboard.git",
+        "state": {
+          "branch": "master",
+          "revision": "c532cc3eabedd4f145e27241c5f1591876029608",
+          "version": null
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": "main",
+          "revision": "7741a11cb4252c379c8e034508cb1b92b8b40427",
+          "version": null
+        }
+      },
+      {
         "package": "Toast",
         "repositoryURL": "https://github.com/scalessec/Toast-Swift.git",
         "state": {

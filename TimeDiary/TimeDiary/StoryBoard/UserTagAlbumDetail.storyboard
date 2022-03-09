@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -83,6 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BHZ-wM-HYF"/>
                     <connections>
+                        <outlet property="contentStackView" destination="uVA-Va-X18" id="CnN-WN-f43"/>
                         <outlet property="contentView" destination="2Fw-xu-Utc" id="NQM-mG-zbx"/>
                         <outlet property="imageView" destination="9Wv-Lf-WUQ" id="8Xd-tF-GRE"/>
                         <outlet property="textLengthLabel" destination="raU-ne-wn5" id="pjl-KI-qtH"/>
@@ -114,7 +115,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="tfb-1s-DTl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EkG-r7-EUy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aTN-Le-hwH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MAx-Ur-obZ">
@@ -126,6 +126,7 @@
                         <segue destination="RGd-ly-akF" kind="relationship" relationship="viewControllers" id="H0g-ci-SNY"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EkG-r7-EUy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36.231884057971016" y="75"/>
         </scene>

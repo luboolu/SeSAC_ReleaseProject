@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC030E2527906B5D000B83B9 /* JGProgressHUD */; };
+		DC0CFA6327D8E826008D325E /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */; };
+		DC0CFA6627D8E86F008D325E /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6527D8E86F008D325E /* RxKeyboard */; };
+		DC0CFA6927D8E897008D325E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6827D8E897008D325E /* RxCocoa */; };
+		DC0CFA6B27D8E897008D325E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6A27D8E897008D325E /* RxSwift */; };
+		DC0CFA6E27D8ED28008D325E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6D27D8ED28008D325E /* IQKeyboardManagerSwift */; };
 		DC143CAF27942F01006F0244 /* OpenSource.html in Resources */ = {isa = PBXBuildFile; fileRef = DC143CAE27942F01006F0244 /* OpenSource.html */; };
 		DC3B4439274F86AC009C07D3 /* Stamp_2.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3B4438274F86AC009C07D3 /* Stamp_2.xib */; };
 		DC3B443B274F888E009C07D3 /* Stamp_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3B443A274F888E009C07D3 /* Stamp_2.swift */; };
@@ -67,7 +72,6 @@
 		DCCDA48C2754E06B002038C0 /* UserTagAlbumDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA48B2754E06B002038C0 /* UserTagAlbumDetail.storyboard */; };
 		DCCDA48E2754E086002038C0 /* UserTagAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA48D2754E086002038C0 /* UserTagAlbumDetailViewController.swift */; };
 		DCCDA49127552F1D002038C0 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA49027552F1D002038C0 /* Toast */; };
-		DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */; };
 		DCCDA49727567715002038C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA49927567715002038C0 /* InfoPlist.strings */; };
 		DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA627463FB7002EEABD /* AppDelegate.swift */; };
 		DCCECFA927463FB7002EEABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCECFA827463FB7002EEABD /* SceneDelegate.swift */; };
@@ -100,6 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		DC143CAE27942F01006F0244 /* OpenSource.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
 		DC3B443A274F888E009C07D3 /* Stamp_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp_2.swift; sourceTree = "<group>"; };
@@ -199,9 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCDA49127552F1D002038C0 /* Toast in Frameworks */,
-				DCCDA494275545DF002038C0 /* IQKeyboardManagerSwift in Frameworks */,
+				DC0CFA6E27D8ED28008D325E /* IQKeyboardManagerSwift in Frameworks */,
+				DC0CFA6627D8E86F008D325E /* RxKeyboard in Frameworks */,
+				DC0CFA6927D8E897008D325E /* RxCocoa in Frameworks */,
 				DCCECFE1274B8B35002EEABD /* RealmSwift in Frameworks */,
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
+				DC0CFA6B27D8E897008D325E /* RxSwift in Frameworks */,
 				DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +334,7 @@
 				DC3B443E274FD1BC009C07D3 /* UIColor+Extension.swift */,
 				DCCDA46027522CD6002038C0 /* Date+Extension.swift */,
 				DC8639AF275E496400714ECE /* Toast+Extension.swift */,
+				DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -412,8 +421,11 @@
 				DCCECFDE274B8B35002EEABD /* Realm */,
 				DCCECFE0274B8B35002EEABD /* RealmSwift */,
 				DCCDA49027552F1D002038C0 /* Toast */,
-				DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */,
 				DC030E2527906B5D000B83B9 /* JGProgressHUD */,
+				DC0CFA6527D8E86F008D325E /* RxKeyboard */,
+				DC0CFA6827D8E897008D325E /* RxCocoa */,
+				DC0CFA6A27D8E897008D325E /* RxSwift */,
+				DC0CFA6D27D8ED28008D325E /* IQKeyboardManagerSwift */,
 			);
 			productName = TimeDiary;
 			productReference = DCCECFA327463FB7002EEABD /* TimeDiary.app */;
@@ -447,8 +459,10 @@
 			packageReferences = (
 				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
+				DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
@@ -559,6 +573,7 @@
 				DCCECFA727463FB7002EEABD /* AppDelegate.swift in Sources */,
 				DC927F882757529A005A919B /* Stamp_12.swift in Sources */,
 				DCCECFCF274A6D93002EEABD /* TimeStampDesignCollectionViewCell.swift in Sources */,
+				DC0CFA6327D8E826008D325E /* ViewController+Extension.swift in Sources */,
 				DC927FB82757A1A7005A919B /* OpenSourceLicenseViewController.swift in Sources */,
 				DCCDA46527528ACE002038C0 /* Stamp_3.swift in Sources */,
 				DCCECFE4274B9D02002EEABD /* UIFont+Extension.swift in Sources */,
@@ -836,20 +851,36 @@
 				kind = branch;
 			};
 		};
+		DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
-			};
-		};
-		DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
@@ -868,15 +899,30 @@
 			package = DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
 		};
+		DC0CFA6527D8E86F008D325E /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
+		};
+		DC0CFA6827D8E897008D325E /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DC0CFA6A27D8E897008D325E /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		DC0CFA6D27D8ED28008D325E /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		DCCDA49027552F1D002038C0 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
-		};
-		DCCDA493275545DF002038C0 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DCCDA492275545DF002038C0 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
 		};
 		DCCECFDE274B8B35002EEABD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
