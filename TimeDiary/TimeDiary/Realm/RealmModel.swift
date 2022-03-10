@@ -21,14 +21,11 @@ class UserDiary: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     
     convenience init(content: String?, date: Date, tag: String) {
-        
         self.init()
         
         self.content = content
         self.date = date
         self.tag = tag
-        
-
     }
 }
 
