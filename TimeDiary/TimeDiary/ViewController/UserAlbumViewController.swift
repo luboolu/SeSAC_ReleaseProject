@@ -12,17 +12,30 @@ import Network
 import AVFoundation
 import Toast
 
-class UserAlbumViewController: UIViewController  {
+final class UserAlbumViewController: UIViewController  {
     
     let imagePickerController = UIImagePickerController()
     let localRealm = try! Realm()
-    
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var albumButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setRealmTask()
+        setButton()
+        setTabBar()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func setRealmTask() {
         //Realm 파일 위치
         print("Realm is loacaed at: ", localRealm.configuration.fileURL!)
         
@@ -36,10 +49,10 @@ class UserAlbumViewController: UIViewController  {
                 //localRealm.add(allData)
                 localRealm.add(notClassifiedData)
             }
-
         }
-        
-
+    }
+    
+    private func setButton() {
         cameraButton.setTitle(String(format: NSLocalizedString("camera", comment: "카메라로 타임스탬프 이미지 생성")), for: .normal)
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
         cameraButton.backgroundColor = .clear
@@ -55,21 +68,14 @@ class UserAlbumViewController: UIViewController  {
         albumButton.layer.cornerRadius = 0.5 * albumButton.bounds.width
         albumButton.layer.borderWidth = 0
         albumButton.layer.borderColor = UIColor(named: "bear")?.cgColor
-        
+    }
+    
+    private func setTabBar() {
         //tabbar setting
         tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("image", comment: "이미지")
-
         tabBarController?.tabBar.tintColor = UIColor(named: "bear")
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-        
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
-    
+
     //카메라로 편집할 사진을 촬영
     @IBAction func cameraOpenButtonClicked(_ sender: UIButton) {
         print(#function)
@@ -114,7 +120,7 @@ class UserAlbumViewController: UIViewController  {
     }
     
     //권한이 설정되지 않았을때, 권한 설정을 유도하는 alert 띄우기(설정 앱으로 이동시켜줌)
-    func settingAlert() {
+    private func settingAlert() {
         if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
             let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
             let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
@@ -140,7 +146,6 @@ extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
             self.imagePickerController.dismiss(animated: true) {
                 //imagePickerView를 닫고 imageEditViewController로 화면전환 + 이미지 전달
                 let st = UIStoryboard(name: "ImageEdit", bundle: nil)
@@ -207,7 +212,6 @@ extension UserAlbumViewController: PHPickerViewControllerDelegate {
 }
 
 extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
-    
     override open func viewDidLoad() {
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
@@ -216,6 +220,5 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }
-    
 }
 
