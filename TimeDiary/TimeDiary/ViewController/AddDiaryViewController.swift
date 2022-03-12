@@ -29,9 +29,8 @@ final class AddDiaryViewController: UIViewController {
     var tasks: Results<UserTag>!
     var selectedImage = UIImage()
     var selectedDate = Date()
-    var style = ToastStyle()
     
-    let localRealm = try! Realm()
+    private let localRealm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
