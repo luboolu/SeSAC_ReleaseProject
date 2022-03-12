@@ -6,13 +6,14 @@
 //
 
 import UIKit
+
 import RealmSwift
 import Toast
 import Photos
 import JGProgressHUD
 
 
-class AddDiaryViewController: UIViewController {
+final class AddDiaryViewController: UIViewController {
     
     static let identifier = "AddDiaryViewController"
     
@@ -35,28 +36,39 @@ class AddDiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigation()
+        setRealmTask()
+        setPicker()
+        setUI()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func setNavigation() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
+    }
+    
+    private func setRealmTask() {
         //UserTag Realm 접근
         tasks = localRealm.objects(UserTag.self)
-        
-        //pickerView setting
-        showTagPicker.tintColor = .clear
-        showTagPicker.placeholder = String(NSLocalizedString("selectTag", comment: "selectTag"))
-        showTagPicker.font = UIFont().kotra_songeulssi_13
-        
-        createPickerView()
-        dismissPickerView()
-
-        //print(selectedImage.size.width, selectedImage.size.height)
-        imageView.backgroundColor = .systemPink
-        imageView.image = selectedImage
-        
+    }
+    
+    private func setUI() {
+        //UI Setting
         showTagTitle.text = NSLocalizedString("folder", comment: "폴더")
         showTagTitle.font = UIFont().kotra_songeulssi_13
         
         contentTitle.text = NSLocalizedString("content", comment: "내용")
         contentTitle.font = UIFont().kotra_songeulssi_13
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
+        imageView.backgroundColor = .systemPink
+        imageView.image = selectedImage
         
         contentTextView.text = ""
         contentTextView.font = UIFont().kotra_songeulssi_13
@@ -67,19 +79,16 @@ class AddDiaryViewController: UIViewController {
         contentLengthLabel.text = "\(contentTextView.text.count)/1000"
         contentLengthLabel.font = UIFont().kotra_songeulssi_13
         contentLengthLabel.textColor = UIColor(named: "bear")
-        
-        // this is just one of many style options
-        self.style.messageColor = .white
-        self.style.backgroundColor = .lightGray
-        self.style.messageFont = UIFont().kotra_songeulssi_13
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    private func setPicker() {
+        //pickerView setting
+        showTagPicker.tintColor = .clear
+        showTagPicker.placeholder = String(NSLocalizedString("selectTag", comment: "selectTag"))
+        showTagPicker.font = UIFont().kotra_songeulssi_13
         
-    override var prefersStatusBarHidden: Bool {
-        return false
+        createPickerView()
+        dismissPickerView()
     }
     
     @objc func saveButtonClicked() {
@@ -164,12 +173,12 @@ class AddDiaryViewController: UIViewController {
                 }
                 if let shareError = error {
                     print(shareError)
-                    self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+                    self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: .defaultStyle)
                 }
                 
             }
         } else {
-            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
+            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: .defaultStyle)
         }
 
     }
@@ -180,13 +189,13 @@ class AddDiaryViewController: UIViewController {
         showTagPicker.resignFirstResponder()
     }
     
-    func createPickerView() {
+    private func createPickerView() {
         let pickerView = UIPickerView(frame: CGRect(x: 200, y: 0, width: UIScreen.main.bounds.width, height: 200))
         pickerView.delegate = self
         showTagPicker.inputView = pickerView
     }
     
-    func dismissPickerView() {
+    private func dismissPickerView() {
         let toolBar = UIToolbar(frame: showTagPicker.frame)
         toolBar.barStyle = .default
         toolBar.sizeToFit()
@@ -201,7 +210,7 @@ class AddDiaryViewController: UIViewController {
 
     }
     
-    func saveImageToDocumentDirectory(imageName: String, image: UIImage) {
+    private func saveImageToDocumentDirectory(imageName: String, image: UIImage) {
         //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
         // Desktop/jack/ios/folder 도큐먼트 폴더의 경로는 계속 변하기 때문에 앙래와 같은 형태로 접근해야 한다.
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
@@ -249,7 +258,7 @@ class AddDiaryViewController: UIViewController {
          
     }
     
-    func settingAlert() {
+    private func settingAlert() {
         print(#function)
         if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
             let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
@@ -294,7 +303,7 @@ extension AddDiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension AddDiaryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         
-        let count = textView.text.count ?? 0
+        let count = textView.text.count
         
         if count <= 1000 {
             DispatchQueue.main.async {
@@ -307,7 +316,7 @@ extension AddDiaryViewController: UITextViewDelegate {
         }
         
         DispatchQueue.main.async {
-            self.contentLengthLabel.text = "\(textView.text.count ?? 0)/1000"
+            self.contentLengthLabel.text = "\(textView.text.count)/1000"
         }
     }
 }
