@@ -51,22 +51,7 @@ final class ImageEditViewController: UIViewController {
         
         setNavigation()
         setScrollView()
-
-        //앨범에서 선택한 이미지 띄우기
-        self.imageView.image = selectedImage
-
-        //기본 타임 스탬프 디자인 보여주기
-        self.stampDesignColor = .white
-        
-        DispatchQueue.global().async {
-            // UI 업데이트 전 실행되는 코드
-            DispatchQueue.main.sync {
-                // UI 업데이트
-                self.designUpdate()
-            }
-            // UI 업데이트 후 실행되는 코드
-        }
-        
+        setImageView()
         setColorButton()
         setCollectionView()
         setLabel()
@@ -113,6 +98,23 @@ final class ImageEditViewController: UIViewController {
         
         //scrollView 초기 zoom scale 설정
         self.scrollView.zoomScale = scrollView.minimumZoomScale
+    }
+    
+    private func setImageView() {
+        //앨범에서 선택한 이미지 띄우기
+        self.imageView.image = selectedImage
+
+        //기본 타임 스탬프 디자인 보여주기
+        self.stampDesignColor = .white
+        
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                // UI 업데이트
+                self.designUpdate()
+            }
+            // UI 업데이트 후 실행되는 코드
+        }
     }
     
     private func setColorButton() {
