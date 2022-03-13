@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageEditViewController: UIViewController {
+final class ImageEditViewController: UIViewController {
 
     static let identifier = "ImageEditViewController"
     
@@ -35,71 +35,28 @@ class ImageEditViewController: UIViewController {
     @IBOutlet weak var designCollectionView: UICollectionView!
     
     var selectedImage = UIImage() //앨범, 카메라에서 선택한 사진 전달받을 변수
-    var customView: UIView! //타임스탬프 디자인을 담을 view
-    var stampDesignName = StampDesign.Stamp_1 //디자인 초기값
-    var stampDesignColor = UIColor.white //디자인 색상 초기값
-    var stampFontSizePlus = CGFloat(0) //디자인 폰트 +- 해줄 값
-    var stampDate = Date()
+    private var customView: UIView! //타임스탬프 디자인을 담을 view
+    private var stampDesignName = StampDesign.Stamp_1 //디자인 초기값
+    private var stampDesignColor = UIColor.white //디자인 색상 초기값
+    private var stampFontSizePlus = CGFloat(0) //디자인 폰트 +- 해줄 값
+    private var stampDate = Date()
     
-    let fontList = ["Kyobo Handwriting 2019", "HeirofLightOTFBold", "KOTRAHOPE", "esamanru OTF Bold",
+    private let fontList = ["Kyobo Handwriting 2019", "HeirofLightOTFBold", "KOTRAHOPE", "esamanru OTF Bold",
     "DungGeunMo", "JejuMyeongjoOTF", "KOTRA_SONGEULSSI"]
-    var fontIndex: Int = 0
+    private var fontIndex: Int = 0
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.hidesBarsOnSwipe = false
-        self.navigationController?.hidesBarsOnTap = false
-        
-        //네비게이션 바 아이템 setting
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
-        
-        //navigationItem.leftBarButtonItem?.tintColor = .orange
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
-        
+        setNavigation()
+        setScrollView()
 
-        //self.view.reloadInputViews()
-        
-        //ScrollView zoom 관련 설정
-        let imageWidth = selectedImage.size.width
-        let imageHeight = selectedImage.size.height
-        let screenWidth = UIScreen.main.bounds.width - 40
-        
-
-        self.scrollView.alwaysBounceVertical = false
-        self.scrollView.alwaysBounceHorizontal = false
-
-        self.scrollView.center = self.timeStampView.center
-        
-        if imageWidth > imageHeight {
-
-            //scrollView.
-            self.scrollView.minimumZoomScale = screenWidth / imageHeight
-            self.scrollView.maximumZoomScale = 4
-            //print(imageHeight / screenWidth)
-        } else {
-            //scrollView.
-            self.scrollView.minimumZoomScale = screenWidth / imageWidth
-            self.scrollView.maximumZoomScale = 4
-            //print(imageWidth / screenWidth)
-        }
-        
-
-
-        
-        self.scrollView.delegate = self
-        
         //앨범에서 선택한 이미지 띄우기
         self.imageView.image = selectedImage
-        
-        //scrollView 초기 zoom scale 설정
-        self.scrollView.zoomScale = scrollView.minimumZoomScale
 
         //기본 타임 스탬프 디자인 보여주기
         self.stampDesignColor = .white
-        
         
         DispatchQueue.global().async {
             // UI 업데이트 전 실행되는 코드
@@ -110,7 +67,55 @@ class ImageEditViewController: UIViewController {
             // UI 업데이트 후 실행되는 코드
         }
         
-
+        setColorButton()
+        setCollectionView()
+        setLabel()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func setNavigation() {
+        self.navigationController?.hidesBarsOnSwipe = false
+        self.navigationController?.hidesBarsOnTap = false
+        
+        //네비게이션 바 아이템 setting
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("next", comment: "다음으로 이동")), style: .plain, target: self, action: #selector(nextButtonClicked))
+    }
+    
+    private func setScrollView() {
+        //ScrollView zoom 관련 설정
+        let imageWidth = selectedImage.size.width
+        let imageHeight = selectedImage.size.height
+        let screenWidth = UIScreen.main.bounds.width - 40
+        
+        self.scrollView.alwaysBounceVertical = false
+        self.scrollView.alwaysBounceHorizontal = false
+        self.scrollView.center = self.timeStampView.center
+        
+        if imageWidth > imageHeight {
+            //scrollView.
+            self.scrollView.minimumZoomScale = screenWidth / imageHeight
+            self.scrollView.maximumZoomScale = 4
+            //print(imageHeight / screenWidth)
+        } else {
+            //scrollView.
+            self.scrollView.minimumZoomScale = screenWidth / imageWidth
+            self.scrollView.maximumZoomScale = 4
+        }
+        self.scrollView.delegate = self
+        
+        //scrollView 초기 zoom scale 설정
+        self.scrollView.zoomScale = scrollView.minimumZoomScale
+    }
+    
+    private func setColorButton() {
         //컬러 버튼 setting
         setColorButton(button: colorButton1, color: .white)
         setColorButton(button: colorButton2, color: .black)
@@ -122,17 +127,11 @@ class ImageEditViewController: UIViewController {
         setColorButton(button: colorButton8, color: UIColor().pink)
         setColorButton(button: colorButton9, color: UIColor().purple)
         
-        //let colorPickerButton = UIColorWell(frame: colorWellView.frame)
-        //colorWellView.addSubview(colorPickerButton)
-        //colorPickerButton.center = colorWellView.center
-        //colorPickerButton.layer.zPosition = 999
-        
-        print("selected color: \(colorWell.selectedColor)")
-        
         colorWell.supportsAlpha = false
         colorWell.addTarget(self, action: #selector(colorWellChanged), for: .valueChanged)
-
-
+    }
+    
+    private func setCollectionView() {
         //collection view setting
         designCollectionView.delegate = self
         designCollectionView.dataSource = self
@@ -141,6 +140,33 @@ class ImageEditViewController: UIViewController {
         let nibName = UINib(nibName: DesignCollectionViewCell.identifier, bundle: nil)
         designCollectionView.register(nibName, forCellWithReuseIdentifier: DesignCollectionViewCell.identifier)
         
+        DispatchQueue.global().async {
+            // UI 업데이트 전 실행되는 코드
+            DispatchQueue.main.sync {
+                //collection view flow layout 설정
+                let layout = UICollectionViewFlowLayout()
+                let spacing: CGFloat = 10
+                let width = UIScreen.main.bounds.width - (spacing * 4) - 40
+                layout.itemSize = CGSize(width: width / 3, height: (width / 3))
+                
+                //print(UIScreen.main.bounds.width, width / 3, width / 3)
+                layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+                layout.minimumLineSpacing = spacing
+                layout.minimumInteritemSpacing = spacing
+
+                //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
+                if self.designCollectionView.frame.height >= (width / 3) * 2 {
+                    layout.scrollDirection = .vertical
+                } else {
+                    layout.scrollDirection = .horizontal
+                }
+
+                self.designCollectionView.collectionViewLayout = layout
+            }
+        }
+    }
+    
+    private func setLabel() {
         //폰트 종류, 사이즈 조절 버튼 설정
         fontNameLabel.text = "Aa"
         fontNameLabel.font = UIFont(name: fontList[fontIndex], size: 25)
@@ -153,72 +179,29 @@ class ImageEditViewController: UIViewController {
         fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         fontSizeLabel.font = UIFont(name: "KOTRA_SONGEULSSI", size: 20)
         fontSizeLabel.textColor = UIColor(named: "bear")
-        
-        DispatchQueue.global().async {
-            // UI 업데이트 전 실행되는 코드
-            DispatchQueue.main.sync {
-                
-                //collection view flow layout 설정
-                let layout = UICollectionViewFlowLayout()
-                let spacing: CGFloat = 10
-                let width = UIScreen.main.bounds.width - (spacing * 4) - 40
-                layout.itemSize = CGSize(width: width / 3, height: (width / 3))
-                
-                //print(UIScreen.main.bounds.width, width / 3, width / 3)
-                layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
-                layout.minimumLineSpacing = spacing
-                layout.minimumInteritemSpacing = spacing
-                
-
-                //디바이스별로 하단에 남는 공간의 정도에 따라 .horizontal, .vertical 정하기
-                if self.designCollectionView.frame.height >= (width / 3) * 2 {
-                    layout.scrollDirection = .vertical
-                } else {
-                    layout.scrollDirection = .horizontal
-                }
-//                print("view frmae: \(self.designCollectionView.frame.minY) \(self.designCollectionView.frame.maxY)")
-//                print("view width: \(self.designCollectionView.frame.width)")
-//                print("view height: \(self.designCollectionView.frame.height)")
-//                print("cell height: \(layout.itemSize)")
-                self.designCollectionView.collectionViewLayout = layout
-                
-            }
-        }
-
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-        
-    override var prefersStatusBarHidden: Bool {
-        return false
     }
     
     @objc func closeButtonClicked() {
         print(#function)
         self.navigationController?.popViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
     }
     
     @objc func nextButtonClicked() {
         print(#function)
-        
         let st = UIStoryboard(name: "AddDiary", bundle: nil)
         if let vc = st.instantiateViewController(withIdentifier: AddDiaryViewController.identifier) as? AddDiaryViewController {
-            
             
             let render = UIGraphicsImageRenderer(size: self.timeStampView.bounds.size)
             let image = render.image { (context) in
                 self.timeStampView.drawHierarchy(in: self.timeStampView.bounds, afterScreenUpdates: true)
             }
+            
             vc.selectedImage = image
             vc.selectedDate = self.stampDate
             vc.modalPresentationStyle = .fullScreen
                 
             //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
             self.navigationController?.pushViewController(vc, animated: true)
-
         }
     }
     
@@ -229,22 +212,15 @@ class ImageEditViewController: UIViewController {
         }
     }
     
-    
     @IBAction func whiteColorButtonClicked(_ sender: UIButton) {
         self.stampDesignColor = .white
         self.designUpdate()
-        
-        
-//비정상 종료 만들기
-//        fatalError()
-
     }
     
     @IBAction func blackColorButtonClicked(_ sender: UIButton) {
         self.stampDesignColor = .black
         self.designUpdate()
     }
-    
     
     @IBAction func blueColorButtonClicked(_ sender: UIButton) {
         self.stampDesignColor = UIColor().blue
@@ -271,7 +247,6 @@ class ImageEditViewController: UIViewController {
         self.designUpdate()
     }
     
-    
     @IBAction func pinkColorButtonClicked(_ sender: UIButton) {
         self.stampDesignColor = UIColor().pink
         self.designUpdate()
@@ -282,37 +257,28 @@ class ImageEditViewController: UIViewController {
         self.designUpdate()
     }
     
-    
     @IBAction func showColorPickerButtonClicked(_ sender: UIButton) {
-        
         let picker = UIColorPickerViewController()
         picker.delegate = self
         picker.supportsAlpha = false
         self.present(picker, animated: true, completion: nil)
-        
     }
-    
     
     @IBAction func fontPlusButtonClicked(_ sender: UIButton) {
         if self.stampFontSizePlus < 10 {
             self.stampFontSizePlus += 1
-            //self.stampDesignName = .Stamp_1
             designUpdate()
             fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         }
-
     }
     
     @IBAction func fontMinusButtonClicked(_ sender: UIButton) {
         if self.stampFontSizePlus > -10 {
             self.stampFontSizePlus -= 1
-            //self.stampDesignName = .Stamp_1
             designUpdate()
             fontSizeLabel.text = "\(Int(self.stampFontSizePlus) + 10)"
         }
-
     }
-    
     
     @IBAction func nextFontButtonClicked(_ sender: UIButton) {
         fontIndex += 1
@@ -327,7 +293,6 @@ class ImageEditViewController: UIViewController {
             if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
                 self.fontNameLabel.adjustsFontSizeToFitWidth = true
             }
-            
             self.designUpdate()
         }
     }
@@ -344,12 +309,11 @@ class ImageEditViewController: UIViewController {
             if self.fontNameLabel.adjustsFontSizeToFitWidth == false {
                 self.fontNameLabel.adjustsFontSizeToFitWidth = true
             }
-            
             self.designUpdate()
         }
     }
     
-    func setColorButton(button: UIButton, color: UIColor) {
+    private func setColorButton(button: UIButton, color: UIColor) {
         DispatchQueue.global().async {
             // UI 업데이트 전 실행되는 코드
             DispatchQueue.main.sync {
@@ -363,17 +327,13 @@ class ImageEditViewController: UIViewController {
             }
             // UI 업데이트 후 실행되는 코드
         }
-
     }
     
-    func designUpdate() {
-        print(#function)
-        print(self.designView.subviews.count)
+    private func designUpdate() {
         //subView가 쌓이지 않게 새로 추가하기 전에 삭제
         if self.designView.subviews.count > 0 {
             self.customView.removeFromSuperview()
         }
-        
 //        print(UIScreen.main)
 //        print("timestampview:\(self.timeStampView.frame)")
 //        print("designview   :\(self.designView.frame)")
@@ -431,9 +391,7 @@ class ImageEditViewController: UIViewController {
         self.designView.addSubview(self.customView)
         self.designView.layer.zPosition = 999
         self.designView.reloadInputViews()
-        
     }
-
 }
 
 extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -505,11 +463,8 @@ extension ImageEditViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         
         self.designUpdate()
-        
     }
-    
 }
-
 
 extension ImageEditViewController: UIScrollViewDelegate {
 
@@ -519,9 +474,7 @@ extension ImageEditViewController: UIScrollViewDelegate {
    }
     
    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        print(scrollView.zoomScale)
        scrollView.contentInset = .zero
-       //self.designUpdate()
    }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
@@ -580,5 +533,3 @@ extension ImageEditViewController: UIColorPickerViewControllerDelegate {
         print(#function)
     }
 }
-
-
