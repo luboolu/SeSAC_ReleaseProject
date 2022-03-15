@@ -6,8 +6,7 @@
 //
 import UIKit
 
-
-class Stamp_2 : UIView {
+final class Stamp_2 : UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var contentBorderView: UIView!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TagAlbumTableViewCell: UITableViewCell {
+final class TagAlbumTableViewCell: UITableViewCell {
     
     static let identifier = "TagAlbumTableViewCell"
     

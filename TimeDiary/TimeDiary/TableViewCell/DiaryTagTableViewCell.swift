@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryTagTableViewCell: UITableViewCell {
+final class DiaryTagTableViewCell: UITableViewCell {
     
     static let identifier = "DiaryTagTableViewCell"
     

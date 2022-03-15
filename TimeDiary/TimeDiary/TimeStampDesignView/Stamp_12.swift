@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Stamp_12: UIView {
+final class Stamp_12: UIView {
 
     @IBOutlet var contentView: UIView!
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserTagSelectTableViewCell: UITableViewCell {
+final class UserTagSelectTableViewCell: UITableViewCell {
     
     static let identifier = "UserTagSelectTableViewCell"
     

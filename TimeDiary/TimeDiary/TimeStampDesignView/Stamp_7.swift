@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Stamp_7: UIView {
+final class Stamp_7: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var contentLabel1: UILabel!
