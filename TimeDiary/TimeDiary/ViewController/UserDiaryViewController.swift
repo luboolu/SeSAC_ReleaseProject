@@ -4,13 +4,13 @@
 //
 //  Created by 김진영 on 2021/11/22.
 //
-
 import UIKit
+
 import RealmSwift
 import CloudKit
 import Toast
 
-class UserDiaryViewController: UIViewController {
+final class UserDiaryViewController: UIViewController {
     
     static let identifier = "UserDiaryViewController"
     
@@ -18,40 +18,19 @@ class UserDiaryViewController: UIViewController {
     
     var tasksTag: Results<UserTag>!
     var tasksDiary: Results<UserDiary>!
-    var style = ToastStyle()
     
     @IBOutlet weak var diaryTagTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diaryTagTableView.delegate = self
-        diaryTagTableView.dataSource = self
-
-        tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
-        tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
-        
-
-        //navigationbar setting
-        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTagButtonClicked))
-        
-        //tabbar setting
-        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("diary", comment: "일기")
-
-        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
-        
-        // this is just one of many style options
-        self.style.messageColor = .white
-        self.style.backgroundColor = .lightGray
-        self.style.messageFont = UIFont().kotra_songeulssi_13
-
+        setTableView()
+        setRealmTask()
+        setNavigation()
+        setTapBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
-        
         diaryTagTableView.reloadData()
     }
     
@@ -61,6 +40,28 @@ class UserDiaryViewController: UIViewController {
         
     override var prefersStatusBarHidden: Bool {
         return false
+    }
+    
+    private func setTableView() {
+        diaryTagTableView.delegate = self
+        diaryTagTableView.dataSource = self
+    }
+    
+    private func setRealmTask() {
+        tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
+        tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
+    }
+    
+    private func setNavigation() {
+        //navigationbar setting
+        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("my diary", comment: "일기장")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addTagButtonClicked))
+    }
+    
+    private func setTapBar() {
+        //tabbar setting
+        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("diary", comment: "일기")
+        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
     }
 
     @objc func addTagButtonClicked(_ sender: UIButton) {
@@ -72,11 +73,9 @@ class UserDiaryViewController: UIViewController {
         let alert = UIAlertController(title: NSLocalizedString("addFolderTitle", comment: "폴더 추가"), message: NSLocalizedString("addFolderMessage", comment: "폴더 추가"), preferredStyle: .alert)
 
         alert.addTextField { tagTextField in
-            
             tagTextField.placeholder = NSLocalizedString("folderName", comment: "폴더 이름")
-            //tagTextField.frame = sender.frame
-
         }
+        
         //2. UIAlertAction 생성: 버튼들을...
         let ok = UIAlertAction(title: NSLocalizedString("add", comment: "추가"), style: .default) { ok in
             //ok 버튼이 눌리면 textField에 입력된 값을 UserTag에 추가
@@ -84,7 +83,7 @@ class UserDiaryViewController: UIViewController {
                 //if tag 길이가 15자 이상인 경우
                 if tag.count > 15 {
                     // present the toast with the new style
-                    self.view.makeToast(NSLocalizedString("addFolderLongName", comment: "폴더 생성 실패 - 이름 길어서") ,duration: 2.0, position: .bottom, style: self.style)
+                    self.view.makeToast(NSLocalizedString("addFolderLongName", comment: "폴더 생성 실패 - 이름 길어서") ,duration: 2.0, position: .bottom, style: .defaultStyle)
                 } else {
                     //1.UserTag에 존재하지 않는 값이 입력된 경우 - 성공
                     let searchTag = self.localRealm.objects(UserTag.self).filter("tag = '\(tag)'")
@@ -100,7 +99,7 @@ class UserDiaryViewController: UIViewController {
                     } else {
                         //실패 - 중복 존재
                         // present the toast with the new style
-                        self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: self.style)
+                        self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: .defaultStyle)
                     }
                     //2.UserTag에 존재하는 값이 입력된 경우 - 실패
                     
@@ -109,28 +108,24 @@ class UserDiaryViewController: UIViewController {
 
             } else {
                 // present the toast with the new style
-                self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: self.style)
+                self.view.makeToast(NSLocalizedString("addFolderFailToast", comment: "폴더 생성 실패") ,duration: 2.0, position: .bottom, style: .defaultStyle)
             }
 
         }
         
         let cancle = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .cancel) { cancle in
-
             // present the toast with the new style
-            self.view.makeToast(NSLocalizedString("addFolderCancleToast", comment: "폴더 생성 취소") ,duration: 2.0, position: .bottom, style: self.style)
-
+            self.view.makeToast(NSLocalizedString("addFolderCancleToast", comment: "폴더 생성 취소") ,duration: 2.0, position: .bottom, style: .defaultStyle)
         }
         //3. 1 + 2
         alert.addAction(cancle)
         alert.addAction(ok)
 
-
         //4. present
         present(alert, animated: true, completion: nil)
-        
     }
     
-    func deleteImageFromDocumentDirectory(imageName: String) {
+    private func deleteImageFromDocumentDirectory(imageName: String) {
         //AddViewController의 saveButtonClicked와 같은 구조
         
         //1. 이미지를 저장할 경로 설정: document 폴더 -> FileManager 사용
@@ -144,12 +139,10 @@ class UserDiaryViewController: UIViewController {
         //Desktop/jack/ios/folder/222.png
         let imageURL = folderPath.appendingPathComponent(imageName)
         
-        
         //4. 이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
         //4-1. 이미지 경로 여부 확인 (이미 존재한다면 어떻게 할지)
         
         if FileManager.default.fileExists(atPath: imageURL.path) {
-            
             //4-2. 기존 경로에 있는 이미지 삭제
             do {
                 try FileManager.default.removeItem(at: imageURL)
@@ -193,10 +186,7 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentNumLabel.font = UIFont().kotra_songeulssi_13
         }
         
-
-        
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -212,7 +202,6 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
                 vc.selectedTag = self.tasksTag[indexPath.row - 1].tag
                 vc.tagData = self.tasksTag[indexPath.row - 1]
             }
-            
             
             vc.modalPresentationStyle = .fullScreen
                 
@@ -235,7 +224,6 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         let delete = UIContextualAction(style: .normal, title: "delete") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             
-            
             let alert = UIAlertController(title: NSLocalizedString("alert", comment: "폴더 삭제 확인"), message: NSLocalizedString("deleteFolderMessage", comment: "폴더 삭제 확인"), preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: "네"), style: .default) {
                 (action) in
@@ -252,15 +240,11 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 //Realm에서 삭제
                 try! self.localRealm.write {
-                    
                     self.localRealm.delete(self.tasksTag[indexPath.row - 1])
                     self.localRealm.delete(tasks)
                     
-                    //self.localRealm.delete(self.tasksDiary.filter())
-                    
                     tableView.reloadData()
                 }
-                
             }
             let cancelAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default, handler: nil)
             
@@ -276,6 +260,5 @@ extension UserDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions:[delete])
     }
-    
-    
+
 }
