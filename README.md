@@ -1,11 +1,11 @@
-<h1>SSAC iOS 앱 개발자 데뷔과정 - 출시 프로젝트</h1>
+#SSAC iOS 앱 개발자 데뷔과정 - 출시 프로젝트
 
 ## 📍프로젝트 정보
 |||
 |:---:|:---:|
 |프로젝트 기간|2021.11.15 ~ 2021.11.21|
-|업데이트 기록|1.0, 1.1.0, 1.1.1, 1.1.2, 1.2.0|
-|사용한 기술|swift, storyboard, realm, webkit, jgprogresshud, toast|
+|업데이트 기록|1.0, 1.1.0, 1.1.1, 1.1.2, 1.2.0, 1.2.1|
+|사용한 기술|swift, storyboard, realm, webkit, photokit, jgprogresshud, toast|
 |지원 iOS|iOS14 이상 호환|
 |지원 언어|한국어, 영어|
 |개인/팀 여부|2021.11.29 ~ 2021.12.05|
