@@ -80,6 +80,32 @@ final class UserTagAlbumViewController: UIViewController {
             //print(tasksDiary)
         }
 
+        setCollectionView()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("TagAlbum\(#function)")
+        albumCollectionView.reloadData()
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.moveMode = false
+        selectedListAndDataInit()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func setCollectionView() {
         albumCollectionView.delegate = self
         albumCollectionView.dataSource = self
         
@@ -98,50 +124,6 @@ final class UserTagAlbumViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
         albumCollectionView.collectionViewLayout = layout
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("TagAlbum\(#function)")
-        albumCollectionView.reloadData()
-        self.tabBarController?.tabBar.isHidden = false
-        
-        //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
-        if tasksDiary.count == 0 {
-            albumCollectionView.isHidden = true
-            guideLabel.isHidden = false
-            
-            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
-            guideLabel.font = UIFont().kotra_songeulssi_13
-            
-            
-        } else {
-            albumCollectionView.isHidden = false
-            guideLabel.isHidden = true
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
-        
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
-        
-        self.moveMode = false
-        
-        selectedListAndDataInit()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-        
-    override var prefersStatusBarHidden: Bool {
-        return false
     }
     
     @objc func moveStartButtonClicked() {
