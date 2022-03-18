@@ -6,10 +6,11 @@
 //
 
 import UIKit
+
 import RealmSwift
 import CoreHaptics
 
-class UserTagAlbumViewController: UIViewController {
+final class UserTagAlbumViewController: UIViewController {
     
     static let identifier = "UserTagAlbumViewController"
     
@@ -32,7 +33,6 @@ class UserTagAlbumViewController: UIViewController {
     var selectedList: [Bool] = []
     
     @IBOutlet weak var albumCollectionView: UICollectionView!
-    
     @IBOutlet weak var guideLabel: UILabel!
     
     override func viewDidLoad() {
@@ -326,7 +326,7 @@ extension UserTagAlbumViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //self.hapticFeedbackGenerator?.selectionChanged()
+        self.hapticFeedbackGenerator?.selectionChanged()
         
         if self.moveMode {
             print("select!\(indexPath)")
