@@ -40,46 +40,8 @@ final class UserTagAlbumViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissPostCommentNotification(_:)), name: DidDismissPostCommentViewController, object: nil)
         
-        //햅틱셀렉션피드백
-        hapticFeedbackGenerator = UISelectionFeedbackGenerator()
-        hapticFeedbackGenerator?.prepare()
-        
-        self.tabBarController?.tabBar.isHidden = false
-        
-        // Do any additional setup after loading the view.
-        if tagData != nil {
-            self.navigationItem.title = "\(tagData.tag)"
-        } else {
-            self.navigationItem.title = NSLocalizedString("all", comment: "전체")
-        }
-        
-        if selectedTag == "All" {
-            tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
-        } else {
-            selectedListAndDataInit()
-        }
-        
-        //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
-        if tasksDiary.count == 0 {
-            albumCollectionView.isHidden = true
-            guideLabel.isHidden = false
-            
-            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
-            guideLabel.font = UIFont().kotra_songeulssi_13
-            
-            
-        } else {
-            if selectedTag != "All" {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
-            }
-            
-            albumCollectionView.isHidden = false
-            guideLabel.isHidden = true
-            
-            //날짜별로 데이터 분류하기
-            //print(tasksDiary)
-        }
-
+        setHaptic()
+        setData()
         setCollectionView()
     }
     
@@ -126,6 +88,42 @@ final class UserTagAlbumViewController: UIViewController {
         albumCollectionView.collectionViewLayout = layout
     }
     
+    private func setHaptic() {
+        //햅틱셀렉션피드백
+        hapticFeedbackGenerator = UISelectionFeedbackGenerator()
+        hapticFeedbackGenerator?.prepare()
+    }
+    
+    private func setData() {
+        // Do any additional setup after loading the view.
+        if tagData != nil {
+            self.navigationItem.title = "\(tagData.tag)"
+        } else {
+            self.navigationItem.title = NSLocalizedString("all", comment: "전체")
+        }
+        
+        if selectedTag == "All" {
+            tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: false)
+        } else {
+            selectedListAndDataInit()
+        }
+        
+        //tasksDiary가 count 0이면 데이터를 추가해달라는 문구 추가
+        if tasksDiary.count == 0 {
+            albumCollectionView.isHidden = true
+            guideLabel.isHidden = false
+            
+            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
+            guideLabel.font = UIFont().kotra_songeulssi_13
+        } else {
+            if selectedTag != "All" {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+            }
+            albumCollectionView.isHidden = false
+            guideLabel.isHidden = true
+        }
+    }
+    
     @objc func moveStartButtonClicked() {
         print(#function)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(moveEndButtonClicked))
@@ -161,7 +159,7 @@ final class UserTagAlbumViewController: UIViewController {
 
     }
     
-    func movingData() {
+    private func movingData() {
         print(#function)
         
         if self.selectedList.contains(true) {
@@ -182,29 +180,18 @@ final class UserTagAlbumViewController: UIViewController {
                 
                 vc.selectedData = selectedTasks
                 vc.modalPresentationStyle = .automatic
-                
-                //self.navigationController?.present(vc, animated: true, completion: nil)
-                
-                //self.navigationController?.present(vc, animated: true, completion: nil)
                 self.present(vc, animated: true, completion: nil)
-                //vc.modalPresentationStyle = .
-                    
-                //navigation bar를 포함하여 다음 뷰 컨트롤러로 화면전환 - push
-                //self.navigationController?.pushViewController(vc, animated: true)
             }
             
-            //tagSelect화면 보여주기
-            print(selectedTasks)
             selectedListAndDataInit()
             
         } else {
             print("선택된 항목이 없습니다!")
         }
-        
         self.albumCollectionView.reloadData()
     }
     
-    func selectedListAndDataInit() {
+    private func selectedListAndDataInit() {
         if tagData != nil {
             tasksDiary = localRealm.objects(UserDiary.self).filter("tag = '\(tagData.tag)'").sorted(byKeyPath: "date", ascending: false)
             self.selectedList.removeAll()
@@ -223,7 +210,6 @@ final class UserTagAlbumViewController: UIViewController {
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {
         
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        
         //document에 image 폴더 만들기
         let folderPath =  documentDirectory.appendingPathComponent("timediray_image")
         
@@ -236,30 +222,6 @@ final class UserTagAlbumViewController: UIViewController {
         
         return nil
     }
-    
-    
-//    func generateHapticFeedback(for hapticFeedback: HapticFeedback) {
-//        switch hapticFeedback {
-//        case .selection:
-//            // Initialize Selection Feedback Generator
-//            let feedbackGenerator = UISelectionFeedbackGenerator()
-//
-//            // Trigger Haptic Feedback
-//            feedbackGenerator.selectionChanged()
-//        case .impact(let feedbackStyle):
-//            // Initialize Impact Feedback Generator
-//            let feedbackGenerator = UIImpactFeedbackGenerator(style: feedbackStyle)
-//
-//            // Trigger Haptic Feedback
-//            feedbackGenerator.impactOccurred()
-//        case .notification(let feedbackType):
-//            // Initialize Notification Feedback Generator
-//            let feedbackGenerator = UINotificationFeedbackGenerator()
-//
-//            // Trigger Haptic Feedback
-//            feedbackGenerator.notificationOccurred(feedbackType)
-//        }
-//    }
 }
 
 
