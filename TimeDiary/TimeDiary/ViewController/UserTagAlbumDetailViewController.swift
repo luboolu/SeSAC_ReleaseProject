@@ -11,7 +11,7 @@ import Toast
 import Photos
 import JGProgressHUD
 
-class UserTagAlbumDetailViewController: UIViewController {
+final class UserTagAlbumDetailViewController: UIViewController {
     
     static let identifier = "UserTagAlbumDetailViewController"
     
@@ -30,26 +30,26 @@ class UserTagAlbumDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setNeedsStatusBarAppearanceUpdate()
+        setNavigationBar()
+        setView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.editMode = false
+        self.contentView.isEditable = false
+    }
 
-        let date = tasksDiary.date
-        let timestamp1 = DateFormatter.yearDayFormat1.string(from: date)
-        let timestamp2 = DateFormatter.timeFormat3_2.string(from: date)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
         
-        self.tabBarController?.tabBar.isHidden = true
-        
-        self.navigationItem.title = "\(timestamp1) \(timestamp2)"
-        // Do any additional setup after loading the view.
-        
-        let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
-        let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
-        
-        self.navigationItem.rightBarButtonItems = [trashButton, editButton]
- 
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
-        self.navigationItem.leftBarButtonItem = backButton
-        //self.navigationItem.backBarButtonItem = backButton
-        
-
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func setView() {
         imageView.image = loadImageFromDocumentDirectory(imageName: "\(tasksDiary._id).png")
         
         contentView.isEditable = false
@@ -65,39 +65,22 @@ class UserTagAlbumDetailViewController: UIViewController {
         textLengthLabel.text = "\(contentView.text.count)/1000"
         textLengthLabel.font = UIFont().kotra_songeulssi_13
         textLengthLabel.textColor = UIColor(named: "bear")
-        
-        // this is just one of many style options
-        self.style.messageColor = .white
-        self.style.backgroundColor = .lightGray
-        self.style.messageFont = UIFont().kotra_songeulssi_13
-        
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    private func setNavigationBar() {
+        let date = tasksDiary.date
+        let timestamp1 = DateFormatter.yearDayFormat1.string(from: date)
+        let timestamp2 = DateFormatter.timeFormat3_2.string(from: date)
         
-        self.editMode = false
-        self.contentView.isEditable = false
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationItem.title = "\(timestamp1) \(timestamp2)"
         
         let trashButton = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(removeButtonClicked))
-
         let editButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editButtonClicked))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonClicked))
         
         self.navigationItem.rightBarButtonItems = [trashButton, editButton]
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
-        
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
-
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-        
-    override var prefersStatusBarHidden: Bool {
-        return false
+        self.navigationItem.leftBarButtonItem = backButton
     }
     
     @objc func removeButtonClicked() {
@@ -124,9 +107,6 @@ class UserTagAlbumDetailViewController: UIViewController {
             }
             
             self.navigationController?.popViewController(animated: true)
-            //self.navigationController?.popViewController(animated: true)
-
-            
         }
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default, handler: nil)
@@ -147,19 +127,14 @@ class UserTagAlbumDetailViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: NSLocalizedString("save", comment: "저장"), style: .plain, target: self, action: #selector(saveButtonClicked))
 
         self.navigationItem.rightBarButtonItems = [saveButton]
-        
         self.navigationController?.navigationBar.backgroundColor = UIColor(named: "bear")
-        //UINavigationBar.appearance().barTintColor = UIColor().orange
-        //self.navigationController?.navigationBar.barStyle = .
-        
+
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
-    
     }
     
     @objc func saveButtonClicked() {
         print(#function)
-        
         //일기 내용이 1000자 이상이면 저장되지 않도록
         let content = contentView.text!
         
@@ -181,17 +156,16 @@ class UserTagAlbumDetailViewController: UIViewController {
             self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
             self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
             
-            self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: self.style)
+            self.view.makeToast(NSLocalizedString("editSave", comment: "수정 내용 저장") ,duration: 2.0, position: .bottom, style: .defaultStyle)
             
         } else {
-            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: self.style)
+            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: .defaultStyle)
         }
 
     }
     
     @objc func backButtonClicked() {
         print(#function)
-        
         if editMode {
             //1. UIAlertController 생성: 밑바탕 + 타이틀 + 본문
             //let alert = UIAlertController(title: "타이틀 테스트", message: "메시지가 입력되었습니다.", preferredStyle: .alert)
@@ -266,7 +240,7 @@ class UserTagAlbumDetailViewController: UIViewController {
             }
             if let shareError = error {
                 print(shareError)
-                self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: self.style)
+                self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: .defaultStyle)
                 
             }
             
@@ -281,8 +255,6 @@ class UserTagAlbumDetailViewController: UIViewController {
         
         //document에 image 폴더 만들기
         let folderPath =  documentDirectory.appendingPathComponent("timediray_image")
-        
-
         let imageURL = URL(fileURLWithPath: folderPath.absoluteString).appendingPathComponent(imageName)
         
         if let image = UIImage(contentsOfFile: imageURL.path) {
@@ -341,8 +313,6 @@ class UserTagAlbumDetailViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-
 
 }
 
