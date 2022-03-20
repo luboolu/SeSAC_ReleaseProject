@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class OpenSourceLicenseViewController: UIViewController {
+final class OpenSourceLicenseViewController: UIViewController {
     
     static let identifier = "OpenSourceLicenseViewController"
     

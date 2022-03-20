@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import Toast
 
-class UserTagSelectViewController: UIViewController {
+final class UserTagSelectViewController: UIViewController {
     
     static let identifier = "UserTagSelectViewController"
     
@@ -26,17 +26,9 @@ class UserTagSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        tagTableView.delegate = self
-        tagTableView.dataSource = self
-        
-        tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
-        tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
-        
-        titleLabel.text = NSLocalizedString("selectFolder", comment: "이동할 폴더 선택")
-        titleLabel.font = UIFont().kotra_songeulssi_20
-
-        // Do any additional setup after loading the view.
+        setTableView()
+        setRealmTask()
+        setView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,31 +36,12 @@ class UserTagSelectViewController: UIViewController {
         super.viewWillDisappear(animated)
         //컬렉션뷰 선택되면 화면전환
         let vcs = self.navigationController?.viewControllers
-        print(vcs)
         
-
         if let vc = presentedViewController as? UserTagAlbumViewController {
             //full screen으로 띄우니깐 되네..?근데 그렇다면 present-dismiss를 사용할 이유가..?읭??
             print("컬렉션뷰 갱신")
             vc.albumCollectionView.reloadData()
         }
-//        if let firstVC = presentingViewController as? UserTagAlbumViewController {
-//            DispatchQueue.main.async {
-//                firstVC.albumCollectionView.reloadData()
-//            }
-//        }
-        
-        
-//        if let vc = st.instantiateViewController(withIdentifier: UserTagAlbumViewController.identifier) as? UserTagAlbumViewController {
-//
-//            DispatchQueue.global().async {
-//                DispatchQueue.main.sync {
-//
-//                    vc.albumCollectionView.reloadData()
-//                }
-//            }
-//            //콜렉션뷰가 reload됐으면 좋겠는데 안된다..!!!어떻게 하지?
-//        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -79,8 +52,20 @@ class UserTagSelectViewController: UIViewController {
         return false
     }
     
-
-
+    private func setTableView() {
+        tagTableView.delegate = self
+        tagTableView.dataSource = self
+    }
+    
+    private func setRealmTask() {
+        tasksTag = localRealm.objects(UserTag.self).sorted(byKeyPath: "_id", ascending: true)
+        tasksDiary = localRealm.objects(UserDiary.self).sorted(byKeyPath: "date", ascending: true)
+    }
+    
+    private func setView() {
+        titleLabel.text = NSLocalizedString("selectFolder", comment: "이동할 폴더 선택")
+        titleLabel.font = UIFont().kotra_songeulssi_20
+    }
 }
 
 extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSource {
@@ -92,7 +77,6 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 66
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -142,6 +126,4 @@ extension UserTagSelectViewController: UITableViewDelegate, UITableViewDataSourc
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
 }

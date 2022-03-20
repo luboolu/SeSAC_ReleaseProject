@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class PrivacyViewController: UIViewController {
+final class PrivacyViewController: UIViewController {
     
     static let identifier = "PrivacyViewController"
 
