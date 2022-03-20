@@ -7,10 +7,9 @@
 
 import UIKit
 
-class UserAppVersionViewController: UIViewController {
+final class UserAppVersionViewController: UIViewController {
     
     static let identifier = "UserAppVersionViewController"
-    
     
     @IBOutlet weak var nowAppVersionLabel: UILabel!
     @IBOutlet weak var latestAppVersionLabel: UILabel!
@@ -18,10 +17,21 @@ class UserAppVersionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.navigationItem.title = "\(NSLocalizedString("appVersion", comment: "앱 버전"))"
+        
+        versionCompare()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
+    private func versionCompare() {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-
 
         if let version = version{
             print("version: \(version)")
@@ -35,27 +45,16 @@ class UserAppVersionViewController: UIViewController {
             latestAppVersionLabel.text = NSLocalizedString("notNeedUpdate", comment: "최신버전")
         }
         latestAppVersionLabel.font = UIFont().kotra_songeulssi_13
-
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-        
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
-    
-    func isUpdateAvailable() -> Bool {
-
+    private func isUpdateAvailable() -> Bool {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
             let url = URL(string: "http://itunes.apple.com/lookup?bundleId=com.jy.TimeBear"),
             let data = try? Data(contentsOf: url),
             let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
             let results = json["results"] as? [[String: Any]],
             results.count > 0,
-            let appStoreVersion = results[0]["version"] as? String
-            else {
+            let appStoreVersion = results[0]["version"] as? String else {
                 print("guard out")
                 return false
             }
@@ -68,9 +67,6 @@ class UserAppVersionViewController: UIViewController {
             
         }
 
-
     }
-
-
 
 }
