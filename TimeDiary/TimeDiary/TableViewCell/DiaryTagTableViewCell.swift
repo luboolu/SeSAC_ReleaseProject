@@ -16,13 +16,11 @@ final class DiaryTagTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        //선택 상태가 바뀔때마다 호출됨
     }
 
 }
