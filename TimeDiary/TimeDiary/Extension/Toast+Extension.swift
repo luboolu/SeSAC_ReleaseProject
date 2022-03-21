@@ -13,7 +13,6 @@ var style = ToastStyle()
 extension ToastStyle {
     
     static var defaultStyle: ToastStyle {
-        
         // this is just one of many style options
         style.messageColor = .white
         style.backgroundColor = .lightGray

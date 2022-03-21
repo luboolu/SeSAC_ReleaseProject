@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIFont {
+    
     var kotra_songeulssi_13: UIFont {
         return UIFont(name: "KOTRA_SONGEULSSI", size: 13)!
     }
@@ -24,5 +25,4 @@ extension UIFont {
         return UIFont(name: "KOTRALEAP", size: 30)!
     }
     
-
 }
