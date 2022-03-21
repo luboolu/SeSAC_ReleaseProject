@@ -41,8 +41,8 @@ final class ImageEditViewController: UIViewController {
     private var stampFontSizePlus = CGFloat(0) //디자인 폰트 +- 해줄 값
     private var stampDate = Date()
     
-    private let fontList = ["Kyobo Handwriting 2019", "HeirofLightOTFBold", "KOTRAHOPE", "esamanru OTF Bold",
-    "DungGeunMo", "JejuMyeongjoOTF", "KOTRA_SONGEULSSI"]
+    private let fontList = [TimeBearFont.KYOBO_HANDWRITING_2019.rawValue, TimeBearFont.HEIR_OF_LIGHT_BOLD.rawValue, TimeBearFont.KOTRA_HOPE.rawValue, TimeBearFont.ESAMARU_OTF_BOLD.rawValue,
+                            TimeBearFont.DUNGGEUNMO.rawValue, TimeBearFont.JEJU_MYEONGJO_OTF.rawValue, TimeBearFont.KOTRA_SONGEULSSI.rawValue]
     private var fontIndex: Int = 0
     
 

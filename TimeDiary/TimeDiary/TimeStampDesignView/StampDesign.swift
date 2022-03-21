@@ -25,5 +25,4 @@ enum StampDesign: String {
     case Stamp_14 = "Stamp_14"
     case Stamp_15 = "Stamp_15"
     
-    
 }
