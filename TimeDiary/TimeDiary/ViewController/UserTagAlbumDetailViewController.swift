@@ -15,7 +15,7 @@ final class UserTagAlbumDetailViewController: UIViewController {
     
     static let identifier = "UserTagAlbumDetailViewController"
     
-    let localRealm = try! Realm()
+    private let localRealm = try! Realm()
     
     var tasksDiary: UserDiary!
     var style = ToastStyle()
