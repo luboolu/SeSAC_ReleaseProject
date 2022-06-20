@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ABE6ABCE051C584B1D6BC03 /* Pods_TimeDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */; };
 		DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC030E2527906B5D000B83B9 /* JGProgressHUD */; };
 		DC0CFA6327D8E826008D325E /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */; };
 		DC0CFA6627D8E86F008D325E /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6527D8E86F008D325E /* RxKeyboard */; };
@@ -104,6 +105,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDiary.debug.xcconfig"; path = "Target Support Files/Pods-TimeDiary/Pods-TimeDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDiary.release.xcconfig"; path = "Target Support Files/Pods-TimeDiary/Pods-TimeDiary.release.xcconfig"; sourceTree = "<group>"; };
+		B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		DC143CAE27942F01006F0244 /* OpenSource.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
@@ -211,17 +215,38 @@
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
 				DC0CFA6B27D8E897008D325E /* RxSwift in Frameworks */,
 				DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */,
+				8ABE6ABCE051C584B1D6BC03 /* Pods_TimeDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26B952D76811E261862DD31A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */,
+				A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BBFD48D8F970FC2428FB9509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCCECF9A27463FB7002EEABD = {
 			isa = PBXGroup;
 			children = (
 				DCCECFA527463FB7002EEABD /* TimeDiary */,
 				DCCECFA427463FB7002EEABD /* Products */,
+				26B952D76811E261862DD31A /* Pods */,
+				BBFD48D8F970FC2428FB9509 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -407,6 +432,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCCECFB727463FB9002EEABD /* Build configuration list for PBXNativeTarget "TimeDiary" */;
 			buildPhases = (
+				8DE15FCBFE89A9106A546D0B /* [CP] Check Pods Manifest.lock */,
 				DCCECF9F27463FB7002EEABD /* Sources */,
 				DCCECFA027463FB7002EEABD /* Frameworks */,
 				DCCECFA127463FB7002EEABD /* Resources */,
@@ -457,12 +483,12 @@
 			);
 			mainGroup = DCCECF9A27463FB7002EEABD;
 			packageReferences = (
-				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
-				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
-				DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */,
-				DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */,
-				DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa.git" */,
+				DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift.git" */,
+				DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD.git" */,
+				DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard.git" */,
+				DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift.git" */,
+				DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
 			);
 			productRefGroup = DCCECFA427463FB7002EEABD /* Products */;
 			projectDirPath = "";
@@ -525,6 +551,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8DE15FCBFE89A9106A546D0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC169559276879DA0050460F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,8 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -751,6 +798,7 @@
 		};
 		DCCECFB827463FB9002EEABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -786,6 +834,7 @@
 		};
 		DCCECFB927463FB9002EEABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -843,7 +892,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+		DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
 			requirement = {
@@ -851,7 +900,7 @@
 				kind = branch;
 			};
 		};
-		DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+		DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
 			requirement = {
@@ -859,7 +908,7 @@
 				kind = branch;
 			};
 		};
-		DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -867,7 +916,7 @@
 				kind = branch;
 			};
 		};
-		DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -875,7 +924,7 @@
 				kind = branch;
 			};
 		};
-		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+		DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
@@ -883,7 +932,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -896,42 +945,42 @@
 /* Begin XCSwiftPackageProductDependency section */
 		DC030E2527906B5D000B83B9 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			package = DC030E2427906B5D000B83B9 /* XCRemoteSwiftPackageReference "JGProgressHUD.git" */;
 			productName = JGProgressHUD;
 		};
 		DC0CFA6527D8E86F008D325E /* RxKeyboard */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			package = DC0CFA6427D8E86F008D325E /* XCRemoteSwiftPackageReference "RxKeyboard.git" */;
 			productName = RxKeyboard;
 		};
 		DC0CFA6827D8E897008D325E /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxCocoa;
 		};
 		DC0CFA6A27D8E897008D325E /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = DC0CFA6727D8E897008D325E /* XCRemoteSwiftPackageReference "RxSwift.git" */;
 			productName = RxSwift;
 		};
 		DC0CFA6D27D8ED28008D325E /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = DC0CFA6C27D8ED28008D325E /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
 			productName = IQKeyboardManagerSwift;
 		};
 		DCCDA49027552F1D002038C0 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			package = DCCDA48F27552F1D002038C0 /* XCRemoteSwiftPackageReference "Toast-Swift.git" */;
 			productName = Toast;
 		};
 		DCCECFDE274B8B35002EEABD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
 			productName = Realm;
 		};
 		DCCECFE0274B8B35002EEABD /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = DCCECFDD274B8B35002EEABD /* XCRemoteSwiftPackageReference "realm-cocoa.git" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
