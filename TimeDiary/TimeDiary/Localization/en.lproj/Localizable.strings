@@ -40,6 +40,7 @@
 "folderName" = "folder name";
 "add" = "add";
 "cancle" = "cancle";
+"cancel" = "cancel";
 "addFolderCancleToast" = "Folder creation has been canceled";
 "addFolderFailToast" = "Folder creation has been failed";
 "addFolderLongName" = "Please enter it in 15 letters or less";
