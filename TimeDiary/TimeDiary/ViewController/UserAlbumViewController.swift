@@ -43,7 +43,7 @@ final class UserAlbumViewController: UIViewController  {
         let task = localRealm.objects(UserTag.self)
         
         if task.count == 0 {
-            let notClassifiedData = UserTag(tag: NSLocalizedString("notClassified", comment: "미분류"), contentNum: 0)
+            let notClassifiedData = UserTag(tag: R.string.localizable.notClassified(), contentNum: 0)
             
             try! localRealm.write {
                 //localRealm.add(allData)
@@ -53,27 +53,27 @@ final class UserAlbumViewController: UIViewController  {
     }
     
     private func setButton() {
-        cameraButton.setTitle(String(format: NSLocalizedString("camera", comment: "카메라로 타임스탬프 이미지 생성")), for: .normal)
+        cameraButton.setTitle(R.string.localizable.camera(), for: .normal)
         cameraButton.titleLabel?.font = UIFont().kotra_songeulssi_13
         cameraButton.backgroundColor = .clear
         cameraButton.clipsToBounds = true
         cameraButton.layer.cornerRadius = 0.5 * cameraButton.bounds.width
         cameraButton.layer.borderWidth = 0
-        cameraButton.layer.borderColor = UIColor(named: "bear")?.cgColor
+        cameraButton.layer.borderColor = R.color.bear()?.cgColor
         
-        albumButton.setTitle(String(format: NSLocalizedString("album", comment: "앨범으로 타임스탬프 이미지 생성")), for: .normal)
+        albumButton.setTitle(R.string.localizable.album(), for: .normal)
         albumButton.titleLabel?.font = UIFont().kotra_songeulssi_13
         albumButton.backgroundColor = .clear
         albumButton.clipsToBounds = true
         albumButton.layer.cornerRadius = 0.5 * albumButton.bounds.width
         albumButton.layer.borderWidth = 0
-        albumButton.layer.borderColor = UIColor(named: "bear")?.cgColor
+        albumButton.layer.borderColor = R.color.bear()?.cgColor
     }
     
     private func setTabBar() {
         //tabbar setting
-        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("image", comment: "이미지")
-        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
+        tabBarController?.tabBar.selectedItem?.title = R.string.localizable.image()
+        tabBarController?.tabBar.tintColor = R.color.bear()
     }
 
     //카메라로 편집할 사진을 촬영
@@ -122,11 +122,11 @@ final class UserAlbumViewController: UIViewController  {
     //권한이 설정되지 않았을때, 권한 설정을 유도하는 alert 띄우기(설정 앱으로 이동시켜줌)
     private func settingAlert() {
         if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
-            let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
-            let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
+            let alert = UIAlertController(title: R.string.localizable.setting(), message: "\(appName)\(R.string.localizable.accessSetting())", preferredStyle: .alert)
+            let cancleAction = UIAlertAction(title: R.string.localizable.cancle() , style: .default) { action in
                 self.dismiss(animated: true, completion: nil)
             }
-            let confirmAction = UIAlertAction(title: NSLocalizedString("ok", comment: "확인"), style: .default) { action in
+            let confirmAction = UIAlertAction(title: R.string.localizable.ok(), style: .default) { action in
                 
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }
@@ -141,7 +141,6 @@ final class UserAlbumViewController: UIViewController  {
 
 //imagePickerController 관련 extension - 앱 내에서 카메라로 촬영한 사진에 대해서
 extension UserAlbumViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     //imagePicker에서 촬영된 이미지가 선택됐을때 실행됨
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -195,7 +194,7 @@ extension UserAlbumViewController: PHPickerViewControllerDelegate {
                         DispatchQueue.global().async {
                             // UI 업데이트 전 실행되는 코드
                             DispatchQueue.main.sync {
-                                self.view.makeToast(NSLocalizedString("imageLoadingError", comment: "이미지 로딩 에러") ,duration: 2.0, position: .bottom, style: ToastStyle.defaultStyle)
+                                self.view.makeToast(R.string.localizable.imageLoadingError() ,duration: 2.0, position: .bottom, style: ToastStyle.defaultStyle)
                             }
                         }
                         

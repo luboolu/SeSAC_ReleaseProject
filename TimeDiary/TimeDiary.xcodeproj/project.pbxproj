@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ABE6ABCE051C584B1D6BC03 /* Pods_TimeDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */; };
 		DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC030E2527906B5D000B83B9 /* JGProgressHUD */; };
 		DC0CFA6327D8E826008D325E /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */; };
 		DC0CFA6627D8E86F008D325E /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = DC0CFA6527D8E86F008D325E /* RxKeyboard */; };
@@ -55,6 +56,7 @@
 		DC927FBB2757BA8F005A919B /* Privacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC927FBA2757BA8F005A919B /* Privacy.storyboard */; };
 		DC927FBD2757BA9A005A919B /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC927FBC2757BA9A005A919B /* PrivacyViewController.swift */; };
 		DCA66D47277C507500B628CF /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA66D46277C507500B628CF /* Observable.swift */; };
+		DCC4C2C52860C3B800DC9EAF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC4C2C42860C3B800DC9EAF /* R.generated.swift */; };
 		DCCDA45E27520F02002038C0 /* DesignCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */; };
 		DCCDA45F27520F02002038C0 /* DesignCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */; };
 		DCCDA46127522CD6002038C0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA46027522CD6002038C0 /* Date+Extension.swift */; };
@@ -104,6 +106,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDiary.debug.xcconfig"; path = "Target Support Files/Pods-TimeDiary/Pods-TimeDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDiary.release.xcconfig"; path = "Target Support Files/Pods-TimeDiary/Pods-TimeDiary.release.xcconfig"; sourceTree = "<group>"; };
+		B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0CFA6227D8E826008D325E /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		DC143CAE27942F01006F0244 /* OpenSource.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = OpenSource.html; sourceTree = "<group>"; };
 		DC3B4438274F86AC009C07D3 /* Stamp_2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Stamp_2.xib; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 		DC927FBA2757BA8F005A919B /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
 		DC927FBC2757BA9A005A919B /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		DCA66D46277C507500B628CF /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		DCC4C2C42860C3B800DC9EAF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = TimeDiary/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		DCCDA45C27520F02002038C0 /* DesignCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCCDA45D27520F02002038C0 /* DesignCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCCDA46027522CD6002038C0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -211,17 +217,37 @@
 				DCCECFDF274B8B35002EEABD /* Realm in Frameworks */,
 				DC0CFA6B27D8E897008D325E /* RxSwift in Frameworks */,
 				DC030E2627906B5D000B83B9 /* JGProgressHUD in Frameworks */,
+				8ABE6ABCE051C584B1D6BC03 /* Pods_TimeDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26B952D76811E261862DD31A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */,
+				A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BBFD48D8F970FC2428FB9509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B04217860BB594F14E2EC654 /* Pods_TimeDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCCECF9A27463FB7002EEABD = {
 			isa = PBXGroup;
 			children = (
 				DCCECFA527463FB7002EEABD /* TimeDiary */,
 				DCCECFA427463FB7002EEABD /* Products */,
+				26B952D76811E261862DD31A /* Pods */,
+				BBFD48D8F970FC2428FB9509 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,6 +277,7 @@
 				DC143CAE27942F01006F0244 /* OpenSource.html */,
 				DCCECFA827463FB7002EEABD /* SceneDelegate.swift */,
 				DCA66D46277C507500B628CF /* Observable.swift */,
+				DCC4C2C42860C3B800DC9EAF /* R.generated.swift */,
 				DCCDA49927567715002038C0 /* InfoPlist.strings */,
 				DCCDA4812754C036002038C0 /* Info.plist */,
 				DCCECFAA27463FB7002EEABD /* ViewController.swift */,
@@ -407,10 +434,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCCECFB727463FB9002EEABD /* Build configuration list for PBXNativeTarget "TimeDiary" */;
 			buildPhases = (
+				8DE15FCBFE89A9106A546D0B /* [CP] Check Pods Manifest.lock */,
+				DCC4C2C22860C29F00DC9EAF /* Run Script */,
 				DCCECF9F27463FB7002EEABD /* Sources */,
 				DCCECFA027463FB7002EEABD /* Frameworks */,
 				DCCECFA127463FB7002EEABD /* Resources */,
 				DC169559276879DA0050460F /* ShellScript */,
+				E093467521FAB6CE397931C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,6 +555,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8DE15FCBFE89A9106A546D0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC169559276879DA0050460F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,6 +594,43 @@
 			shellPath = /bin/sh;
 			shellScript = "
 ";
+		};
+		DCC4C2C22860C29F00DC9EAF /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		E093467521FAB6CE397931C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDiary/Pods-TimeDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDiary/Pods-TimeDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeDiary/Pods-TimeDiary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -585,6 +674,7 @@
 				DC927F8C2757546D005A919B /* Stamp_13.swift in Sources */,
 				DC927F7627573DC0005A919B /* Stamp_8.swift in Sources */,
 				DCCDA46B27533A0F002038C0 /* Stamp_5.swift in Sources */,
+				DCC4C2C52860C3B800DC9EAF /* R.generated.swift in Sources */,
 				DCCECFE6274B9DBF002EEABD /* UserDiaryViewController.swift in Sources */,
 				DC927F7427573C80005A919B /* Stamp_7.swift in Sources */,
 				DCCDA46927533822002038C0 /* Stamp_4.swift in Sources */,
@@ -751,6 +841,7 @@
 		};
 		DCCECFB827463FB9002EEABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CEF60015A98B30F81FB86A /* Pods-TimeDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -786,6 +877,7 @@
 		};
 		DCCECFB927463FB9002EEABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A401C5ECF9161BB80275169D /* Pods-TimeDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
