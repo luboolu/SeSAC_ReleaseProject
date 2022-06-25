@@ -50,7 +50,7 @@ final class AddDiaryViewController: UIViewController {
     }
     
     private func setNavigation() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(NSLocalizedString("save", comment: "저장")), style: .plain, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.save(), style: .plain, target: self, action: #selector(saveButtonClicked))
     }
     
     private func setRealmTask() {
@@ -60,10 +60,10 @@ final class AddDiaryViewController: UIViewController {
     
     private func setUI() {
         //UI Setting
-        showTagTitle.text = NSLocalizedString("folder", comment: "폴더")
+        showTagTitle.text = R.string.localizable.folder()
         showTagTitle.font = UIFont().kotra_songeulssi_13
         
-        contentTitle.text = NSLocalizedString("content", comment: "내용")
+        contentTitle.text = R.string.localizable.content()
         contentTitle.font = UIFont().kotra_songeulssi_13
         
         imageView.backgroundColor = .systemPink
@@ -77,13 +77,13 @@ final class AddDiaryViewController: UIViewController {
         
         contentLengthLabel.text = "\(contentTextView.text.count)/1000"
         contentLengthLabel.font = UIFont().kotra_songeulssi_13
-        contentLengthLabel.textColor = UIColor(named: "bear")
+        contentLengthLabel.textColor = R.color.bear()
     }
     
     private func setPicker() {
         //pickerView setting
         showTagPicker.tintColor = .clear
-        showTagPicker.placeholder = String(NSLocalizedString("selectTag", comment: "selectTag"))
+        showTagPicker.placeholder = R.string.localizable.selectTag()
         showTagPicker.font = UIFont().kotra_songeulssi_13
         
         createPickerView()
@@ -99,7 +99,7 @@ final class AddDiaryViewController: UIViewController {
         if content.count < 1000 {
             //print(showTagPicker.text)
             //image, diary 저장
-            var tag = NSLocalizedString("notClassified", comment: "미분류")
+            var tag = R.string.localizable.notClassified()
             
             if showTagPicker.text! != "" {
                 tag = showTagPicker.text!
@@ -154,7 +154,7 @@ final class AddDiaryViewController: UIViewController {
             let savingHud = JGProgressHUD()
             savingHud.vibrancyEnabled = true
             savingHud.style = .dark
-            savingHud.textLabel.text = NSLocalizedString("imageSaving", comment: "이미지 저장중")
+            savingHud.textLabel.text = R.string.localizable.imageSaving()
             savingHud.detailTextLabel.text = nil
 
             vc.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
@@ -162,7 +162,7 @@ final class AddDiaryViewController: UIViewController {
                 if completed {
                     savingHud.show(in: self.view)
                     savingHud.indicatorView = JGProgressHUDSuccessIndicatorView()
-                    savingHud.textLabel.text = NSLocalizedString("imageSaveComplete", comment: "이미지 저장 완료")
+                    savingHud.textLabel.text = R.string.localizable.imageSaveComplete()
                     savingHud.dismiss(afterDelay: 1.5, animated: true)
 
                     
@@ -172,12 +172,12 @@ final class AddDiaryViewController: UIViewController {
                 }
                 if let shareError = error {
                     print(shareError)
-                    self.view.makeToast(NSLocalizedString("error", comment: "에러 발생") ,duration: 2.0, position: .bottom, style: .defaultStyle)
+                    self.view.makeToast(R.string.localizable.error() ,duration: 2.0, position: .bottom, style: .defaultStyle)
                 }
                 
             }
         } else {
-            self.view.makeToast(NSLocalizedString("longContent", comment: "길이 초과") ,duration: 2.0, position: .bottom, style: .defaultStyle)
+            self.view.makeToast(R.string.localizable.longContent() ,duration: 2.0, position: .bottom, style: .defaultStyle)
         }
 
     }
@@ -199,7 +199,7 @@ final class AddDiaryViewController: UIViewController {
         toolBar.barStyle = .default
         toolBar.sizeToFit()
         
-        let button = UIBarButtonItem(title: String(NSLocalizedString("select", comment: "pickerview select")), style: .plain, target: self, action: #selector(self.dismissPicker))
+        let button = UIBarButtonItem(title: R.string.localizable.select(), style: .plain, target: self, action: #selector(self.dismissPicker))
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolBar.setItems([flexSpace, button], animated: true)
@@ -260,11 +260,11 @@ final class AddDiaryViewController: UIViewController {
     private func settingAlert() {
         print(#function)
         if let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String {
-            let alert = UIAlertController(title: NSLocalizedString("setting", comment: "설정"), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
-            let cancleAction = UIAlertAction(title: NSLocalizedString("cancle", comment: "취소"), style: .default) { action in
+            let alert = UIAlertController(title: R.string.localizable.setting(), message: "\(appName)\(NSLocalizedString("accessSetting", comment: "설정화면 안내"))", preferredStyle: .alert)
+            let cancleAction = UIAlertAction(title: R.string.localizable.cancle(), style: .default) { action in
                 self.dismiss(animated: true, completion: nil)
             }
-            let confirmAction = UIAlertAction(title: NSLocalizedString("ok", comment: "확인"), style: .default) { action in
+            let confirmAction = UIAlertAction(title: R.string.localizable.ok(), style: .default) { action in
                 
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }
