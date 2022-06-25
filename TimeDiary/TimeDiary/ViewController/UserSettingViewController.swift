@@ -15,7 +15,7 @@ final class UserSettingViewController: UIViewController {
     @IBOutlet weak var settingTableView: UITableView!
     
     //let settingList = [["백업하기", "복구하기"], ["개인정보처리방침", "앱 버전"]]
-    private let settingList = [[NSLocalizedString("privacy", comment: "개인정보처리방침"), NSLocalizedString("openSourceLicense", comment: "오픈소스 라이센스") , NSLocalizedString("appVersion", comment: "앱 버전")]]
+    private let settingList = [[R.string.localizable.privacy(), R.string.localizable.openSourceLicense() , R.string.localizable.appVersion()]]
     
 
     override func viewDidLoad() {
@@ -35,11 +35,11 @@ final class UserSettingViewController: UIViewController {
     
     private func setNavigationTabBar() {
         //navigationController setting
-        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("setting", comment: "설정")
+        self.navigationController?.navigationBar.topItem?.title = R.string.localizable.setting()
         
         //tabbar setting
-        tabBarController?.tabBar.selectedItem?.title = NSLocalizedString("setting", comment: "설정")
-        tabBarController?.tabBar.tintColor = UIColor(named: "bear")
+        tabBarController?.tabBar.selectedItem?.title = R.string.localizable.setting()
+        tabBarController?.tabBar.tintColor = R.color.bear()
     }
     
     private func setTableView() {
