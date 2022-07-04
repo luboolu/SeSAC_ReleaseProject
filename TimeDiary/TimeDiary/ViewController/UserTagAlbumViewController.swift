@@ -25,7 +25,7 @@ final class UserTagAlbumViewController: UIViewController {
     //폴더 이동 모드인지 아닌지
     var moveMode = false {
         didSet(mode) {
-            print("모드가 \(mode)에서 \(moveMode)로 변경되었습니다.")
+            //print("모드가 \(mode)에서 \(moveMode)로 변경되었습니다.")
             self.albumCollectionView.reloadData()
         }
     }
@@ -47,7 +47,7 @@ final class UserTagAlbumViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("TagAlbum\(#function)")
+        //print("TagAlbum\(#function)")
         albumCollectionView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -99,7 +99,7 @@ final class UserTagAlbumViewController: UIViewController {
         if tagData != nil {
             self.navigationItem.title = "\(tagData.tag)"
         } else {
-            self.navigationItem.title = NSLocalizedString("all", comment: "전체")
+            self.navigationItem.title = R.string.localizable.all()
         }
         
         if selectedTag == "All" {
@@ -113,11 +113,11 @@ final class UserTagAlbumViewController: UIViewController {
             albumCollectionView.isHidden = true
             guideLabel.isHidden = false
             
-            guideLabel.text = NSLocalizedString("guide", comment: "가이드")
+            guideLabel.text = R.string.localizable.guide()
             guideLabel.font = UIFont().kotra_songeulssi_13
         } else {
             if selectedTag != "All" {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.move(), style: .plain, target: self, action: #selector(moveStartButtonClicked))
             }
             albumCollectionView.isHidden = false
             guideLabel.isHidden = true
@@ -126,11 +126,11 @@ final class UserTagAlbumViewController: UIViewController {
     
     @objc func moveStartButtonClicked() {
         print(#function)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(moveEndButtonClicked))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.complete(), style: .plain, target: self, action: #selector(moveEndButtonClicked))
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
         
-        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "bear")
+        self.navigationController?.navigationBar.backgroundColor = R.color.bear()
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         self.moveMode = true
@@ -138,14 +138,14 @@ final class UserTagAlbumViewController: UIViewController {
     
     @objc func moveEndButtonClicked() {
         print(#function)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "이동", style: .plain, target: self, action: #selector(moveStartButtonClicked))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.move(), style: .plain, target: self, action: #selector(moveStartButtonClicked))
         movingData()
         self.moveMode = false
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont().kotra_songeulssi_20]
         
         self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "bear")
+        self.navigationController?.navigationBar.tintColor = R.color.bear()
     }
     
     @objc func didDismissPostCommentNotification(_ noti: Notification) {
@@ -163,8 +163,8 @@ final class UserTagAlbumViewController: UIViewController {
         print(#function)
         
         if self.selectedList.contains(true) {
-            print("이동시킬 항목이 선택되었습니다!")
-            print(self.selectedList)
+            //print("이동시킬 항목이 선택되었습니다!")
+            //print(self.selectedList)
             
             var selectedTasks: [UserDiary] = []
 

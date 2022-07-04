@@ -32,7 +32,8 @@
 
 //UserTagAlbum.storyboard
 "guide" = "타임스탬프 이미지를 만들어주세요!";
-
+"move" = "이동";
+"complete" = "완료";
 
 //UserDiary.storyboard
 "diary" = "일기장";
